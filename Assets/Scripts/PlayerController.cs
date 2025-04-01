@@ -7,18 +7,16 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
 
-    private InputSystem_Actions _playerInputActions;
     private InputSystem_Actions.PlayerActions _playerActions;
     private Camera _cam;
     private Rigidbody2D _rb;
-    private Entity3D _entity3D; 
+    private Entity3D _entity3D;
     private Vector2 _moveInput;
     private bool _isAttacking;
 
     private void Awake()
     {
-        _playerInputActions = new InputSystem_Actions();
-        _playerActions = _playerInputActions.Player;
+        _playerActions = InputManager.Instance.PlayerActions;
         _cam = Camera.main;
         _rb = GetComponent<Rigidbody2D>();
         _entity3D = GetComponent<Entity3D>();
@@ -31,7 +29,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        
         Look();
     }
 
@@ -43,6 +40,9 @@ public class PlayerController : MonoBehaviour
     private void OnMove(InputAction.CallbackContext context)
     {
         _moveInput = context.ReadValue<Vector2>();
+        float magnitude = Mathf.Clamp01(_moveInput.magnitude);
+        _moveInput.y *= 0.5f;
+        _moveInput = _moveInput.normalized * magnitude;
     }
 
     private void Look()
@@ -53,7 +53,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable() 
     {
-        _playerActions.Enable();
         _playerActions.Move.performed += OnMove;
         _playerActions.Move.canceled += OnMove;
     }
@@ -62,6 +61,5 @@ public class PlayerController : MonoBehaviour
     {
         _playerActions.Move.performed -= OnMove;
         _playerActions.Move.canceled -= OnMove;
-        _playerActions.Disable();
     }
 }

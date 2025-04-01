@@ -15,11 +15,6 @@ public class Entity3D : MonoBehaviour
         transform.rotation = Quaternion.Euler(-30, 0, 0);
     }
 
-    private void Start()
-    {
-        
-    }
-
     private void Update()
     {
         UpdateZPosition();
@@ -40,7 +35,7 @@ public class Entity3D : MonoBehaviour
     /// <param name="targetPos">The position to look at in world space.</param>
     public void LookAt(Vector3 targetPos)
     {
-        float angleRad = Mathf.Atan2(targetPos.y - transform.position.y, targetPos.x - transform.position.x);
+        float angleRad = Mathf.Atan2(targetPos.y - transform.position.y, (targetPos.x - transform.position.x) * 0.5f);
         Vector3 eulerRotation = _entityObject.transform.localRotation.eulerAngles;
         eulerRotation.y = 90 - angleRad * Mathf.Rad2Deg;
         _entityObject.transform.localRotation = Quaternion.Euler(eulerRotation);
