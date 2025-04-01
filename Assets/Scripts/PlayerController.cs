@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Entity3D))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 2.5f;
 
     private InputSystem_Actions.PlayerActions _playerActions;
     private Camera _cam;
@@ -13,6 +14,8 @@ public class PlayerController : MonoBehaviour
     private Entity3D _entity3D;
     private Vector2 _moveInput;
     private bool _isAttacking;
+    private Animator _animator;
+    private float _idleAnimationTimer = 0f; 
 
     private void Awake()
     {
@@ -20,11 +23,7 @@ public class PlayerController : MonoBehaviour
         _cam = Camera.main;
         _rb = GetComponent<Rigidbody2D>();
         _entity3D = GetComponent<Entity3D>();
-    }
-
-    private void Start()
-    {
-        
+        _animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -35,6 +34,25 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         _rb.linearVelocity = _moveInput * moveSpeed;
+    }
+
+    private void LateUpdate()
+    {
+        UpdateAnimation();
+    }
+
+    private void UpdateAnimation()
+    {
+        _animator.SetFloat("WalkSpeed", (_rb.linearVelocity / moveSpeed).magnitude);
+        if (_rb.linearVelocity.magnitude == 0f)
+        {
+            _idleAnimationTimer -= Time.deltaTime;
+            if (_idleAnimationTimer <= 0)
+            {
+                _animator.SetTrigger("Idle_2");
+                _idleAnimationTimer = Random.Range(10f, 20f);
+            }
+        }
     }
 
     private void OnMove(InputAction.CallbackContext context)
