@@ -14,8 +14,10 @@ public class PlayerController : MonoBehaviour
     private Entity3D _entity3D;
     private Vector2 _moveInput;
     private bool _isAttacking;
+
     private Animator _animator;
-    private float _idleAnimationTimer = 0f; 
+    private float _idleTime;
+    private float _idleAnimationTimer;
 
     private void Awake()
     {
@@ -26,14 +28,24 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
     }
 
+    private void Start()
+    {
+        _idleAnimationTimer = Random.Range(10f, 20f);
+    }
+
     private void Update()
     {
-        Look();
+        // Look();
     }
 
     private void FixedUpdate()
     {
         _rb.linearVelocity = _moveInput * moveSpeed;
+        if (_moveInput.magnitude > 0f)
+        {
+            Vector2 direction = _rb.position + _moveInput;
+            _entity3D.LookAt(direction);
+        }
     }
 
     private void LateUpdate()
@@ -43,15 +55,20 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimation()
     {
-        _animator.SetFloat("WalkSpeed", (_rb.linearVelocity / moveSpeed).magnitude);
         if (_rb.linearVelocity.magnitude == 0f)
         {
-            _idleAnimationTimer -= Time.deltaTime;
-            if (_idleAnimationTimer <= 0)
+            _idleTime += Time.deltaTime;
+            if (_idleTime >= _idleAnimationTimer)
             {
                 _animator.SetTrigger("Idle_2");
+                _idleTime = -(139f/30f); // Compensate for the animation length (Idle_2 is 139 frames at 30 FPS)
                 _idleAnimationTimer = Random.Range(10f, 20f);
             }
+        }
+        else
+        {
+            _idleTime = 0f;
+            _animator.SetFloat("WalkSpeed", _moveInput.magnitude);
         }
     }
 

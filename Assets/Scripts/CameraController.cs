@@ -3,9 +3,9 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform target;
-    [SerializeField][Range(0.1f, 1.0f)] public float followSmoothTime = 0.1f;
+    [SerializeField][Range(0.1f, 1f)] public float followSmoothTime = 0.1f;
     [SerializeField][Range(1f, 5f)] private float lookRadius = 2f;
-    [SerializeField][Range(1f, 5f)] private float lookDamping = 1f;
+    [SerializeField][Range(0.1f, 2f)] private float lookDamping = 0.5f;
 
     private Vector3 _velocity = Vector3.zero;
     private Vector3 _lookOffset = Vector3.zero;
