@@ -1,6 +1,7 @@
-using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Utilities;
+using UnityEngine.InputSystem.Controls;
+using UnityEngine.InputSystem.LowLevel;
 
 public class InputManager : Singleton<InputManager>
 {
@@ -8,7 +9,7 @@ public class InputManager : Singleton<InputManager>
     private InputSystem_Actions.PlayerActions _playerActions;
     private InputSystem_Actions.UIActions _uiActions;
     private InputDevice _currentDevice;
-    private IDisposable _eventListener;
+    private float _pointerMoveTime;
 
     public InputSystem_Actions.PlayerActions PlayerActions => _playerActions;
     public InputSystem_Actions.UIActions UIActions => _uiActions;
@@ -23,7 +24,7 @@ public class InputManager : Singleton<InputManager>
 
     private void OnEnable()
     {
-        _eventListener = InputSystem.onAnyButtonPress.Call(OnAnyButtonPress);
+        InputSystem.onEvent += OnInputEvent;
         _uiActions.Enable();
         _playerActions.Enable();
     }
@@ -32,17 +33,45 @@ public class InputManager : Singleton<InputManager>
     {
         _playerActions.Disable();
         _uiActions.Disable();
-        _eventListener.Dispose();
+        InputSystem.onEvent -= OnInputEvent;
     }
 
-    private void OnAnyButtonPress(InputControl control)
+    private void OnInputEvent(InputEventPtr eventPtr, InputDevice device)
     {
-        _currentDevice = control.device;
+        if (eventPtr.type != StateEvent.Type && eventPtr.type != DeltaStateEvent.Type) return;
+
+        InputControl control = null;
+        bool hasButtonPress = false;
+        foreach (var c in eventPtr.EnumerateControls(InputControlExtensions.Enumerate.IgnoreControlsInDefaultState, device, InputSystem.settings.defaultButtonPressPoint))
+        {
+            control ??= c;
+            if (c is not ButtonControl) continue;
+            hasButtonPress = true;
+            break;
+        }
+        if (control == null) return;
+
+        if (!hasButtonPress && _currentDevice is not Pointer && device is Pointer && _pointerMoveTime < 1.5f)
+        {
+            // When a pointer device moves, we wait for a while before setting it as the current device to avoid
+            // accidental movements.
+            _pointerMoveTime += Time.deltaTime;
+        }
+        else
+        {
+            // On any input event, including button presses and joystick movements, update the current device.
+            CurrentDevice = device;
+        }
     }
 
-    public InputDevice GetCurrentDevice()
+    public InputDevice CurrentDevice
     {
-        return _currentDevice;
+        get => _currentDevice;
+        private set
+        {
+            _currentDevice = value;
+            _pointerMoveTime = 0f;
+        }
     }
 
     public bool IsCurrentDeviceKeyboardAndMouse()
