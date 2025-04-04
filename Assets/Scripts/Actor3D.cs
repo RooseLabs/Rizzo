@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class Entity3D : MonoBehaviour
+public class Actor3D : MonoBehaviour
 {   
-    private GameObject _entityObject;
+    private GameObject _actorObject;
     private Renderer _eObjectRenderer;
     private float _eObjectHeight;
 
     private void Awake()
     {
-        _entityObject = transform.GetChild(0).gameObject;
-        _eObjectRenderer = _entityObject.GetComponentInChildren<Renderer>();
+        _actorObject = transform.GetChild(0).gameObject;
+        _eObjectRenderer = _actorObject.GetComponentInChildren<Renderer>();
         _eObjectHeight = _eObjectRenderer.bounds.min.y;
 
         transform.rotation = Quaternion.Euler(-30, 0, 0);
@@ -36,8 +36,8 @@ public class Entity3D : MonoBehaviour
     public void LookAt(Vector3 targetPos)
     {
         float angleRad = Mathf.Atan2(targetPos.y - transform.position.y, (targetPos.x - transform.position.x) * 0.5f);
-        Vector3 eulerRotation = _entityObject.transform.localRotation.eulerAngles;
+        Vector3 eulerRotation = _actorObject.transform.localRotation.eulerAngles;
         eulerRotation.y = 90 - angleRad * Mathf.Rad2Deg;
-        _entityObject.transform.localRotation = Quaternion.Euler(eulerRotation);
+        _actorObject.transform.localRotation = Quaternion.Euler(eulerRotation);
     }
 }

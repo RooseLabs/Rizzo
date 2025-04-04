@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Entity3D))]
+[RequireComponent(typeof(Actor3D))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2.5f;
@@ -11,9 +11,8 @@ public class PlayerController : MonoBehaviour
     private InputSystem_Actions.PlayerActions _playerActions;
     private Camera _cam;
     private Rigidbody2D _rb;
-    private Entity3D _entity3D;
+    private Actor3D _actor3D;
     private Vector2 _moveInput;
-    private bool _isAttacking;
 
     private Animator _animator;
     private float _idleTime;
@@ -24,7 +23,7 @@ public class PlayerController : MonoBehaviour
         _playerActions = InputManager.Instance.PlayerActions;
         _cam = Camera.main;
         _rb = GetComponent<Rigidbody2D>();
-        _entity3D = GetComponent<Entity3D>();
+        _actor3D = GetComponent<Actor3D>();
         _animator = GetComponentInChildren<Animator>();
     }
 
@@ -33,27 +32,22 @@ public class PlayerController : MonoBehaviour
         _idleAnimationTimer = Random.Range(10f, 20f);
     }
 
-    private void Update()
-    {
-        // Look();
-    }
-
     private void FixedUpdate()
     {
         _rb.linearVelocity = _moveInput * moveSpeed;
         if (_moveInput.magnitude > 0f)
         {
             Vector2 direction = _rb.position + _moveInput;
-            _entity3D.LookAt(direction);
+            _actor3D.LookAt(direction);
         }
     }
 
     private void LateUpdate()
     {
-        UpdateAnimation();
+        UpdateAnimator();
     }
 
-    private void UpdateAnimation()
+    private void UpdateAnimator()
     {
         if (_rb.linearVelocity.magnitude == 0f)
         {
@@ -83,7 +77,7 @@ public class PlayerController : MonoBehaviour
     private void Look()
     {
         Vector2 pointerPos = _cam.ScreenToWorldPoint(_playerActions.Look.ReadValue<Vector2>());
-        _entity3D.LookAt(pointerPos);
+        _actor3D.LookAt(pointerPos);
     }
 
     private void OnEnable() 
