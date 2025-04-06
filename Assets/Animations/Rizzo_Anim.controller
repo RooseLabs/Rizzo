@@ -85,7 +85,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GunAttack_End
+  m_Name: Attack_Gun_End
   m_Speed: -1
   m_CycleOffset: 0
   m_Transitions:
@@ -101,7 +101,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -5734628391587843826, guid: 5e262cfd47014de438ec8d0ac1ce961e, type: 3}
+  m_Motion: {fileID: 701358787730447438, guid: 5e262cfd47014de438ec8d0ac1ce961e, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -372,7 +372,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AttackKnife_2_End
+  m_Name: Attack_Knife_2_End
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -473,7 +473,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GunAttack_2
+  m_Name: Attack_Gun_2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -487,7 +487,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -28562163252388377, guid: 5e262cfd47014de438ec8d0ac1ce961e, type: 3}
+  m_Motion: {fileID: 2901576940591928977, guid: 5e262cfd47014de438ec8d0ac1ce961e, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -571,7 +571,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: MeeleAttack
+    m_ConditionEvent: MeleeAttack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 800804604282325533}
@@ -644,7 +644,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AttackKnife_3
+  m_Name: Attack_Knife_3
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -658,7 +658,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 6784436450010839170, guid: 5e262cfd47014de438ec8d0ac1ce961e, type: 3}
+  m_Motion: {fileID: -8811020769568778316, guid: 5e262cfd47014de438ec8d0ac1ce961e, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -836,7 +836,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AttackKnife_1
+  m_Name: Attack_Knife_1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -851,7 +851,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 3118307602577192668, guid: 5e262cfd47014de438ec8d0ac1ce961e, type: 3}
+  m_Motion: {fileID: -8363564671257777062, guid: 5e262cfd47014de438ec8d0ac1ce961e, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -864,7 +864,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: KnifeAttack
+  m_Name: Attack_Knife
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 800804604282325533}
@@ -926,7 +926,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GunAttack_1
+  m_Name: Attack_Gun_1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -940,7 +940,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -5734628391587843826, guid: 5e262cfd47014de438ec8d0ac1ce961e, type: 3}
+  m_Motion: {fileID: 701358787730447438, guid: 5e262cfd47014de438ec8d0ac1ce961e, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1097,7 +1097,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GunAttack
+  m_Name: Attack_Gun
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1726587917859405374}
@@ -1321,7 +1321,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AttackKnife_3_End
+  m_Name: Attack_Knife_3_End
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1406,7 +1406,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AttackKnife_1_End
+  m_Name: Attack_Knife_1_End
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1460,7 +1460,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AttackKnife_2
+  m_Name: Attack_Knife_2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1475,7 +1475,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 9164788984963716468, guid: 5e262cfd47014de438ec8d0ac1ce961e, type: 3}
+  m_Motion: {fileID: 2713302432926724159, guid: 5e262cfd47014de438ec8d0ac1ce961e, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

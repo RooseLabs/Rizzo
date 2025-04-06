@@ -36,9 +36,67 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|AttackKnife_1
-      takeName: Armature|AttackKnife_1
-      internalID: 3118307602577192668
+      name: Armature|Attack_Gun_1
+      takeName: Armature|Attack_Gun_1
+      internalID: 701358787730447438
+      firstFrame: 0
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Attack_Gun_2
+      takeName: Armature|Attack_Gun_2
+      internalID: 2901576940591928977
+      firstFrame: 0
+      lastFrame: 11
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Attack_Knife_1
+      takeName: Armature|Attack_Knife_1
+      internalID: -8363564671257777062
       firstFrame: 0
       lastFrame: 17
       wrapMode: 0
@@ -65,9 +123,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|AttackKnife_1_End
-      takeName: Armature|AttackKnife_1_End
-      internalID: -6251778158837087301
+      name: Armature|Attack_Knife_1_End
+      takeName: Armature|Attack_Knife_1_End
+      internalID: -3381871077826635160
       firstFrame: 0
       lastFrame: 22
       wrapMode: 0
@@ -94,9 +152,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|AttackKnife_2
-      takeName: Armature|AttackKnife_2
-      internalID: 9164788984963716468
+      name: Armature|Attack_Knife_2
+      takeName: Armature|Attack_Knife_2
+      internalID: 2713302432926724159
       firstFrame: 0
       lastFrame: 16
       wrapMode: 0
@@ -123,9 +181,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|AttackKnife_2_End
-      takeName: Armature|AttackKnife_2_End
-      internalID: 3746234634107882916
+      name: Armature|Attack_Knife_2_End
+      takeName: Armature|Attack_Knife_2_End
+      internalID: -1498741363447427906
       firstFrame: 0
       lastFrame: 60
       wrapMode: 0
@@ -152,9 +210,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|AttackKnife_3
-      takeName: Armature|AttackKnife_3
-      internalID: 6784436450010839170
+      name: Armature|Attack_Knife_3
+      takeName: Armature|Attack_Knife_3
+      internalID: -8811020769568778316
       firstFrame: 0
       lastFrame: 16
       wrapMode: 0
@@ -181,9 +239,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|AttackKnife_3_End
-      takeName: Armature|AttackKnife_3_End
-      internalID: 4323107948124273527
+      name: Armature|Attack_Knife_3_End
+      takeName: Armature|Attack_Knife_3_End
+      internalID: -5968044450063227511
       firstFrame: 0
       lastFrame: 171
       wrapMode: 0
@@ -215,64 +273,6 @@ ModelImporter:
       internalID: 8996587082034170231
       firstFrame: 0
       lastFrame: 25
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Armature|GunAttack_1
-      takeName: Armature|GunAttack_1
-      internalID: -5734628391587843826
-      firstFrame: 0
-      lastFrame: 6
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Armature|GunAttack_2
-      takeName: Armature|GunAttack_2
-      internalID: -28562163252388377
-      firstFrame: 0
-      lastFrame: 11
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
