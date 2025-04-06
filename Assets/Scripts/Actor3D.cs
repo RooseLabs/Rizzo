@@ -40,4 +40,9 @@ public class Actor3D : MonoBehaviour
         eulerRotation.y = 90 - angleRad * Mathf.Rad2Deg;
         _actorObject.transform.localRotation = Quaternion.Euler(eulerRotation);
     }
+
+    public Vector2 GetFacingDirection()
+    {
+        return _actorObject.transform.forward;
+    }
 }
