@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: eb8dceb3a718dca429547a346ed35255
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8486637095037903079
+    second: Rattuccino_0
+  - first:
+      213: -7333449611563398370
+    second: Rattuccino_1
+  - first:
+      213: 3343604355302187934
+    second: Rattuccino_2
+  - first:
+      213: 4523222794428298902
+    second: Rattuccino_3
+  - first:
+      213: -7160105509017512107
+    second: Rattuccino_4
+  - first:
+      213: -6683069771935356845
+    second: Rattuccino_5
+  - first:
+      213: 3336355238546857741
+    second: Rattuccino_6
+  - first:
+      213: 1020056674928145208
+    second: Rattuccino_7
+  - first:
+      213: 4614138393218254777
+    second: Rattuccino_8
+  - first:
+      213: -3497110815550118060
+    second: Rattuccino_9
+  - first:
+      213: -2949591596929047759
+    second: Rattuccino_10
+  - first:
+      213: -8475805465868646825
+    second: Rattuccino_11
+  - first:
+      213: -1066254147923620030
+    second: Rattuccino_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rattuccino_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 284
+        height: 324
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e0236b497796c570800000000000000
+      internalID: 8486637095037903079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rattuccino_1
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 0
+        width: 303
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1b898cbe6a5a3a90800000000000000
+      internalID: -7333449611563398370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rattuccino_2
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 0
+        width: 169
+        height: 349
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e936c3b227ed66e20800000000000000
+      internalID: 3343604355302187934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rattuccino_3
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 0
+        width: 169
+        height: 349
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69639dd9a27b5ce30800000000000000
+      internalID: 4523222794428298902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rattuccino_4
+      rect:
+        serializedVersion: 2
+        x: 1864
+        y: 303
+        width: 88
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55791b4b9f132ac90800000000000000
+      internalID: -7160105509017512107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rattuccino_5
+      rect:
+        serializedVersion: 2
+        x: 2443
+        y: 2
+        width: 284
+        height: 324
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35864aa6377f043a0800000000000000
+      internalID: -6683069771935356845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rattuccino_6
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 0
+        width: 230
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0f5916a96d1d4e20800000000000000
+      internalID: 3336355238546857741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rattuccino_7
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 0
+        width: 227
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 833bbdf2428f72e00800000000000000
+      internalID: 1020056674928145208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rattuccino_8
+      rect:
+        serializedVersion: 2
+        x: 1448
+        y: 0
+        width: 174
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b704400c66b80040800000000000000
+      internalID: 4614138393218254777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rattuccino_9
+      rect:
+        serializedVersion: 2
+        x: 1655
+        y: 0
+        width: 174
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45765f2ed34c77fc0800000000000000
+      internalID: -3497110815550118060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rattuccino_10
+      rect:
+        serializedVersion: 2
+        x: 1849
+        y: 2
+        width: 118
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1332198f112f017d0800000000000000
+      internalID: -2949591596929047759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rattuccino_11
+      rect:
+        serializedVersion: 2
+        x: 1983
+        y: 2
+        width: 228
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 756c595e5d3ef5a80800000000000000
+      internalID: -8475805465868646825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rattuccino_12
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 189
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24fc9b07087e331f0800000000000000
+      internalID: -1066254147923620030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Rattuccino_0: 8486637095037903079
+      Rattuccino_1: -7333449611563398370
+      Rattuccino_10: -2949591596929047759
+      Rattuccino_11: -8475805465868646825
+      Rattuccino_12: -1066254147923620030
+      Rattuccino_2: 3343604355302187934
+      Rattuccino_3: 4523222794428298902
+      Rattuccino_4: -7160105509017512107
+      Rattuccino_5: -6683069771935356845
+      Rattuccino_6: 3336355238546857741
+      Rattuccino_7: 1020056674928145208
+      Rattuccino_8: 4614138393218254777
+      Rattuccino_9: -3497110815550118060
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
