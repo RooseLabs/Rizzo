@@ -1,46 +1,40 @@
 fileFormatVersion: 2
-guid: eb8dceb3a718dca429547a346ed35255
+guid: c1ed3899fb4df6048b53bb52aab235d9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8486637095037903079
-    second: Rattuccino_0
+      213: 4369572136041557648
+    second: title_0
   - first:
-      213: -7333449611563398370
-    second: Rattuccino_1
+      213: 3918735734063839423
+    second: title_1
   - first:
-      213: 3343604355302187934
-    second: Rattuccino_2
+      213: 8126443836680682420
+    second: title_2
   - first:
-      213: 4523222794428298902
-    second: Rattuccino_3
+      213: -1799187036485144362
+    second: title_3
   - first:
-      213: -7160105509017512107
-    second: Rattuccino_4
+      213: 6959973565247811803
+    second: title_4
   - first:
-      213: -6683069771935356845
-    second: Rattuccino_5
+      213: 8208922059937784112
+    second: title_5
   - first:
-      213: 3336355238546857741
-    second: Rattuccino_6
+      213: -4093714307795105667
+    second: title_6
   - first:
-      213: 1020056674928145208
-    second: Rattuccino_7
+      213: -2490043832354904171
+    second: title_7
   - first:
-      213: 4614138393218254777
-    second: Rattuccino_8
+      213: 2170485668361454577
+    second: title_8
   - first:
-      213: -3497110815550118060
-    second: Rattuccino_9
+      213: -954477957450887664
+    second: title_9
   - first:
-      213: -2949591596929047759
-    second: Rattuccino_10
-  - first:
-      213: -8475805465868646825
-    second: Rattuccino_11
-  - first:
-      213: -1066254147923620030
-    second: Rattuccino_12
+      213: 9077172329364265620
+    second: title_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -132,17 +126,219 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rattuccino_0
+      name: title_0
       rect:
         serializedVersion: 2
         x: 0
+        y: 0
+        width: 244
+        height: 369
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09ea33de4b6d3ac30800000000000000
+      internalID: 4369572136041557648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_1
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 0
+        width: 137
+        height: 366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb831854365226630800000000000000
+      internalID: 3918735734063839423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_2
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 0
+        width: 137
+        height: 366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bbb38c1d9de6c070800000000000000
+      internalID: 8126443836680682420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_3
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 318
+        width: 72
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d0b0dd3ce00807e0800000000000000
+      internalID: -1799187036485144362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 186
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd074b2051bc69060800000000000000
+      internalID: 6959973565247811803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_5
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 0
+        width: 184
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 031a57bee13fbe170800000000000000
+      internalID: 8208922059937784112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_6
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 0
+        width: 141
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7840f7c6843037c0800000000000000
+      internalID: -4093714307795105667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_7
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 0
+        width: 141
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5976559c356917dd0800000000000000
+      internalID: -2490043832354904171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_8
+      rect:
+        serializedVersion: 2
+        x: 1271
         y: 2
-        width: 284
-        height: 324
+        width: 97
+        height: 262
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,108 +347,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e0236b497796c570800000000000000
-      internalID: 8486637095037903079
+      spriteID: 1f3c2c4373d1f1e10800000000000000
+      internalID: 2170485668361454577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rattuccino_1
+      name: title_9
       rect:
         serializedVersion: 2
-        x: 273
-        y: 0
-        width: 303
-        height: 352
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e1b898cbe6a5a3a90800000000000000
-      internalID: -7333449611563398370
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rattuccino_2
-      rect:
-        serializedVersion: 2
-        x: 823
-        y: 0
-        width: 169
-        height: 349
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e936c3b227ed66e20800000000000000
-      internalID: 3343604355302187934
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rattuccino_3
-      rect:
-        serializedVersion: 2
-        x: 1009
-        y: 0
-        width: 169
-        height: 349
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 69639dd9a27b5ce30800000000000000
-      internalID: 4523222794428298902
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rattuccino_4
-      rect:
-        serializedVersion: 2
-        x: 1864
-        y: 303
-        width: 88
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 55791b4b9f132ac90800000000000000
-      internalID: -7160105509017512107
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rattuccino_5
-      rect:
-        serializedVersion: 2
-        x: 2443
+        x: 1380
         y: 2
-        width: 284
-        height: 324
+        width: 184
+        height: 265
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,20 +369,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 35864aa6377f043a0800000000000000
-      internalID: -6683069771935356845
+      spriteID: 01e0330da5301c2f0800000000000000
+      internalID: -954477957450887664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rattuccino_6
+      name: title_10
       rect:
         serializedVersion: 2
-        x: 591
+        x: 1587
         y: 0
-        width: 230
-        height: 255
+        width: 152
+        height: 267
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,140 +391,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d0f5916a96d1d4e20800000000000000
-      internalID: 3336355238546857741
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rattuccino_7
-      rect:
-        serializedVersion: 2
-        x: 1191
-        y: 0
-        width: 227
-        height: 252
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 833bbdf2428f72e00800000000000000
-      internalID: 1020056674928145208
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rattuccino_8
-      rect:
-        serializedVersion: 2
-        x: 1448
-        y: 0
-        width: 174
-        height: 255
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9b704400c66b80040800000000000000
-      internalID: 4614138393218254777
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rattuccino_9
-      rect:
-        serializedVersion: 2
-        x: 1655
-        y: 0
-        width: 174
-        height: 255
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 45765f2ed34c77fc0800000000000000
-      internalID: -3497110815550118060
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rattuccino_10
-      rect:
-        serializedVersion: 2
-        x: 1849
-        y: 2
-        width: 118
-        height: 250
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1332198f112f017d0800000000000000
-      internalID: -2949591596929047759
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rattuccino_11
-      rect:
-        serializedVersion: 2
-        x: 1983
-        y: 2
-        width: 228
-        height: 253
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 756c595e5d3ef5a80800000000000000
-      internalID: -8475805465868646825
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rattuccino_12
-      rect:
-        serializedVersion: 2
-        x: 2240
-        y: 0
-        width: 189
-        height: 255
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 24fc9b07087e331f0800000000000000
-      internalID: -1066254147923620030
+      spriteID: 49a13c0042898fd70800000000000000
+      internalID: 9077172329364265620
       vertices: []
       indices: 
       edges: []
@@ -435,19 +411,17 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Rattuccino_0: 8486637095037903079
-      Rattuccino_1: -7333449611563398370
-      Rattuccino_10: -2949591596929047759
-      Rattuccino_11: -8475805465868646825
-      Rattuccino_12: -1066254147923620030
-      Rattuccino_2: 3343604355302187934
-      Rattuccino_3: 4523222794428298902
-      Rattuccino_4: -7160105509017512107
-      Rattuccino_5: -6683069771935356845
-      Rattuccino_6: 3336355238546857741
-      Rattuccino_7: 1020056674928145208
-      Rattuccino_8: 4614138393218254777
-      Rattuccino_9: -3497110815550118060
+      title_0: 4369572136041557648
+      title_1: 3918735734063839423
+      title_10: 9077172329364265620
+      title_2: 8126443836680682420
+      title_3: -1799187036485144362
+      title_4: 6959973565247811803
+      title_5: 8208922059937784112
+      title_6: -4093714307795105667
+      title_7: -2490043832354904171
+      title_8: 2170485668361454577
+      title_9: -954477957450887664
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
