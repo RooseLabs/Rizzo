@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace RooseLabs.Player.StateMachine
 {
     public class PlayerState : RooseLabs.StateMachine.BaseState
@@ -10,5 +12,7 @@ namespace RooseLabs.Player.StateMachine
             Player = player;
             StateMachine = stateMachine;
         }
+
+        protected Animator Animator => Player.AnimationStateController.Animator;
     }
 }

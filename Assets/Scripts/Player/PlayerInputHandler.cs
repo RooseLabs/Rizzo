@@ -1,4 +1,3 @@
-using System.Collections;
 using RooseLabs.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,6 +10,8 @@ namespace RooseLabs.Player
 
         public Vector2 MoveInput { get; private set; }
         public bool PressedDodge { get; private set; }
+        public bool PressedPrimaryAttack { get; private set; }
+        public bool PressedSecondaryAttack { get; private set; }
 
         private void Awake()
         {
@@ -23,6 +24,10 @@ namespace RooseLabs.Player
             m_actions.Move.canceled += OnMoveInput;
             m_actions.Dodge.performed += OnDodgeInput;
             m_actions.Dodge.canceled += OnDodgeInput;
+            m_actions.PrimaryAttack.performed += OnPrimaryAttackInput;
+            m_actions.PrimaryAttack.canceled += OnPrimaryAttackInput;
+            m_actions.SecondaryAttack.performed += OnSecondaryAttackInput;
+            m_actions.SecondaryAttack.canceled += OnSecondaryAttackInput;
             m_actions.Enable();
         }
 
@@ -33,6 +38,17 @@ namespace RooseLabs.Player
             m_actions.Move.canceled -= OnMoveInput;
             m_actions.Dodge.performed -= OnDodgeInput;
             m_actions.Dodge.canceled -= OnDodgeInput;
+            m_actions.PrimaryAttack.performed -= OnPrimaryAttackInput;
+            m_actions.PrimaryAttack.canceled -= OnPrimaryAttackInput;
+            m_actions.SecondaryAttack.performed -= OnSecondaryAttackInput;
+            m_actions.SecondaryAttack.canceled -= OnSecondaryAttackInput;
+        }
+
+        private void LateUpdate()
+        {
+            PressedDodge = false;
+            PressedPrimaryAttack = false;
+            PressedSecondaryAttack = false;
         }
 
         private void OnMoveInput(InputAction.CallbackContext context)
@@ -47,13 +63,16 @@ namespace RooseLabs.Player
         private void OnDodgeInput(InputAction.CallbackContext context)
         {
             PressedDodge = context.performed;
-            if (PressedDodge) StartCoroutine(ConsumeDodgeInput());
         }
 
-        private IEnumerator ConsumeDodgeInput()
+        private void OnPrimaryAttackInput(InputAction.CallbackContext context)
         {
-            yield return null; // Waits for one frame
-            PressedDodge = false;
+            PressedPrimaryAttack = context.performed;
+        }
+
+        private void OnSecondaryAttackInput(InputAction.CallbackContext context)
+        {
+            PressedSecondaryAttack = context.performed;
         }
     }
 }

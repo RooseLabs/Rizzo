@@ -18,9 +18,13 @@ namespace RooseLabs.Player.StateMachine.States
         {
             m_canDodge = false;
             m_isDodging = true;
+            if (Player.InputHandler.MoveInput.magnitude > 0f)
+            {
+                Player.Actor3D.LookAt(Player.RB.position + Player.InputHandler.MoveInput);
+            }
             m_dodgeDirection = Player.Actor3D.GetFacingDirection();
             m_dodgeDuration = 15f / 30f;
-            Player.AnimationStateController.Play(Player.AnimationStateController.A_Dodge);
+            Animator.Play(Player.AnimationStateController.A_Dodge);
             Player.RB.linearVelocity = m_dodgeDirection * Player.DodgeVelocity / m_dodgeDuration;
         }
 
@@ -43,7 +47,7 @@ namespace RooseLabs.Player.StateMachine.States
             }
         }
 
-        public bool CheckIfCanDash() {
+        public bool CheckIfCanDodge() {
             return m_canDodge && Time.time >= m_lastDodgeTime + Player.DodgeCooldown;
         }
     }

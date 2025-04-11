@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace RooseLabs.Player.StateMachine.States
 {
     public class PlayerMoveState : PlayerState
@@ -8,14 +6,10 @@ namespace RooseLabs.Player.StateMachine.States
 
         public override void Update()
         {
-            if (Player.InputHandler.PressedDodge && Player.DodgeState.CheckIfCanDash())
-            {
-                StateMachine.ChangeState(Player.DodgeState);
-                return;
-            }
+            if (PlayerStateTransitionHelper.HandleIdleAndMoveTransitions(Player, StateMachine)) return;
 
-            float currentVelocity = Player.RB.linearVelocity.magnitude == 0f ? 0f : Player.RB.linearVelocity.magnitude;
-            Player.AnimationStateController.SetFloat(Player.AnimationStateController.F_Velocity, currentVelocity);
+            float currentVelocity = Player.RB.linearVelocity.magnitude == 0f ? 0f : Player.InputHandler.MoveInput.magnitude;
+            Animator.SetFloat(Player.AnimationStateController.F_Velocity, currentVelocity);
         }
 
         public override void FixedUpdate()
@@ -23,8 +17,7 @@ namespace RooseLabs.Player.StateMachine.States
             Player.RB.linearVelocity = Player.InputHandler.MoveInput * Player.MovementVelocity;
             if (Player.InputHandler.MoveInput.magnitude > 0f)
             {
-                Vector2 direction = Player.RB.position + Player.InputHandler.MoveInput;
-                Player.Actor3D.LookAt(direction);
+                Player.Actor3D.LookAt(Player.RB.position + Player.InputHandler.MoveInput, true);
             }
             else
             {

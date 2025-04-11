@@ -49,13 +49,13 @@ namespace RooseLabs
                 Vector2 mouseScreenPos = m_lookAction.ReadValue<Vector2>();
                 Vector2 screenCenter = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
                 Vector2 offset = mouseScreenPos - screenCenter;
-            
+
                 // Normalize to -1 to 1 range
                 offset /= screenCenter;
-            
+
                 // Calculate desired look offset
                 Vector3 desiredLookOffset = new Vector3(offset.x, offset.y, 0f) * lookRadius;
-            
+
                 // Apply exponential slowdown
                 float t = desiredLookOffset.magnitude / lookRadius;
                 float scale = 1f - Mathf.Exp(-t * 3f);

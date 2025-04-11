@@ -20,7 +20,7 @@ namespace RooseLabs.Rendering
             private static readonly int DepthThresholdProperty = Shader.PropertyToID("_DepthThreshold");
             private static readonly int NormalThresholdProperty = Shader.PropertyToID("_NormalThreshold");
             private static readonly int LuminanceThresholdProperty = Shader.PropertyToID("_LuminanceThreshold");
-        
+
             public EdgeDetectionPass()
             {
                 profilingSampler = new ProfilingSampler(nameof(EdgeDetectionPass));
@@ -112,7 +112,7 @@ namespace RooseLabs.Rendering
                 || renderingData.cameraData.cameraType == CameraType.Reflection
                 || UniversalRenderer.IsOffscreenDepthTexture(ref renderingData.cameraData))
                 return;
-        
+
             if (m_edgeDetectionMaterial == null)
             {
                 m_edgeDetectionMaterial = CoreUtils.CreateEngineMaterial(Shader.Find("Hidden/Edge Detection"));

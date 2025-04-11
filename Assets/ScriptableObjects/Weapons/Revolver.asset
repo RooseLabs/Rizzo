@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef166fe55ca4e3b8fec5256e8897096, type: 3}
+  m_Name: Revolver
+  m_EditorClassIdentifier: 
+  weaponName: Revolver
+  weaponPrefab: {fileID: 0}
+  weaponIcon: {fileID: 0}
+  socketHand: 1
+  animatorController: {fileID: 9100000, guid: b3c85ee615aff844bb11d062220fa2f6, type: 2}
+  attacks:
+  - animationState:
+      name: Attack_Gun_2
+      hash: 30444327
+      length: 0.36666667
+    baseDamage: 25
+    fixedDuration: 1
+    minComboTime: 0.25
+    maxComboTime: 1
+  dodgeResetsCombo: 1
+  aimAnimationState:
+    name: Attack_Gun_1
+    hash: -1730553187
+    length: 0.20000002

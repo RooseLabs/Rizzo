@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f768a55faeafb4391bac703422ab95, type: 3}
+  m_Name: Knife
+  m_EditorClassIdentifier: 
+  weaponName: Knife
+  weaponPrefab: {fileID: 134044720734944902, guid: efeb7aeb4fa7f1a43aa491b5d4eaeff3, type: 3}
+  weaponIcon: {fileID: 0}
+  socketHand: 0
+  animatorController: {fileID: 9100000, guid: b3c85ee615aff844bb11d062220fa2f6, type: 2}
+  attacks:
+  - animationState:
+      name: Attack_Knife_1
+      hash: 1976201569
+      length: 0.5666667
+    baseDamage: 0
+    fixedDuration: 1
+    minComboTime: 0.25
+    maxComboTime: 1
+  - animationState:
+      name: Attack_Knife_2
+      hash: -322756389
+      length: 0.53333336
+    baseDamage: 0
+    fixedDuration: 1
+    minComboTime: 0.25
+    maxComboTime: 1
+  - animationState:
+      name: Attack_Knife_3
+      hash: -1681649587
+      length: 0.5
+    baseDamage: 0
+    fixedDuration: 1
+    minComboTime: 0.25
+    maxComboTime: 1
+  dodgeResetsCombo: 0

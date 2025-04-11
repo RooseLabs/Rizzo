@@ -12,13 +12,15 @@ namespace RooseLabs.Player.StateMachine.States
         public override void OnEnter()
         {
             Player.RB.linearVelocity = Vector2.zero;
-            Player.AnimationStateController.SetFloat(Player.AnimationStateController.F_Velocity, 0f);
+            Animator.SetFloat(Player.AnimationStateController.F_Velocity, 0f);
             m_idleAnimationTimer = Random.Range(10f, 20f);
             m_idleTimer = 0f;
         }
 
         public override void Update()
         {
+            if (PlayerStateTransitionHelper.HandleIdleAndMoveTransitions(Player, StateMachine)) return;
+
             if (Player.InputHandler.MoveInput.magnitude > 0f)
             {
                 StateMachine.ChangeState(Player.MoveState);
@@ -28,7 +30,7 @@ namespace RooseLabs.Player.StateMachine.States
                 m_idleTimer += Time.deltaTime;
                 if (m_idleTimer >= m_idleAnimationTimer)
                 {
-                    Player.AnimationStateController.SetTrigger(Player.AnimationStateController.T_IdleGroom);
+                    Animator.SetTrigger(Player.AnimationStateController.T_IdleGroom);
                     m_idleTimer = -139f / 30f; // Compensate for the animation length (IdleGroom is 139 frames at 30 FPS)
                     m_idleAnimationTimer = Random.Range(10f, 20f);
                 }

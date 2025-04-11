@@ -66,8 +66,11 @@ namespace RooseLabs.Input
             get => m_currentDevice;
             private set
             {
+                // When updating the current device, reset the pointer move time
+                // and set the cursor visibility based on the device type.
                 m_currentDevice = value;
                 m_pointerMoveTime = 0f;
+                Cursor.visible = value is Keyboard or Pointer;
             }
         }
 

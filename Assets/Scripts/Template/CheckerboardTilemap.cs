@@ -11,7 +11,7 @@ namespace RooseLabs.Template
 
         private void Start()
         {
-            if (!Application.isEditor) return;
+            //if (!Application.isEditor) return;
             TileBase[] tileArray = new TileBase[area.size.x * area.size.y * area.size.z];
             for (int index = 0; index < tileArray.Length; ++index)
             {
