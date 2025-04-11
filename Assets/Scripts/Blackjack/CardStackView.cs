@@ -1,122 +1,105 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-[RequireComponent(typeof(CardStack))]
-public class CardStackView : MonoBehaviour
+namespace RooseLabs.Blackjack
 {
-   CardStack _cardStack;
-   Dictionary<int, CardView> _fetchedCards;
-   
-   public Vector3 start;
-   public float cardOffset;
-   public bool faceUp =false;
-   public bool CardDeckOrder=false;
-   public GameObject cardPrefab;
-   
+    [RequireComponent(typeof(CardStack))]
+    public class CardStackView : MonoBehaviour
+    {
+        [SerializeField] private Vector3 start;
+        [SerializeField] private float cardOffset;
+        [SerializeField] private bool faceUp;
+        [SerializeField] private bool cardDeckOrder;
+        [SerializeField] private GameObject cardPrefab;
 
-   private void Awake()
-   {
-      _fetchedCards = new Dictionary<int, CardView>();
-      _cardStack = GetComponent<CardStack>();
-      ShowCards();
-      
-      _cardStack.CardRemoved += OnCardRemoved;
-      _cardStack.CardAdded += OnCardAdded;
-   }
-   
-   private void Update()
-   {
-      ShowCards();
-   }
-   
-   public void ShowCards()
-   {
-      int cardCount = 0;
+        private CardStack m_cardStack;
+        private Dictionary<int, CardView> m_fetchedCards;
 
-      if (_cardStack.HasCards)
-      {
-         foreach (int i in _cardStack.GetCards())
-         {
-            float co = cardOffset * cardCount;
-            Vector3 temp = start + new Vector3(co, 0f);
-            AddCard(temp, i, cardCount);
-            cardCount++;
-         }
-      }
-   }
-   
-   void AddCard(Vector3 position, int cardIndex, int positionalIndex)
-   {
-      if (_fetchedCards.ContainsKey(cardIndex))
-      {
-         if (!faceUp)
-         {
-            CardsBehavior behavior = _fetchedCards[cardIndex].Card.GetComponent<CardsBehavior>();
-            behavior.ToggleCardFace(_fetchedCards[cardIndex].isFaceUp);
-         }
-         return;
-      }
+        private void Awake()
+        {
+            m_fetchedCards = new Dictionary<int, CardView>();
+            m_cardStack = GetComponent<CardStack>();
+            ShowCards();
 
-      GameObject cardCopy = (GameObject)Instantiate(cardPrefab);
-      cardCopy.transform.position = position;
-      CardsBehavior cardsBehavior = cardCopy.GetComponent<CardsBehavior>();
-      cardsBehavior.cardIndex = cardIndex;
-      
-      if(faceUp)
-      {
-         cardsBehavior.ToggleCardFace(faceUp);
-      }
-      else
-      {
-         cardsBehavior.ToggleCardFace(faceUp);
-      }
+            m_cardStack.CardRemoved += OnCardRemoved;
+            m_cardStack.CardAdded += OnCardAdded;
+        }
 
-      SpriteRenderer spriteRenderer = cardCopy.GetComponent<SpriteRenderer>();
-     
-      if (CardDeckOrder)
-      {
-         spriteRenderer.sortingOrder= 51 - positionalIndex;
-      }
-      else
-      {
-         spriteRenderer.sortingOrder = positionalIndex;
-      }
-      
-      _fetchedCards.Add(cardIndex, new CardView(cardCopy));
-   }
-   
-   private void OnCardAdded(object sender, CardEventArgs e)
-   {
-      float co = cardOffset * _cardStack.CardCount;
-      Vector3 temp = start + new Vector3(co, 0f);
-      AddCard(temp, e.CardIndex, _cardStack.CardCount);
-   }
-   
-   private void OnCardRemoved(object sender, CardEventArgs e)
-   {
-      if (_fetchedCards.ContainsKey(e.CardIndex))
-      {
-         Destroy(_fetchedCards[e.CardIndex].Card);
-         _fetchedCards.Remove(e.CardIndex);
-      }
-   }
+        private void Update()
+        {
+            ShowCards();
+        }
 
-   public void Clear()
-   {
-      _cardStack.Reset();
-      foreach(CardView view in _fetchedCards.Values)
-      {
-         Destroy(view.Card);
-      }
-      _fetchedCards.Clear();
-   }
+        public void ShowCards()
+        {
+            var cardCount = 0;
 
-   public void Toogle(int card, bool isFaceUp)
-   {
-      _fetchedCards[card].isFaceUp = isFaceUp;
-   }
+            if (m_cardStack.HasCards)
+                foreach (var i in m_cardStack.GetCards())
+                {
+                    var co = cardOffset * cardCount;
+                    var temp = start + new Vector3(co, 0f);
+                    AddCard(temp, i, cardCount);
+                    cardCount++;
+                }
+        }
 
+        private void AddCard(Vector3 position, int cardIndex, int positionalIndex)
+        {
+            if (m_fetchedCards.ContainsKey(cardIndex))
+            {
+                if (!faceUp)
+                {
+                    var behavior = m_fetchedCards[cardIndex].Card.GetComponent<CardsBehavior>();
+                    behavior.ToggleCardFace(m_fetchedCards[cardIndex].IsFaceUp);
+                }
+
+                return;
+            }
+
+            var cardCopy = Instantiate(cardPrefab);
+            cardCopy.transform.position = position;
+            var cardsBehavior = cardCopy.GetComponent<CardsBehavior>();
+            cardsBehavior.CardIndex = cardIndex;
+            cardsBehavior.ToggleCardFace(faceUp);
+
+            var spriteRenderer = cardCopy.GetComponent<SpriteRenderer>();
+
+            if (cardDeckOrder)
+                spriteRenderer.sortingOrder = 51 - positionalIndex;
+            else
+                spriteRenderer.sortingOrder = positionalIndex;
+
+            m_fetchedCards.Add(cardIndex, new CardView(cardCopy));
+        }
+
+        private void OnCardAdded(object sender, CardEventArgs e)
+        {
+            var co = cardOffset * m_cardStack.CardCount;
+            var temp = start + new Vector3(co, 0f);
+            AddCard(temp, e.CardIndex, m_cardStack.CardCount);
+        }
+
+        private void OnCardRemoved(object sender, CardEventArgs e)
+        {
+            if (m_fetchedCards.ContainsKey(e.CardIndex))
+            {
+                Destroy(m_fetchedCards[e.CardIndex].Card);
+                m_fetchedCards.Remove(e.CardIndex);
+            }
+        }
+
+        public void Clear()
+        {
+            m_cardStack.Reset();
+            foreach (CardView view in m_fetchedCards.Values)
+                Destroy(view.Card);
+            m_fetchedCards.Clear();
+        }
+
+        public void Toogle(int card, bool isFaceUp)
+        {
+            m_fetchedCards[card].IsFaceUp = isFaceUp;
+        }
+    }
 }
-

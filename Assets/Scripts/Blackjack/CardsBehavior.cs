@@ -1,23 +1,41 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CardsBehavior : MonoBehaviour
+namespace RooseLabs.Blackjack
 {
-    private SpriteRenderer _spriteRenderer;
-    
-    public Sprite[] cardFaces;
-    public Sprite cardBack;
-    public int cardIndex; // cardFaces[cardIndex];
-    
-    private void Awake()
+    public class CardsBehavior : MonoBehaviour
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-    
-    public void ToggleCardFace(bool showFace)
-    {
-        _spriteRenderer.sprite = showFace ? cardFaces[cardIndex] : // Show the card face
-            cardBack; // Show the card back
+        [SerializeField] private Sprite[] cardFaces;
+        [SerializeField] private Sprite cardBack;
+        [SerializeField] private int cardIndex;
+        private SpriteRenderer m_spriteRenderer;
+
+        private void Awake()
+        {
+            m_spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        public void ToggleCardFace(bool showFace)
+        {
+            m_spriteRenderer.sprite = showFace ? cardFaces[cardIndex] : cardBack;
+        }
+
+        public Sprite[] CardFaces => cardFaces;
+
+        public int CardIndex
+        {
+            get => cardIndex;
+            set
+            {
+                if (value >= 0 && value < cardFaces.Length)
+                {
+                    cardIndex = value;
+                    m_spriteRenderer.sprite = cardFaces[cardIndex];
+                }
+                else
+                {
+                    Debug.LogError("Invalid card index");
+                }
+            }
+        }
     }
 }

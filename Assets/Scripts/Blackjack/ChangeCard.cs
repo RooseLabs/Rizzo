@@ -1,46 +1,41 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChangeCard : MonoBehaviour
+namespace RooseLabs.Blackjack
 {
-    private CardsBehavior _cards;
-    private int _cardIndex;
-    private Button _hitButton;
+    public class ChangeCard : MonoBehaviour
+    {
+        [SerializeField] private GameObject card;
+        [SerializeField] private Button hitButton;
+        private int m_cardIndex;
+        private CardsBehavior m_cards;
 
-    public GameObject card;
-    
-    void Awake()
-    {
-        _cards = card.GetComponent<CardsBehavior>();
-        _hitButton = GameObject.Find("Hit").GetComponent<Button>();
+        private void Awake()
+        {
+            m_cards = card.GetComponent<CardsBehavior>();
+        }
 
-    }
-    void Start()
-    {
-        if (_hitButton != null)
+        private void Start()
         {
-            _hitButton.onClick.AddListener(OnHitButtonClick);
+            if (hitButton != null) hitButton.onClick.AddListener(OnHitButtonClick);
         }
-    }
-    
-    private void OnHitButtonClick()
-    {
-        // Handle hit button click event
-        Debug.Log("Hit button clicked!");
-        if (_cardIndex >= _cards.cardFaces.Length)
+
+        private void OnHitButtonClick()
         {
-            // Reset the index if it exceeds the array length
-            _cardIndex = 0;
-            _cards.ToggleCardFace(false);
-            card.SetActive(false); // Deactivate the card
-        }
-        else
-        {
-            card.SetActive(true); // Ensure the card is active
-            _cards.cardIndex = _cardIndex;
-            _cards.ToggleCardFace(true);
-            _cardIndex++;
+            if (m_cardIndex >= m_cards.CardFaces.Length)
+            {
+                // Reset the index if it exceeds the array length
+                m_cardIndex = 0;
+                m_cards.ToggleCardFace(false);
+                card.SetActive(false); // Deactivate the card
+            }
+            else
+            {
+                card.SetActive(true); // Ensure the card is active
+                m_cards.CardIndex = m_cardIndex;
+                m_cards.ToggleCardFace(true);
+                m_cardIndex++;
+            }
         }
     }
 }
