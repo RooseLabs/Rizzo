@@ -1,13 +1,16 @@
 ﻿using System;
 
-public delegate void CardEventHandler(object sender, CardEventArgs e);
-
-public class CardEventArgs : EventArgs
+namespace RooseLabs.Blackjack
 {
-    public int CardIndex { get; private set; }
-    
-    public CardEventArgs(int cardIndex)
+    public delegate void CardEventHandler(object sender, CardEventArgs e);
+
+    public class CardEventArgs : EventArgs
     {
-        CardIndex = cardIndex;
+        public CardEventArgs(int cardIndex)
+        {
+            CardIndex = cardIndex;
+        }
+
+        public int CardIndex { get; private set; }
     }
 }

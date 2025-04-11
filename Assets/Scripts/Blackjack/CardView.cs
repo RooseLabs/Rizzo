@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 
-public class CardView
+namespace RooseLabs.Blackjack
 {
-    public GameObject Card { get; private set; }
-    public bool isFaceUp{get; set;}
-    
-    public CardView(GameObject card)
+    public class CardView
     {
-        Card = card;
-        isFaceUp = false;
+        public CardView(GameObject card)
+        {
+            Card = card;
+            IsFaceUp = false;
+        }
+
+        public GameObject Card { get; private set; }
+        public bool IsFaceUp { get; set; }
     }
 }
