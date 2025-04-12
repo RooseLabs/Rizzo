@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Revolver
   m_EditorClassIdentifier: 
   weaponName: Revolver
-  weaponPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 3144565203398138562, guid: e7d5347974e0cbe47a9ad70cd0cb2597, type: 3}
   weaponIcon: {fileID: 0}
   socketHand: 1
   animatorController: {fileID: 9100000, guid: b3c85ee615aff844bb11d062220fa2f6, type: 2}
