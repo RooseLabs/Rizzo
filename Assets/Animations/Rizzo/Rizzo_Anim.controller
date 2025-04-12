@@ -61,7 +61,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Attack_Gun_End
-  m_Speed: -1
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7453777686390136702}
@@ -74,7 +74,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 701358787730447438, guid: 5e262cfd47014de438ec8d0ac1ce961e, type: 3}
+  m_Motion: {fileID: 7400000, guid: 31022c11373009c4bb3bdfd4ff0f2dd7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
