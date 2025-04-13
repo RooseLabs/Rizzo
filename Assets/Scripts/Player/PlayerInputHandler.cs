@@ -11,7 +11,9 @@ namespace RooseLabs.Player
         public Vector2 MoveInput { get; private set; }
         public bool PressedDodge { get; private set; }
         public bool PressedPrimaryAttack { get; private set; }
+        public bool IsPressingPrimaryAttack { get; private set; }
         public bool PressedSecondaryAttack { get; private set; }
+        public bool IsPressingSecondaryAttack { get; private set; }
 
         private void Awake()
         {
@@ -68,11 +70,13 @@ namespace RooseLabs.Player
         private void OnPrimaryAttackInput(InputAction.CallbackContext context)
         {
             PressedPrimaryAttack = context.performed;
+            IsPressingPrimaryAttack = context.performed;
         }
 
         private void OnSecondaryAttackInput(InputAction.CallbackContext context)
         {
             PressedSecondaryAttack = context.performed;
+            IsPressingSecondaryAttack = context.performed;
         }
     }
 }

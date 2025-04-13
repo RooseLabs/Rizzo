@@ -4,6 +4,11 @@ namespace RooseLabs.Player.StateMachine.States
     {
         public PlayerMoveState(Player player, PlayerStateMachine stateMachine) : base(player, stateMachine) { }
 
+        public override void OnEnter()
+        {
+            Player.HideWeapons();
+        }
+
         public override void Update()
         {
             if (PlayerStateTransitionHelper.HandleIdleAndMoveTransitions(Player, StateMachine)) return;

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef166fe55ca4e3b8fec5256e8897096, type: 3}
   m_Name: Revolver
   m_EditorClassIdentifier: 
+  weaponType: 0
   weaponName: Revolver
   weaponPrefab: {fileID: 3144565203398138562, guid: e7d5347974e0cbe47a9ad70cd0cb2597, type: 3}
   weaponIcon: {fileID: 0}
@@ -27,7 +28,19 @@ MonoBehaviour:
     minComboTime: 0.25
     maxComboTime: 1
   dodgeResetsCombo: 1
+  projectilePrefab: {fileID: 0}
   aimAnimationState:
     name: Attack_Gun_1
     hash: -1730553187
     length: 0.20000002
+  canHoldToAim: 0
+  reloadAnimationState:
+    name: 
+    hash: 0
+    length: 0
+  autoReload: 1
+  reloadDuration: 2.5
+  progressiveReload: 1
+  maxAmmunition: 6
+  attackRange: 10
+  isAutomatic: 0

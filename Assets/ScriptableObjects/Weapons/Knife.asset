@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f768a55faeafb4391bac703422ab95, type: 3}
   m_Name: Knife
   m_EditorClassIdentifier: 
+  weaponType: 1
   weaponName: Knife
   weaponPrefab: {fileID: 134044720734944902, guid: efeb7aeb4fa7f1a43aa491b5d4eaeff3, type: 3}
   weaponIcon: {fileID: 0}
@@ -22,7 +23,7 @@ MonoBehaviour:
       name: Attack_Knife_1
       hash: 1976201569
       length: 0.5666667
-    baseDamage: 0
+    baseDamage: 15
     fixedDuration: 1
     minComboTime: 0.25
     maxComboTime: 1
@@ -30,7 +31,7 @@ MonoBehaviour:
       name: Attack_Knife_2
       hash: -322756389
       length: 0.53333336
-    baseDamage: 0
+    baseDamage: 17.5
     fixedDuration: 1
     minComboTime: 0.25
     maxComboTime: 1
@@ -38,7 +39,7 @@ MonoBehaviour:
       name: Attack_Knife_3
       hash: -1681649587
       length: 0.5
-    baseDamage: 0
+    baseDamage: 20
     fixedDuration: 1
     minComboTime: 0.25
     maxComboTime: 1

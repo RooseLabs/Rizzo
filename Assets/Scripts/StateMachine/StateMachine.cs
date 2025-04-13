@@ -4,7 +4,7 @@ namespace RooseLabs.StateMachine
     {
         private TState m_currentState;
 
-        protected TState CurrentState => m_currentState;
+        public TState CurrentState => m_currentState;
 
         public void Initialize(TState initialState)
         {

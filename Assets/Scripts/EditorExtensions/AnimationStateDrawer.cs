@@ -32,27 +32,36 @@ namespace RooseLabs.EditorExtensions
                 SerializedProperty hashProperty = property.FindPropertyRelative(nameof(AnimationStateData.hash));
                 SerializedProperty lengthProperty = property.FindPropertyRelative(nameof(AnimationStateData.length));
 
-                string[] stateNames = m_animationStates.Select(state => state.name).ToArray();
-                int selectedIndex =
-                    m_animationStates.FindIndex(state => Animator.StringToHash(state.name) == hashProperty.intValue);
-                if (selectedIndex == -1) selectedIndex = 0;
+                // Add "None" option to the state names
+                string[] stateNames = new[] { "None" }.Concat(m_animationStates.Select(state => state.name)).ToArray();
+                int selectedIndex = m_animationStates.FindIndex(state => Animator.StringToHash(state.name) == hashProperty.intValue) + 1;
+                if (selectedIndex == 0) selectedIndex = 0; // Default to "None" if no match is found
 
                 // Dropdown for selecting animation state
-                selectedIndex =
-                    EditorGUI.Popup(new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight),
-                        label.text, selectedIndex, stateNames);
+                selectedIndex = EditorGUI.Popup(new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight),
+                    label.text, selectedIndex, stateNames);
 
-                // Update properties based on selected state
-                AnimatorState selectedState = m_animationStates[selectedIndex];
-                nameProperty.stringValue = selectedState.name;
-                hashProperty.intValue = Animator.StringToHash(selectedState.name);
-                lengthProperty.floatValue = selectedState.motion != null ? selectedState.motion.averageDuration : 0f;
+                if (selectedIndex == 0)
+                {
+                    // Handle "None" selection
+                    nameProperty.stringValue = string.Empty;
+                    hashProperty.intValue = 0;
+                    lengthProperty.floatValue = 0f;
+                }
+                else
+                {
+                    // Update properties based on selected state
+                    AnimatorState selectedState = m_animationStates[selectedIndex - 1];
+                    nameProperty.stringValue = selectedState.name;
+                    hashProperty.intValue = Animator.StringToHash(selectedState.name);
+                    lengthProperty.floatValue = selectedState.motion != null ? selectedState.motion.averageDuration : 0f;
 
-                // Display the length as subtext
-                string lengthText = $"Length: {lengthProperty.floatValue:F2} seconds";
-                EditorGUI.LabelField(
-                    new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight + 2, position.width,
-                        EditorGUIUtility.singleLineHeight), lengthText, EditorStyles.miniLabel);
+                    // Display the length as subtext
+                    string lengthText = $"Length: {lengthProperty.floatValue:F2} seconds";
+                    EditorGUI.LabelField(
+                        new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight + 2, position.width,
+                            EditorGUIUtility.singleLineHeight), lengthText, EditorStyles.miniLabel);
+                }
             }
             else
             {

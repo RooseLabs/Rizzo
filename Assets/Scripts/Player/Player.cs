@@ -3,6 +3,7 @@ using RooseLabs.Player.StateMachine;
 using RooseLabs.Player.StateMachine.States;
 using RooseLabs.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace RooseLabs.Player
 {
@@ -40,15 +41,15 @@ namespace RooseLabs.Player
         public PlayerIdleState IdleState { get; private set; }
         public PlayerMoveState MoveState { get; private set; }
         public PlayerDodgeState DodgeState { get; private set; }
-        public PlayerPrimaryAttackState PrimaryAttackState { get; private set; }
-        public PlayerSecondaryAttackState SecondaryAttackState { get; private set; }
+        public PlayerState PrimaryAttackState { get; private set; }
+        public PlayerState SecondaryAttackState { get; private set; }
         #endregion
 
         #region Weapons
-        public BaseWeaponSO PrimaryWeaponSO { get; private set; }
-        public BaseWeaponSO SecondaryWeaponSO { get; private set; }
-        public GameObject PrimaryWeaponGO { get; private set; }
-        public GameObject SecondaryWeaponGO { get; private set; }
+        private BaseWeaponSO PrimaryWeaponSO { get; set; }
+        private BaseWeaponSO SecondaryWeaponSO { get; set; }
+        private GameObject PrimaryWeaponGO { get; set; }
+        private GameObject SecondaryWeaponGO { get; set; }
         #endregion
 
         private void Awake()
@@ -63,21 +64,13 @@ namespace RooseLabs.Player
             IdleState = new PlayerIdleState(this, StateMachine);
             MoveState = new PlayerMoveState(this, StateMachine);
             DodgeState = new PlayerDodgeState(this, StateMachine);
-            PrimaryAttackState = new PlayerPrimaryAttackState(this, StateMachine);
-            SecondaryAttackState = new PlayerSecondaryAttackState(this, StateMachine);
-
-            PrimaryWeaponSO = defaultPrimaryWeapon;
-            SecondaryWeaponSO = defaultSecondaryWeapon;
         }
 
         private void Start()
         {
             StateMachine.Initialize(IdleState);
-            if (PrimaryWeaponSO.WeaponPrefab)
-                PrimaryWeaponGO = Instantiate(PrimaryWeaponSO.WeaponPrefab, GetHandSocketTransform(PrimaryWeaponSO));
-            if (SecondaryWeaponSO.WeaponPrefab)
-                SecondaryWeaponGO = Instantiate(SecondaryWeaponSO.WeaponPrefab, GetHandSocketTransform(SecondaryWeaponSO));
-            HideWeapons();
+            SetPrimaryWeapon(defaultPrimaryWeapon);
+            SetSecondaryWeapon(defaultSecondaryWeapon);
         }
 
         private void Update()
@@ -90,12 +83,64 @@ namespace RooseLabs.Player
             StateMachine.FixedUpdate();
         }
 
+        private void SetPrimaryWeapon(BaseWeaponSO newWeapon)
+        {
+            Assert.IsTrue(newWeapon.Type == WeaponType.Primary, "Provided weapon is not of type Primary.");
+            if (PrimaryWeaponGO != null)
+            {
+                Destroy(PrimaryWeaponGO);
+            }
+
+            PrimaryWeaponSO = newWeapon;
+            if (newWeapon.WeaponPrefab != null)
+            {
+                PrimaryWeaponGO = Instantiate(newWeapon.WeaponPrefab, GetHandSocketTransform(newWeapon));
+                PrimaryWeaponGO.SetActive(false);
+            }
+            Assert.IsTrue(
+                StateMachine.CurrentState != PrimaryAttackState,
+                "Trying to set primary weapon in the middle of a primary attack."
+            );
+            PrimaryAttackState = PrimaryWeaponSO switch
+            {
+                RangedWeaponSO rangedWeapon => new PlayerRangedAttackState(this, StateMachine, rangedWeapon, PrimaryWeaponGO),
+                MeleeWeaponSO meleeWeapon => new PlayerMeleeAttackState(this, StateMachine, meleeWeapon, PrimaryWeaponGO),
+                _ => throw new System.NotImplementedException($"Weapon type {newWeapon.Type} not implemented.")
+            };
+        }
+
+        private void SetSecondaryWeapon(BaseWeaponSO newWeapon)
+        {
+            Assert.IsTrue(newWeapon.Type == WeaponType.Secondary, "Provided weapon is not of type Secondary.");
+            if (SecondaryWeaponGO != null)
+            {
+                Destroy(SecondaryWeaponGO);
+            }
+
+            SecondaryWeaponSO = newWeapon;
+            if (newWeapon.WeaponPrefab != null)
+            {
+                SecondaryWeaponGO = Instantiate(newWeapon.WeaponPrefab, GetHandSocketTransform(newWeapon));
+                SecondaryWeaponGO.SetActive(false);
+            }
+            Assert.IsTrue(
+                StateMachine.CurrentState != SecondaryAttackState,
+                "Trying to set secondary weapon in the middle of a secondary attack."
+            );
+            SecondaryAttackState = SecondaryWeaponSO switch
+            {
+                RangedWeaponSO rangedWeapon => new PlayerRangedAttackState(this, StateMachine, rangedWeapon, SecondaryWeaponGO),
+                MeleeWeaponSO meleeWeapon => new PlayerMeleeAttackState(this, StateMachine, meleeWeapon, SecondaryWeaponGO),
+                _ => throw new System.NotImplementedException($"Weapon type {newWeapon.Type} not implemented.")
+            };
+        }
+
         private Transform GetHandSocketTransform(BaseWeaponSO weapon)
         {
             return weapon.SocketHand == HandSocket.Left ? leftHandSocket : rightHandSocket;
         }
 
-        private void HideWeapons()
+        public void HideWeapons()
         {
             PrimaryWeaponGO?.SetActive(false);
             SecondaryWeaponGO?.SetActive(false);

@@ -7,6 +7,7 @@ namespace RooseLabs.ScriptableObjects
 {
     public abstract class BaseWeaponSO : ScriptableObject
     {
+        [SerializeField] protected WeaponType weaponType;
         [SerializeField] protected string weaponName;
         [SerializeField] protected GameObject weaponPrefab;
         [SerializeField] protected Sprite weaponIcon;
@@ -15,9 +16,10 @@ namespace RooseLabs.ScriptableObjects
         [SerializeField] protected WeaponAttackData[] attacks;
         [SerializeField] protected bool dodgeResetsCombo;
 
-        public string WeaponName => weaponName;
+        public WeaponType Type => weaponType;
+        public string Name => weaponName;
         public GameObject WeaponPrefab => weaponPrefab;
-        public Sprite WeaponIcon => weaponIcon;
+        public Sprite Icon => weaponIcon;
         public HandSocket SocketHand => socketHand;
         public WeaponAttackData[] Attacks => attacks;
         public bool DodgeResetsCombo => dodgeResetsCombo;
