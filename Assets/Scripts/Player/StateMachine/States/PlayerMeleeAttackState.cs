@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RooseLabs.Player.StateMachine.States
 {
-    public class PlayerMeleeAttackState : PlayerAttackBaseState<MeleeWeaponSO>
+    public class PlayerMeleeAttackState : PlayerWeaponAttackState<MeleeWeaponSO>
     {
         private int m_currentAttackIndex;
         private float m_minComboTime;
@@ -38,7 +38,8 @@ namespace RooseLabs.Player.StateMachine.States
 
         public override void Update()
         {
-            if (Player.InputHandler.PressedDodge && Player.DodgeState.CheckIfCanDodge())
+            base.Update();
+            if (Player.InputHandler.PressedDodge && Player.DodgeState.CanDodge())
             {
                 // Allow for dodge to "animation cancel" the attack - it can also cancel the attack if done too early.
                 // This dodge will skip the attack "end" animation too, thus we need to hide the weapon here since the
@@ -79,6 +80,8 @@ namespace RooseLabs.Player.StateMachine.States
             m_minComboTime = 0f;
             m_maxComboTime = 0f;
         }
+
+        public override bool CanAttack() => true;
 
         private WeaponAttackData CurrentAttackData => WeaponData.Attacks[m_currentAttackIndex];
         private AnimationStateData CurrentStateData => CurrentAttackData.AnimationState;

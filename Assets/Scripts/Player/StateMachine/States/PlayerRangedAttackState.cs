@@ -4,12 +4,15 @@ using UnityEngine;
 
 namespace RooseLabs.Player.StateMachine.States
 {
-    public class PlayerRangedAttackState : PlayerAttackBaseState<RangedWeaponSO>
+    public class PlayerRangedAttackState : PlayerWeaponAttackState<RangedWeaponSO>
     {
+        private bool m_isPlayingAimAnimation;
+        private float m_aimAnimationEndTime;
         private int m_currentAttackIndex;
         private float m_minComboTime;
         private float m_maxComboTime;
         private float m_attackAnimEndTime;
+        private float m_cooldownEndTime;
 
         public PlayerRangedAttackState(
             Player player,
@@ -21,24 +24,19 @@ namespace RooseLabs.Player.StateMachine.States
         public override void OnEnter()
         {
             base.OnEnter();
-            if (Time.time <= m_maxComboTime)
-            {
-                // Can still combo
-                m_currentAttackIndex = (m_currentAttackIndex + 1) % WeaponData.Attacks.Length;
-            }
-            else
-            {
-                m_currentAttackIndex = 0;
-            }
-            Animator.Play(CurrentStateData.hash);
-            m_minComboTime = Time.time + CurrentAttackData.MinComboTime;
-            m_maxComboTime = Time.time + CurrentAttackData.MaxComboTime;
-            m_attackAnimEndTime = Time.time + CurrentStateData.length;
+            Animator.Play(WeaponData.AimAnimationState.hash);
+            m_isPlayingAimAnimation = true;
+            m_aimAnimationEndTime = Time.time + WeaponData.AimAnimationState.length;
+            m_currentAttackIndex = 0;
+            m_minComboTime = m_aimAnimationEndTime + CurrentAttackData.MinComboTime;
+            m_maxComboTime = m_aimAnimationEndTime + CurrentAttackData.MaxComboTime;
+            m_attackAnimEndTime = m_aimAnimationEndTime + CurrentStateData.length;
         }
 
         public override void Update()
         {
-            if (Player.InputHandler.PressedDodge && Player.DodgeState.CheckIfCanDodge())
+            base.Update();
+            if (Player.InputHandler.PressedDodge && Player.DodgeState.CanDodge())
             {
                 // Allow for dodge to "animation cancel" the attack - it can also cancel the attack if done too early.
                 // This dodge will skip the attack "end" animation too, thus we need to hide the weapon here since the
@@ -49,13 +47,23 @@ namespace RooseLabs.Player.StateMachine.States
                 return;
             }
 
+            if (m_isPlayingAimAnimation)
+            {
+                if (Time.time >= m_aimAnimationEndTime)
+                {
+                    m_isPlayingAimAnimation = false;
+                    Animator.Play(CurrentStateData.hash);
+                }
+                return;
+            }
+
             if (Time.time >= m_minComboTime && Time.time <= m_maxComboTime)
             {
                 if (PressedAttack)
                 {
                     UpdateDirection();
                     m_currentAttackIndex = (m_currentAttackIndex + 1) % WeaponData.Attacks.Length;
-                    Animator.CrossFadeInFixedTime(CurrentStateData.hash, 0.25f);
+                    Animator.Play(CurrentStateData.hash);
                     m_minComboTime = Time.time + CurrentAttackData.MinComboTime;
                     m_maxComboTime = Time.time + CurrentAttackData.MaxComboTime;
                     m_attackAnimEndTime = Time.time + CurrentStateData.length;
@@ -73,11 +81,23 @@ namespace RooseLabs.Player.StateMachine.States
             }
         }
 
+        public override void OnExit()
+        {
+            m_cooldownEndTime = Time.time + WeaponData.Cooldown;
+        }
+
         public override void ResetCombo()
         {
             m_currentAttackIndex = 0;
             m_minComboTime = 0f;
             m_maxComboTime = 0f;
+        }
+
+        public override bool CanAttack()
+        {
+            if (Time.time < m_cooldownEndTime) return false;
+
+            return true;
         }
 
         private WeaponAttackData CurrentAttackData => WeaponData.Attacks[m_currentAttackIndex];

@@ -27,6 +27,8 @@ namespace RooseLabs.ScriptableObjects
         [Tooltip("Whether the weapon is automatic (shoots continuously while the respective attack button is held down). " +
                  "The delay between shots is determined by the minimum combo time of each attack in the Attacks list.")]
         [SerializeField] private bool isAutomatic;
+        [Tooltip("The time in seconds that must pass before the weapon can shoot again after a combo is finished.")]
+        [SerializeField] private float cooldown = 0.5f;
 
         public GameObject ProjectilePrefab => projectilePrefab;
         public AnimationStateData AimAnimationState => aimAnimationState;
@@ -38,5 +40,6 @@ namespace RooseLabs.ScriptableObjects
         public int MaxAmmunition => maxAmmunition;
         public float AttackRange => attackRange;
         public bool IsAutomatic => isAutomatic;
+        public float Cooldown => cooldown;
     }
 }

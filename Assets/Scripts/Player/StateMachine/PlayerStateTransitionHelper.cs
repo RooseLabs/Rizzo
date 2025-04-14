@@ -10,18 +10,18 @@ namespace RooseLabs.Player.StateMachine
         /// <param name="stateMachine">The Player State Machine instance.</param>
         public static bool HandleIdleAndMoveTransitions(Player player, PlayerStateMachine stateMachine)
         {
-            if (player.InputHandler.PressedDodge && player.DodgeState.CheckIfCanDodge())
+            if (player.InputHandler.PressedDodge && player.DodgeState.CanDodge())
             {
                 stateMachine.ChangeState(player.DodgeState);
                 return true;
             }
 
-            if (player.InputHandler.PressedPrimaryAttack)
+            if (player.InputHandler.PressedPrimaryAttack && player.PrimaryAttackState.CanAttack())
             {
                 stateMachine.ChangeState(player.PrimaryAttackState);
                 return true;
             }
-            if (player.InputHandler.PressedSecondaryAttack)
+            if (player.InputHandler.PressedSecondaryAttack && player.SecondaryAttackState.CanAttack())
             {
                 stateMachine.ChangeState(player.SecondaryAttackState);
                 return true;

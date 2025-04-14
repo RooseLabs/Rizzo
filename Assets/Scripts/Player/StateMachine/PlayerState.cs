@@ -1,8 +1,9 @@
+using RooseLabs.StateMachine;
 using UnityEngine;
 
 namespace RooseLabs.Player.StateMachine
 {
-    public class PlayerState : RooseLabs.StateMachine.BaseState
+    public class PlayerState : BaseState
     {
         protected readonly Player Player;
         protected readonly PlayerStateMachine StateMachine;

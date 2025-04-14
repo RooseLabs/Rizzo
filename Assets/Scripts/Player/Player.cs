@@ -41,8 +41,8 @@ namespace RooseLabs.Player
         public PlayerIdleState IdleState { get; private set; }
         public PlayerMoveState MoveState { get; private set; }
         public PlayerDodgeState DodgeState { get; private set; }
-        public PlayerState PrimaryAttackState { get; private set; }
-        public PlayerState SecondaryAttackState { get; private set; }
+        public PlayerAttackState PrimaryAttackState { get; private set; }
+        public PlayerAttackState SecondaryAttackState { get; private set; }
         #endregion
 
         #region Weapons

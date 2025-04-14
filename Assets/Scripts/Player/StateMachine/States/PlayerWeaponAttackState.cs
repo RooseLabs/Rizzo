@@ -6,9 +6,9 @@ using UnityEngine.InputSystem;
 
 namespace RooseLabs.Player.StateMachine.States
 {
-    public abstract class PlayerAttackBaseState<T> : PlayerState where T : BaseWeaponSO
+    public abstract class PlayerWeaponAttackState<TWeapon> : PlayerAttackState where TWeapon : BaseWeaponSO
     {
-        protected readonly T WeaponData;
+        protected readonly TWeapon WeaponData;
         protected readonly GameObject WeaponGO;
 
         private readonly Camera m_cam;
@@ -35,10 +35,10 @@ namespace RooseLabs.Player.StateMachine.States
                 ? Player.SecondaryAttackState
                 : Player.PrimaryAttackState;
 
-        protected PlayerAttackBaseState(
+        protected PlayerWeaponAttackState(
             Player player,
             PlayerStateMachine stateMachine,
-            T weaponData,
+            TWeapon weaponData,
             GameObject weaponGO
         ) : base(player, stateMachine)
         {
@@ -51,10 +51,16 @@ namespace RooseLabs.Player.StateMachine.States
 
         public override void OnEnter()
         {
+            Player.HideWeapons();
             Player.RB.linearVelocity = Vector2.zero;
             Animator.SetFloat(Player.AnimationStateController.F_Velocity, 0f);
             WeaponGO?.SetActive(true);
             UpdateDirection();
+        }
+
+        public override void Update()
+        {
+            WeaponGO?.SetActive(true);
         }
 
         protected void UpdateDirection()
@@ -70,5 +76,6 @@ namespace RooseLabs.Player.StateMachine.States
         }
 
         public abstract void ResetCombo();
+        public abstract override bool CanAttack();
     }
 }

@@ -47,7 +47,7 @@ namespace RooseLabs.Player.StateMachine.States
             }
         }
 
-        public bool CheckIfCanDodge() {
+        public bool CanDodge() {
             return m_canDodge && Time.time >= m_lastDodgeTime + Player.DodgeCooldown;
         }
     }
