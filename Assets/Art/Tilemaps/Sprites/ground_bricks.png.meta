@@ -1,0 +1,253 @@
+fileFormatVersion: 2
+guid: d6208d608671354498777b36b26432f8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8224627366701322890
+    second: ground_bricks_0
+  - first:
+      213: 8716096099030786971
+    second: ground_bricks_1
+  - first:
+      213: -3894772450454573437
+    second: ground_bricks_2
+  - first:
+      213: -5793047998641138927
+    second: ground_bricks_3
+  - first:
+      213: 8995747372064807686
+    second: ground_bricks_4
+  - first:
+      213: -96937815613250891
+    second: ground_bricks_5
+  - first:
+      213: -959006599212486866
+    second: ground_bricks_6
+  - first:
+      213: 7572571277073751847
+    second: ground_bricks_7
+  - first:
+      213: 8090117449156441569
+    second: ground_bricks_8
+  - first:
+      213: -1064359496447646637
+    second: ground_bricks_9
+  - first:
+      213: 2681404136025486620
+    second: ground_bricks_10
+  - first:
+      213: -4368770802929922044
+    second: ground_bricks_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ground_bricks_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 1448
+        width: 566
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f91d1f8c6db3ae547a70d6eb13a0343d
+      internalID: 1239478111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground_bricks_8
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 733
+        width: 556
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f828b689d63d6a3458cce547de58fb38
+      internalID: -1084797862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground_bricks_10
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 475
+        width: 970
+        height: 535
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ac2cf9d9edbcfd4daeb7cc7fec6e1dd
+      internalID: 1674354538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground_bricks_11
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 70
+        width: 1059
+        height: 663
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bdeb876c9e50cc409870fe728caafe5
+      internalID: -1168380128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5eb374859a1132f43a0f45cbb9d2e630
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ground_bricks_0: 1239478111
+      ground_bricks_1: 1709450474
+      ground_bricks_10: 1674354538
+      ground_bricks_11: -1168380128
+      ground_bricks_2: -1964598839
+      ground_bricks_3: -797471747
+      ground_bricks_4: 14975293
+      ground_bricks_5: 1762378022
+      ground_bricks_6: 1308137774
+      ground_bricks_7: 702773033
+      ground_bricks_8: -1084797862
+      ground_bricks_9: 1378538718
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
