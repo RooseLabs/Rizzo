@@ -1,4 +1,5 @@
 using RooseLabs.Enums;
+using RooseLabs.Models;
 using RooseLabs.Player.StateMachine;
 using RooseLabs.Player.StateMachine.States;
 using RooseLabs.ScriptableObjects;
@@ -12,13 +13,10 @@ namespace RooseLabs.Player
     [RequireComponent(typeof(PlayerInputHandler))]
     public class Player : MonoBehaviour
     {
-        #region Inspector Variables
-        [Header("Movement")]
-        [SerializeField] private float movementVelocity = 2.5f;
+        private PlayerStats m_stats;
 
-        [Header("Dodge")]
-        [SerializeField] private float dodgeVelocity = 2.5f;
-        [SerializeField] private float dodgeCooldown = 0.5f;
+        #region Inspector Variables
+        [SerializeField] private PlayerStatsSO baseStats;
 
         [Header("Default Weapons")]
         [SerializeField] private BaseWeaponSO defaultPrimaryWeapon;
@@ -64,6 +62,9 @@ namespace RooseLabs.Player
             IdleState = new PlayerIdleState(this, StateMachine);
             MoveState = new PlayerMoveState(this, StateMachine);
             DodgeState = new PlayerDodgeState(this, StateMachine);
+
+            Assert.IsNotNull(baseStats, "Base Stats SO is not assigned.");
+            m_stats = baseStats.data.Clone();
         }
 
         private void Start()
@@ -146,10 +147,16 @@ namespace RooseLabs.Player
             SecondaryWeaponGO?.SetActive(false);
         }
 
-        public float MovementVelocity => movementVelocity;
+        public float Health
+        {
+            get => m_stats.health;
+            set => m_stats.health = Mathf.Clamp(value, 0, m_stats.maxHealth);
+        }
 
-        public float DodgeVelocity => dodgeVelocity;
+        public float MovementVelocity => m_stats.movementVelocity;
 
-        public float DodgeCooldown => dodgeCooldown;
+        public float DodgeVelocity => m_stats.dodgeVelocity;
+
+        public float DodgeCooldown => m_stats.dodgeCooldown;
     }
 }

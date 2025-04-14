@@ -6,14 +6,11 @@ namespace RooseLabs
     public class Actor3D : MonoBehaviour
     {
         private GameObject m_actorObject;
-        private Renderer m_aObjectRenderer;
         private float m_aObjectMinY;
 
         private void Awake()
         {
             m_actorObject = transform.GetChild(0).gameObject;
-            m_aObjectRenderer = m_actorObject.GetComponentInChildren<Renderer>();
-            m_aObjectMinY = m_aObjectRenderer.bounds.min.y;
 
             transform.rotation = Quaternion.Euler(-30, 0, 0);
         }
@@ -28,7 +25,7 @@ namespace RooseLabs
             transform.position = new Vector3(
                 transform.position.x,
                 transform.position.y,
-                (transform.position.y - m_aObjectMinY) * 10f
+                transform.position.y * 10f
             );
         }
 

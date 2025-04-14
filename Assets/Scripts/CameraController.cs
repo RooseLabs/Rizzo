@@ -19,6 +19,12 @@ namespace RooseLabs
         private InputManager m_inputManager;
         private InputAction m_lookAction;
 
+        public Transform Target
+        {
+            get => target;
+            set => target = value;
+        }
+
         public bool FollowTarget
         {
             get => m_followTarget;

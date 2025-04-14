@@ -150,9 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf6ed70117780c4ca86012e288d9c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementVelocity: 2.5
-  dodgeVelocity: 2.5
-  dodgeCooldown: 0.5
+  baseStats: {fileID: 11400000, guid: 458839ed82c7ac04bb8ddf4e94baa89e, type: 2}
   defaultPrimaryWeapon: {fileID: 11400000, guid: 1be8d27c38720bd49ba4df8e4402d9cc, type: 2}
   defaultSecondaryWeapon: {fileID: 11400000, guid: 3e53becddcc87fd44a700f2781c77921, type: 2}
   leftHandSocket: {fileID: 4188192986280590380}
