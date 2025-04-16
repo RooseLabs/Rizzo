@@ -73,7 +73,7 @@ namespace RooseLabs.Input
             {
                 // When a pointer device moves, we wait for a while before setting it as the current device to avoid
                 // accidental movements.
-                m_pointerMoveTime += Time.deltaTime;
+                m_pointerMoveTime += Time.unscaledDeltaTime;
             }
             else
             {

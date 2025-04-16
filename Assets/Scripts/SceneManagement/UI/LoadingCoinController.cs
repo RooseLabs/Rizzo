@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace RooseLabs.SceneManagement.UI
 {
+    [RequireComponent(typeof(Animator))]
     public class LoadingCoinController : MonoBehaviour
     {
         [SerializeField] private AnimationClip animationClip;

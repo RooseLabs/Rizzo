@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using Eflatun.SceneReference;
 using RooseLabs.Events.Channels;
@@ -56,11 +57,12 @@ namespace RooseLabs.SceneManagement
         /// <summary>
         /// This special loading function is only used in the editor, when the developer presses Play in a Level scene, without passing by Initialisation.
         /// </summary>
-        private void LevelColdStartup(SceneReference loadedScene, bool showLoadingScreen, bool fadeScreen)
+        [SuppressMessage("ReSharper", "AsyncVoidMethod")]
+        private async void LevelColdStartup(SceneReference loadedScene, bool showLoadingScreen, bool fadeScreen)
         {
             m_currentlyLoadedScene = loadedScene;
 
-            SceneManager.LoadScene(gameplayScene.Path, LoadSceneMode.Additive);
+            await SceneManager.LoadSceneAsync(gameplayScene.Path, LoadSceneMode.Additive);
             m_gameplayManagerScene = gameplayScene.LoadedScene;
 
             StartGameplay();
