@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace RooseLabs.Generics
 {
-    public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
+    public class Singleton<T> : MonoBehaviour where T : Component
     {
         private static T s_instance;
         private static readonly object s_lock = new();
@@ -36,7 +36,10 @@ namespace RooseLabs.Generics
             }
             else
             {
-                Destroy(gameObject);
+                if (s_instance != this)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
 

@@ -1,3 +1,4 @@
+using System;
 using RooseLabs.Enums;
 using RooseLabs.Models;
 using RooseLabs.Player.StateMachine;
@@ -14,6 +15,7 @@ namespace RooseLabs.Player
     public class Player : MonoBehaviour
     {
         private PlayerStats m_stats;
+        private LayerMask m_actorsMask;
 
         #region Inspector Variables
         [SerializeField] private PlayerStatsSO baseStats;
@@ -52,6 +54,8 @@ namespace RooseLabs.Player
 
         private void Awake()
         {
+            m_actorsMask = LayerMask.GetMask("Actors");
+
             RB = GetComponent<Rigidbody2D>();
             Actor3D = GetComponent<Actor3D>();
             InputHandler = GetComponent<PlayerInputHandler>();
@@ -65,10 +69,7 @@ namespace RooseLabs.Player
 
             Assert.IsNotNull(baseStats, "Base Stats SO is not assigned.");
             m_stats = baseStats.data.Clone();
-        }
 
-        private void Start()
-        {
             StateMachine.Initialize(IdleState);
             SetPrimaryWeapon(defaultPrimaryWeapon);
             SetSecondaryWeapon(defaultSecondaryWeapon);
@@ -106,7 +107,7 @@ namespace RooseLabs.Player
             {
                 RangedWeaponSO rangedWeapon => new PlayerRangedAttackState(this, StateMachine, rangedWeapon, PrimaryWeaponGO),
                 MeleeWeaponSO meleeWeapon => new PlayerMeleeAttackState(this, StateMachine, meleeWeapon, PrimaryWeaponGO),
-                _ => throw new System.NotImplementedException($"Weapon type {newWeapon.Type} not implemented.")
+                _ => throw new NotImplementedException($"Weapon type {newWeapon.Type} not implemented.")
             };
         }
 
@@ -132,7 +133,7 @@ namespace RooseLabs.Player
             {
                 RangedWeaponSO rangedWeapon => new PlayerRangedAttackState(this, StateMachine, rangedWeapon, SecondaryWeaponGO),
                 MeleeWeaponSO meleeWeapon => new PlayerMeleeAttackState(this, StateMachine, meleeWeapon, SecondaryWeaponGO),
-                _ => throw new System.NotImplementedException($"Weapon type {newWeapon.Type} not implemented.")
+                _ => throw new NotImplementedException($"Weapon type {newWeapon.Type} not implemented.")
             };
         }
 
@@ -145,6 +146,11 @@ namespace RooseLabs.Player
         {
             PrimaryWeaponGO?.SetActive(false);
             SecondaryWeaponGO?.SetActive(false);
+        }
+
+        public void EnableActorCollision(bool enable)
+        {
+            RB.excludeLayers = enable ? 0 : m_actorsMask;
         }
 
         public float Health

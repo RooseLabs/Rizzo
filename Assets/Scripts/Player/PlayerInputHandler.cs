@@ -30,7 +30,7 @@ namespace RooseLabs.Player
             m_actions.PrimaryAttack.canceled += OnPrimaryAttackInput;
             m_actions.SecondaryAttack.performed += OnSecondaryAttackInput;
             m_actions.SecondaryAttack.canceled += OnSecondaryAttackInput;
-            m_actions.Enable();
+            InputManager.Instance.EnableGameplayInput();
         }
 
         private void OnDisable()

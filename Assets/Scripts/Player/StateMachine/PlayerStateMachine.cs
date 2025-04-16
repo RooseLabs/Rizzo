@@ -1,8 +1,8 @@
-using UnityEngine;
+using RooseLabs.StateMachine;
 
 namespace RooseLabs.Player.StateMachine
 {
-    public class PlayerStateMachine : RooseLabs.StateMachine.StateMachine<PlayerState>
+    public class PlayerStateMachine : StateMachine<PlayerState>
     {
         // protected override void OnEnter()
         // {

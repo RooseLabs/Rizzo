@@ -11,6 +11,7 @@ namespace RooseLabs.Input
         private GameInput m_playerInputActions;
         private InputDevice m_currentDevice;
         private float m_pointerMoveTime;
+        private bool m_allInputDisabled;
 
         public GameInput.GameplayActions GameplayActions { get; private set; }
         public GameInput.UIActions UIActions { get; private set; }
@@ -48,7 +49,7 @@ namespace RooseLabs.Input
             }
             if (control == null) return;
 
-            if (!hasButtonPress && m_currentDevice is not Pointer && device is Pointer && m_pointerMoveTime < 1.5f)
+            if (!hasButtonPress && m_currentDevice is not null && m_currentDevice is not Pointer && device is Pointer && m_pointerMoveTime < 1.5f)
             {
                 // When a pointer device moves, we wait for a while before setting it as the current device to avoid
                 // accidental movements.
@@ -61,6 +62,28 @@ namespace RooseLabs.Input
             }
         }
 
+        public void EnableGameplayInput()
+        {
+            UIActions.Disable();
+            GameplayActions.Enable();
+            m_allInputDisabled = false;
+        }
+
+        public void EnableUIInput()
+        {
+            GameplayActions.Disable();
+            UIActions.Enable();
+            m_allInputDisabled = false;
+        }
+
+        public void DisableAllInput()
+        {
+            GameplayActions.Disable();
+            UIActions.Disable();
+            m_allInputDisabled = true;
+            Cursor.visible = false;
+        }
+
         public InputDevice CurrentDevice
         {
             get => m_currentDevice;
@@ -70,7 +93,7 @@ namespace RooseLabs.Input
                 // and set the cursor visibility based on the device type.
                 m_currentDevice = value;
                 m_pointerMoveTime = 0f;
-                Cursor.visible = value is Keyboard or Pointer;
+                Cursor.visible = !m_allInputDisabled && value is Keyboard or Pointer;
             }
         }
 

@@ -1,7 +1,6 @@
 using RooseLabs.Enums;
 using RooseLabs.Models;
 using UnityEngine;
-using UnityEditor.Animations;
 
 namespace RooseLabs.ScriptableObjects
 {
@@ -12,7 +11,7 @@ namespace RooseLabs.ScriptableObjects
         [SerializeField] protected GameObject weaponPrefab;
         [SerializeField] protected Sprite weaponIcon;
         [SerializeField] protected HandSocket socketHand;
-        [SerializeField] protected AnimatorController animatorController;
+        [SerializeField] protected RuntimeAnimatorController animatorController;
         [SerializeField] protected WeaponAttackData[] attacks;
         [SerializeField] protected bool dodgeResetsCombo;
 

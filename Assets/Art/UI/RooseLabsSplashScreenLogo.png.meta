@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: 4d923980dad5bdf468560ade4e92b81c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7105664139916119035
+    second: RooseLabs_SplashScreenLogo_0
+  - first:
+      213: -8563895912054121380
+    second: RooseLabs_SplashScreenLogo_1
+  - first:
+      213: -3754442098683306059
+    second: RooseLabs_SplashScreenLogo_2
+  - first:
+      213: -6144589964289138797
+    second: RooseLabs_SplashScreenLogo_3
+  - first:
+      213: -1139828873710522539
+    second: RooseLabs_SplashScreenLogo_4
+  - first:
+      213: -7026967880714490275
+    second: RooseLabs_SplashScreenLogo_5
+  - first:
+      213: 4879656517105033397
+    second: RooseLabs_SplashScreenLogo_6
+  - first:
+      213: 4027083573537962468
+    second: RooseLabs_SplashScreenLogo_7
+  - first:
+      213: 4922335460076482887
+    second: RooseLabs_SplashScreenLogo_8
+  - first:
+      213: 444182367555466072
+    second: RooseLabs_SplashScreenLogo_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RooseLabs_SplashScreenLogo_0
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 784
+        width: 2050
+        height: 2049
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5047117bc1c936d90800000000000000
+      internalID: -7105664139916119035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RooseLabs_SplashScreenLogo_1
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 351
+        width: 203
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5c189c9a0ee62980800000000000000
+      internalID: -8563895912054121380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RooseLabs_SplashScreenLogo_2
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 351
+        width: 209
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bf953a9dca85ebc0800000000000000
+      internalID: -3754442098683306059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RooseLabs_SplashScreenLogo_3
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 351
+        width: 209
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39f9d10abf70abaa0800000000000000
+      internalID: -6144589964289138797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RooseLabs_SplashScreenLogo_4
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 349
+        width: 170
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55f20cdada38e20f0800000000000000
+      internalID: -1139828873710522539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RooseLabs_SplashScreenLogo_5
+      rect:
+        serializedVersion: 2
+        x: 1293
+        y: 353
+        width: 195
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5eeee561f13b7e90800000000000000
+      internalID: -7026967880714490275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RooseLabs_SplashScreenLogo_6
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 351
+        width: 155
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b027ffafb508b340800000000000000
+      internalID: 4879656517105033397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RooseLabs_SplashScreenLogo_7
+      rect:
+        serializedVersion: 2
+        x: 1771
+        y: 352
+        width: 201
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e97a897c2313e730800000000000000
+      internalID: 4027083573537962468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RooseLabs_SplashScreenLogo_8
+      rect:
+        serializedVersion: 2
+        x: 2014
+        y: 353
+        width: 210
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 741fa237506af4440800000000000000
+      internalID: 4922335460076482887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RooseLabs_SplashScreenLogo_9
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 349
+        width: 170
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 853b2a9828d0a2600800000000000000
+      internalID: 444182367555466072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      RooseLabs_SplashScreenLogo_0: -7105664139916119035
+      RooseLabs_SplashScreenLogo_1: -8563895912054121380
+      RooseLabs_SplashScreenLogo_2: -3754442098683306059
+      RooseLabs_SplashScreenLogo_3: -6144589964289138797
+      RooseLabs_SplashScreenLogo_4: -1139828873710522539
+      RooseLabs_SplashScreenLogo_5: -7026967880714490275
+      RooseLabs_SplashScreenLogo_6: 4879656517105033397
+      RooseLabs_SplashScreenLogo_7: 4027083573537962468
+      RooseLabs_SplashScreenLogo_8: 4922335460076482887
+      RooseLabs_SplashScreenLogo_9: 444182367555466072
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

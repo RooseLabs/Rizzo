@@ -123,6 +123,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -144,28 +170,6 @@ TextureImporter:
       bones: []
       spriteID: f73784f4c57765e80800000000000000
       internalID: -8190227633975823489
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: backalley2_1
-      rect:
-        serializedVersion: 2
-        x: 1772
-        y: 742
-        width: 10
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ea1909b74723dc7f0800000000000000
-      internalID: -590760500244999762
       vertices: []
       indices: 
       edges: []
@@ -237,28 +241,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: backalley2_5
-      rect:
-        serializedVersion: 2
-        x: 1733
-        y: 675
-        width: 89
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 18aec6de796fa1850800000000000000
-      internalID: 6348657757115968129
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: backalley2_6
       rect:
         serializedVersion: 2
@@ -303,28 +285,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: backalley2_8
-      rect:
-        serializedVersion: 2
-        x: 1769
-        y: 645
-        width: 30
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 456d57df4883c6120800000000000000
-      internalID: 2408362044575569492
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: backalley2_9
       rect:
         serializedVersion: 2
@@ -362,6 +322,7 @@ TextureImporter:
     nameFileIdTable:
       backalley2_0: -8190227633975823489
       backalley2_1: -590760500244999762
+      backalley2_10: -1272372597
       backalley2_2: 5951219117829004014
       backalley2_3: -4685122218181239448
       backalley2_4: 8327977708429678412
