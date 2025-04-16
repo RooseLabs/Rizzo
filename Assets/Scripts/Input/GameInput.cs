@@ -146,6 +146,15 @@ namespace RooseLabs.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""6c35fae6-17fe-442a-8f09-f909539300e4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -412,11 +421,33 @@ namespace RooseLabs.Input
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7d43e0f8-9ed4-4971-a63f-a89b2f507f1b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""939a377e-cb98-415f-ac73-776d3484b686"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
         {
-            ""name"": ""UI"",
+            ""name"": ""Menus"",
             ""id"": ""272f6d14-89ba-496f-b7ff-215263d3219f"",
             ""actions"": [
                 {
@@ -505,6 +536,15 @@ namespace RooseLabs.Input
                     ""type"": ""PassThrough"",
                     ""id"": ""9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be"",
                     ""expectedControlType"": ""Quaternion"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Unpause"",
+                    ""type"": ""Button"",
+                    ""id"": ""305ccdd0-3359-4cff-acb5-96baa14b4a9a"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -928,6 +968,28 @@ namespace RooseLabs.Input
                     ""action"": ""TrackedDeviceOrientation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a7b97508-33f7-414c-b9e5-f6169f3076a2"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Unpause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9ee8c03b-25c4-4efe-b3da-83cd65c0eea0"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Unpause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1003,24 +1065,26 @@ namespace RooseLabs.Input
             m_Gameplay_SecondaryAttack = m_Gameplay.FindAction("SecondaryAttack", throwIfNotFound: true);
             m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
             m_Gameplay_Dodge = m_Gameplay.FindAction("Dodge", throwIfNotFound: true);
-            // UI
-            m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-            m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
-            m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
-            m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
-            m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
-            m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
-            m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
-            m_UI_MiddleClick = m_UI.FindAction("MiddleClick", throwIfNotFound: true);
-            m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
-            m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
-            m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+            m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+            // Menus
+            m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
+            m_Menus_Navigate = m_Menus.FindAction("Navigate", throwIfNotFound: true);
+            m_Menus_Submit = m_Menus.FindAction("Submit", throwIfNotFound: true);
+            m_Menus_Cancel = m_Menus.FindAction("Cancel", throwIfNotFound: true);
+            m_Menus_Point = m_Menus.FindAction("Point", throwIfNotFound: true);
+            m_Menus_Click = m_Menus.FindAction("Click", throwIfNotFound: true);
+            m_Menus_RightClick = m_Menus.FindAction("RightClick", throwIfNotFound: true);
+            m_Menus_MiddleClick = m_Menus.FindAction("MiddleClick", throwIfNotFound: true);
+            m_Menus_ScrollWheel = m_Menus.FindAction("ScrollWheel", throwIfNotFound: true);
+            m_Menus_TrackedDevicePosition = m_Menus.FindAction("TrackedDevicePosition", throwIfNotFound: true);
+            m_Menus_TrackedDeviceOrientation = m_Menus.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+            m_Menus_Unpause = m_Menus.FindAction("Unpause", throwIfNotFound: true);
         }
 
         ~@GameInput()
         {
             UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, GameInput.Gameplay.Disable() has not been called.");
-            UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, GameInput.UI.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Menus.enabled, "This will cause a leak and performance issues, GameInput.Menus.Disable() has not been called.");
         }
 
         /// <summary>
@@ -1102,6 +1166,7 @@ namespace RooseLabs.Input
         private readonly InputAction m_Gameplay_SecondaryAttack;
         private readonly InputAction m_Gameplay_Interact;
         private readonly InputAction m_Gameplay_Dodge;
+        private readonly InputAction m_Gameplay_Pause;
         /// <summary>
         /// Provides access to input actions defined in input action map "Gameplay".
         /// </summary>
@@ -1137,6 +1202,10 @@ namespace RooseLabs.Input
             /// Provides access to the underlying input action "Gameplay/Dodge".
             /// </summary>
             public InputAction @Dodge => m_Wrapper.m_Gameplay_Dodge;
+            /// <summary>
+            /// Provides access to the underlying input action "Gameplay/Pause".
+            /// </summary>
+            public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -1181,6 +1250,9 @@ namespace RooseLabs.Input
                 @Dodge.started += instance.OnDodge;
                 @Dodge.performed += instance.OnDodge;
                 @Dodge.canceled += instance.OnDodge;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
 
             /// <summary>
@@ -1210,6 +1282,9 @@ namespace RooseLabs.Input
                 @Dodge.started -= instance.OnDodge;
                 @Dodge.performed -= instance.OnDodge;
                 @Dodge.canceled -= instance.OnDodge;
+                @Pause.started -= instance.OnPause;
+                @Pause.performed -= instance.OnPause;
+                @Pause.canceled -= instance.OnPause;
             }
 
             /// <summary>
@@ -1244,74 +1319,79 @@ namespace RooseLabs.Input
         /// </summary>
         public GameplayActions @Gameplay => new GameplayActions(this);
 
-        // UI
-        private readonly InputActionMap m_UI;
-        private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-        private readonly InputAction m_UI_Navigate;
-        private readonly InputAction m_UI_Submit;
-        private readonly InputAction m_UI_Cancel;
-        private readonly InputAction m_UI_Point;
-        private readonly InputAction m_UI_Click;
-        private readonly InputAction m_UI_RightClick;
-        private readonly InputAction m_UI_MiddleClick;
-        private readonly InputAction m_UI_ScrollWheel;
-        private readonly InputAction m_UI_TrackedDevicePosition;
-        private readonly InputAction m_UI_TrackedDeviceOrientation;
+        // Menus
+        private readonly InputActionMap m_Menus;
+        private List<IMenusActions> m_MenusActionsCallbackInterfaces = new List<IMenusActions>();
+        private readonly InputAction m_Menus_Navigate;
+        private readonly InputAction m_Menus_Submit;
+        private readonly InputAction m_Menus_Cancel;
+        private readonly InputAction m_Menus_Point;
+        private readonly InputAction m_Menus_Click;
+        private readonly InputAction m_Menus_RightClick;
+        private readonly InputAction m_Menus_MiddleClick;
+        private readonly InputAction m_Menus_ScrollWheel;
+        private readonly InputAction m_Menus_TrackedDevicePosition;
+        private readonly InputAction m_Menus_TrackedDeviceOrientation;
+        private readonly InputAction m_Menus_Unpause;
         /// <summary>
-        /// Provides access to input actions defined in input action map "UI".
+        /// Provides access to input actions defined in input action map "Menus".
         /// </summary>
-        public struct UIActions
+        public struct MenusActions
         {
             private @GameInput m_Wrapper;
 
             /// <summary>
             /// Construct a new instance of the input action map wrapper class.
             /// </summary>
-            public UIActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+            public MenusActions(@GameInput wrapper) { m_Wrapper = wrapper; }
             /// <summary>
-            /// Provides access to the underlying input action "UI/Navigate".
+            /// Provides access to the underlying input action "Menus/Navigate".
             /// </summary>
-            public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
+            public InputAction @Navigate => m_Wrapper.m_Menus_Navigate;
             /// <summary>
-            /// Provides access to the underlying input action "UI/Submit".
+            /// Provides access to the underlying input action "Menus/Submit".
             /// </summary>
-            public InputAction @Submit => m_Wrapper.m_UI_Submit;
+            public InputAction @Submit => m_Wrapper.m_Menus_Submit;
             /// <summary>
-            /// Provides access to the underlying input action "UI/Cancel".
+            /// Provides access to the underlying input action "Menus/Cancel".
             /// </summary>
-            public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
+            public InputAction @Cancel => m_Wrapper.m_Menus_Cancel;
             /// <summary>
-            /// Provides access to the underlying input action "UI/Point".
+            /// Provides access to the underlying input action "Menus/Point".
             /// </summary>
-            public InputAction @Point => m_Wrapper.m_UI_Point;
+            public InputAction @Point => m_Wrapper.m_Menus_Point;
             /// <summary>
-            /// Provides access to the underlying input action "UI/Click".
+            /// Provides access to the underlying input action "Menus/Click".
             /// </summary>
-            public InputAction @Click => m_Wrapper.m_UI_Click;
+            public InputAction @Click => m_Wrapper.m_Menus_Click;
             /// <summary>
-            /// Provides access to the underlying input action "UI/RightClick".
+            /// Provides access to the underlying input action "Menus/RightClick".
             /// </summary>
-            public InputAction @RightClick => m_Wrapper.m_UI_RightClick;
+            public InputAction @RightClick => m_Wrapper.m_Menus_RightClick;
             /// <summary>
-            /// Provides access to the underlying input action "UI/MiddleClick".
+            /// Provides access to the underlying input action "Menus/MiddleClick".
             /// </summary>
-            public InputAction @MiddleClick => m_Wrapper.m_UI_MiddleClick;
+            public InputAction @MiddleClick => m_Wrapper.m_Menus_MiddleClick;
             /// <summary>
-            /// Provides access to the underlying input action "UI/ScrollWheel".
+            /// Provides access to the underlying input action "Menus/ScrollWheel".
             /// </summary>
-            public InputAction @ScrollWheel => m_Wrapper.m_UI_ScrollWheel;
+            public InputAction @ScrollWheel => m_Wrapper.m_Menus_ScrollWheel;
             /// <summary>
-            /// Provides access to the underlying input action "UI/TrackedDevicePosition".
+            /// Provides access to the underlying input action "Menus/TrackedDevicePosition".
             /// </summary>
-            public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
+            public InputAction @TrackedDevicePosition => m_Wrapper.m_Menus_TrackedDevicePosition;
             /// <summary>
-            /// Provides access to the underlying input action "UI/TrackedDeviceOrientation".
+            /// Provides access to the underlying input action "Menus/TrackedDeviceOrientation".
             /// </summary>
-            public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
+            public InputAction @TrackedDeviceOrientation => m_Wrapper.m_Menus_TrackedDeviceOrientation;
+            /// <summary>
+            /// Provides access to the underlying input action "Menus/Unpause".
+            /// </summary>
+            public InputAction @Unpause => m_Wrapper.m_Menus_Unpause;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
-            public InputActionMap Get() { return m_Wrapper.m_UI; }
+            public InputActionMap Get() { return m_Wrapper.m_Menus; }
             /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
             public void Enable() { Get().Enable(); }
             /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -1319,9 +1399,9 @@ namespace RooseLabs.Input
             /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
             public bool enabled => Get().enabled;
             /// <summary>
-            /// Implicitly converts an <see ref="UIActions" /> to an <see ref="InputActionMap" /> instance.
+            /// Implicitly converts an <see ref="MenusActions" /> to an <see ref="InputActionMap" /> instance.
             /// </summary>
-            public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+            public static implicit operator InputActionMap(MenusActions set) { return set.Get(); }
             /// <summary>
             /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
             /// </summary>
@@ -1329,11 +1409,11 @@ namespace RooseLabs.Input
             /// <remarks>
             /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
             /// </remarks>
-            /// <seealso cref="UIActions" />
-            public void AddCallbacks(IUIActions instance)
+            /// <seealso cref="MenusActions" />
+            public void AddCallbacks(IMenusActions instance)
             {
-                if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
-                m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+                if (instance == null || m_Wrapper.m_MenusActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_MenusActionsCallbackInterfaces.Add(instance);
                 @Navigate.started += instance.OnNavigate;
                 @Navigate.performed += instance.OnNavigate;
                 @Navigate.canceled += instance.OnNavigate;
@@ -1364,6 +1444,9 @@ namespace RooseLabs.Input
                 @TrackedDeviceOrientation.started += instance.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.performed += instance.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.canceled += instance.OnTrackedDeviceOrientation;
+                @Unpause.started += instance.OnUnpause;
+                @Unpause.performed += instance.OnUnpause;
+                @Unpause.canceled += instance.OnUnpause;
             }
 
             /// <summary>
@@ -1372,8 +1455,8 @@ namespace RooseLabs.Input
             /// <remarks>
             /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
             /// </remarks>
-            /// <seealso cref="UIActions" />
-            private void UnregisterCallbacks(IUIActions instance)
+            /// <seealso cref="MenusActions" />
+            private void UnregisterCallbacks(IMenusActions instance)
             {
                 @Navigate.started -= instance.OnNavigate;
                 @Navigate.performed -= instance.OnNavigate;
@@ -1405,15 +1488,18 @@ namespace RooseLabs.Input
                 @TrackedDeviceOrientation.started -= instance.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.performed -= instance.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.canceled -= instance.OnTrackedDeviceOrientation;
+                @Unpause.started -= instance.OnUnpause;
+                @Unpause.performed -= instance.OnUnpause;
+                @Unpause.canceled -= instance.OnUnpause;
             }
 
             /// <summary>
-            /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="UIActions.UnregisterCallbacks(IUIActions)" />.
+            /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="MenusActions.UnregisterCallbacks(IMenusActions)" />.
             /// </summary>
-            /// <seealso cref="UIActions.UnregisterCallbacks(IUIActions)" />
-            public void RemoveCallbacks(IUIActions instance)
+            /// <seealso cref="MenusActions.UnregisterCallbacks(IMenusActions)" />
+            public void RemoveCallbacks(IMenusActions instance)
             {
-                if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                if (m_Wrapper.m_MenusActionsCallbackInterfaces.Remove(instance))
                     UnregisterCallbacks(instance);
             }
 
@@ -1423,21 +1509,21 @@ namespace RooseLabs.Input
             /// <remarks>
             /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
             /// </remarks>
-            /// <seealso cref="UIActions.AddCallbacks(IUIActions)" />
-            /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
-            /// <seealso cref="UIActions.UnregisterCallbacks(IUIActions)" />
-            public void SetCallbacks(IUIActions instance)
+            /// <seealso cref="MenusActions.AddCallbacks(IMenusActions)" />
+            /// <seealso cref="MenusActions.RemoveCallbacks(IMenusActions)" />
+            /// <seealso cref="MenusActions.UnregisterCallbacks(IMenusActions)" />
+            public void SetCallbacks(IMenusActions instance)
             {
-                foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                foreach (var item in m_Wrapper.m_MenusActionsCallbackInterfaces)
                     UnregisterCallbacks(item);
-                m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+                m_Wrapper.m_MenusActionsCallbackInterfaces.Clear();
                 AddCallbacks(instance);
             }
         }
         /// <summary>
-        /// Provides a new <see cref="UIActions" /> instance referencing this action map.
+        /// Provides a new <see cref="MenusActions" /> instance referencing this action map.
         /// </summary>
-        public UIActions @UI => new UIActions(this);
+        public MenusActions @Menus => new MenusActions(this);
         private int m_KeyboardMouseSchemeIndex = -1;
         /// <summary>
         /// Provides access to the input control scheme.
@@ -1552,13 +1638,20 @@ namespace RooseLabs.Input
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnDodge(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnPause(InputAction.CallbackContext context);
         }
         /// <summary>
-        /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
+        /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Menus" which allows adding and removing callbacks.
         /// </summary>
-        /// <seealso cref="UIActions.AddCallbacks(IUIActions)" />
-        /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
-        public interface IUIActions
+        /// <seealso cref="MenusActions.AddCallbacks(IMenusActions)" />
+        /// <seealso cref="MenusActions.RemoveCallbacks(IMenusActions)" />
+        public interface IMenusActions
         {
             /// <summary>
             /// Method invoked when associated input action "Navigate" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
@@ -1630,6 +1723,13 @@ namespace RooseLabs.Input
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Unpause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnUnpause(InputAction.CallbackContext context);
         }
     }
 }

@@ -21,7 +21,8 @@ namespace RooseLabs.SceneManagement
         [SerializeField] private LoadEventChannelSO coldStartupChannel;
 
         [Header("Broadcasting on")]
-        [SerializeField] private FloatEventChannelSO loadingProgressChannel;
+        [SerializeField] private VoidEventChannelSO onSceneReady;
+        [SerializeField] private FloatEventChannelSO onLoadingProgress;
         [SerializeField] private FadeEventChannelSO fadeEventChannel;
 
         private SceneReference m_sceneToLoad;
@@ -128,12 +129,12 @@ namespace RooseLabs.SceneManagement
                 op!.allowSceneActivation = false;
                 while (op.progress < 0.9f || artificialProgress < 1f)
                 {
-                    loadingProgressChannel.RaiseEvent((op.progress + artificialProgress) * 0.5f);
+                    onLoadingProgress.RaiseEvent((op.progress + artificialProgress) * 0.5f);
                     await Task.Delay(100);
                     artificialProgress += 100 / 5000f; // 5 seconds of artificial loading time TODO: Remove (probably)
                 }
 
-                loadingProgressChannel.RaiseEvent(1f);
+                onLoadingProgress.RaiseEvent(1f);
                 await Task.Delay(1000); // Loading animation takes roughly 1 second to transition
                 op.allowSceneActivation = true;
                 await op;
@@ -155,7 +156,7 @@ namespace RooseLabs.SceneManagement
 
         private void StartGameplay()
         {
-
+            onSceneReady.RaiseEvent();
         }
     }
 }

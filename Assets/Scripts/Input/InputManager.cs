@@ -1,3 +1,4 @@
+using System;
 using RooseLabs.Generics;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,24 +15,43 @@ namespace RooseLabs.Input
         private bool m_allInputDisabled;
 
         public GameInput.GameplayActions GameplayActions { get; private set; }
-        public GameInput.UIActions UIActions { get; private set; }
+        public GameInput.MenusActions MenusActions { get; private set; }
+
+        #region Event Actions
+        public event Action MenuPauseEvent = delegate { };
+        public event Action MenuUnpauseEvent = delegate { };
+        #endregion
 
         protected override void Awake()
         {
             base.Awake();
             m_playerInputActions = new GameInput();
             GameplayActions = m_playerInputActions.Gameplay;
-            UIActions = m_playerInputActions.UI;
+            MenusActions = m_playerInputActions.Menus;
         }
 
         private void OnEnable()
         {
             InputSystem.onEvent += OnInputEvent;
+            GameplayActions.Pause.performed += OnPause;
+            MenusActions.Unpause.performed += OnUnpause;
         }
 
         private void OnDisable()
         {
             InputSystem.onEvent -= OnInputEvent;
+            GameplayActions.Pause.performed -= OnPause;
+            MenusActions.Unpause.performed -= OnUnpause;
+        }
+
+        private void OnPause(InputAction.CallbackContext context)
+        {
+            MenuPauseEvent.Invoke();
+        }
+
+        private void OnUnpause(InputAction.CallbackContext context)
+        {
+            MenuUnpauseEvent.Invoke();
         }
 
         private void OnInputEvent(InputEventPtr eventPtr, InputDevice device)
@@ -64,22 +84,22 @@ namespace RooseLabs.Input
 
         public void EnableGameplayInput()
         {
-            UIActions.Disable();
+            MenusActions.Disable();
             GameplayActions.Enable();
             m_allInputDisabled = false;
         }
 
-        public void EnableUIInput()
+        public void EnableMenuInput()
         {
             GameplayActions.Disable();
-            UIActions.Enable();
+            MenusActions.Enable();
             m_allInputDisabled = false;
         }
 
         public void DisableAllInput()
         {
             GameplayActions.Disable();
-            UIActions.Disable();
+            MenusActions.Disable();
             m_allInputDisabled = true;
             Cursor.visible = false;
         }

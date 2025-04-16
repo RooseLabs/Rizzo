@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49122c62e044e679b060905910e6d68, type: 3}
-  m_Name: LoadingProgressChannel
+  m_Script: {fileID: 11500000, guid: ed344aa47dc54f429f1e3cc014f32206, type: 3}
+  m_Name: OnSceneReady
   m_EditorClassIdentifier: 

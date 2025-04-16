@@ -823,9 +823,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 96ed56bcd9828714ca920da77ed83d5f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1622169335}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 96ed56bcd9828714ca920da77ed83d5f, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1622169339}
   m_SourcePrefab: {fileID: 100100000, guid: 96ed56bcd9828714ca920da77ed83d5f, type: 3}
 --- !u!1 &1622169334 stripped
@@ -833,28 +830,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 96ed56bcd9828714ca920da77ed83d5f, type: 3}
   m_PrefabInstance: {fileID: 1622169333}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1622169335
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622169334}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: da67ff70b4b76114f9e4eb52e9b01190, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1622169336 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 96ed56bcd9828714ca920da77ed83d5f, type: 3}
@@ -874,7 +849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationClip: {fileID: 7400000, guid: 24330792663cd4e47afd98b2f880e639, type: 2}
   smoothTime: 0.85
-  loadingProgressChannel: {fileID: 11400000, guid: 4a4a1f8ff7d665044a2a607f66064723, type: 2}
+  onLoadingProgress: {fileID: 11400000, guid: 4a4a1f8ff7d665044a2a607f66064723, type: 2}
 --- !u!1 &1915723392
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,7 +886,8 @@ MonoBehaviour:
   loadMenuChannel: {fileID: 11400000, guid: db1a9e16bb2a95e42a3c578f8e4cddce, type: 2}
   loadLevelChannel: {fileID: 11400000, guid: 533d8d11880100b469192a941a7e09a4, type: 2}
   coldStartupChannel: {fileID: 11400000, guid: aaedceb1ab4386b43abc080eccb42954, type: 2}
-  loadingProgressChannel: {fileID: 11400000, guid: 4a4a1f8ff7d665044a2a607f66064723, type: 2}
+  onSceneReady: {fileID: 11400000, guid: 0f74ff2da646f3a47be06513b8f27bcd, type: 2}
+  onLoadingProgress: {fileID: 11400000, guid: 4a4a1f8ff7d665044a2a607f66064723, type: 2}
   fadeEventChannel: {fileID: 11400000, guid: 2bcfdaa60d2f8684aa979a5ce9407ca1, type: 2}
 --- !u!4 &1915723394
 Transform:

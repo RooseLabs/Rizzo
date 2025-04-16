@@ -9,7 +9,7 @@ namespace RooseLabs.SceneManagement.UI
         [SerializeField] private float smoothTime = 0.85f;
 
         [Header("Listening to")]
-        [SerializeField] private FloatEventChannelSO loadingProgressChannel;
+        [SerializeField] private FloatEventChannelSO onLoadingProgress;
 
         private float loadingProgress = 0f;
         private float displayedProgress = 0f;
@@ -21,14 +21,14 @@ namespace RooseLabs.SceneManagement.UI
 
         private void OnEnable()
         {
-            loadingProgressChannel.OnEventRaised += UpdateLoadingProgress;
+            onLoadingProgress.OnEventRaised += UpdateLoadingProgress;
             animationClip.SampleAnimation(gameObject, 0f);
             Rotate180();
         }
 
         private void OnDisable()
         {
-            loadingProgressChannel.OnEventRaised -= UpdateLoadingProgress;
+            onLoadingProgress.OnEventRaised -= UpdateLoadingProgress;
         }
 
         private void Update()

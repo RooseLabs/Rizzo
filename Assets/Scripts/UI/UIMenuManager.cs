@@ -19,7 +19,7 @@ namespace RooseLabs.UI
 
         private void Start()
         {
-            InputManager.Instance.EnableUIInput();
+            InputManager.Instance.EnableMenuInput();
             mainMenuPanel.PlayButtonAction += PlayButtonClicked;
             mainMenuPanel.ArchiveButtonAction += OpenArchiveScreen;
             mainMenuPanel.SettingsButtonAction += OpenSettingsScreen;
