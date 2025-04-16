@@ -18,6 +18,7 @@ namespace RooseLabs.Input
         public GameInput.MenusActions MenusActions { get; private set; }
 
         #region Event Actions
+        public event Action<InputDevice> InputDeviceChangedEvent = delegate { };
         public event Action MenuPauseEvent = delegate { };
         public event Action MenuUnpauseEvent = delegate { };
         #endregion
@@ -111,6 +112,7 @@ namespace RooseLabs.Input
             {
                 // When updating the current device, reset the pointer move time
                 // and set the cursor visibility based on the device type.
+                if (m_currentDevice != value) InputDeviceChangedEvent.Invoke(value);
                 m_currentDevice = value;
                 m_pointerMoveTime = 0f;
                 Cursor.visible = !m_allInputDisabled && value is Keyboard or Pointer;

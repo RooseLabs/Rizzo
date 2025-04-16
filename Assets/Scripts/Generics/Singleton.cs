@@ -6,13 +6,11 @@ namespace RooseLabs.Generics
     {
         private static T s_instance;
         private static readonly object s_lock = new();
-        private static bool s_applicationIsQuitting = false;
 
         public static T Instance
         {
             get
             {
-                if (s_applicationIsQuitting) return null;
                 if (s_instance != null) return s_instance;
                 s_instance = (T)FindAnyObjectByType(typeof(T));
                 if (s_instance != null) return s_instance;
@@ -29,6 +27,7 @@ namespace RooseLabs.Generics
 
         protected virtual void Awake()
         {
+            if (!Application.isPlaying) return;
             if (s_instance == null)
             {
                 s_instance = this as T;
@@ -41,11 +40,6 @@ namespace RooseLabs.Generics
                     Destroy(gameObject);
                 }
             }
-        }
-
-        private void OnDestroy()
-        {
-            s_applicationIsQuitting = true;
         }
     }
 }

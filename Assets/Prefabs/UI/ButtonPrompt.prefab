@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7890944171228086514}
   - component: {fileID: 8167617944487886549}
   - component: {fileID: 3081050849943185134}
+  - component: {fileID: 8992030389643376719}
   m_Layer: 5
   m_Name: ButtonPrompt
   m_TagString: Untagged
@@ -73,6 +74,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &8992030389643376719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4891106226284195476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee00c20e409bed468656fe61f9397a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: 
+  kbmButton: {fileID: 0}
+  gamepadButton: {fileID: 0}
+  onInputDeviceChange: {fileID: 11400000, guid: 17f04e73cdf2bd24cafe82726caf602f, type: 2}
 --- !u!1 &8159983589775599621
 GameObject:
   m_ObjectHideFlags: 0

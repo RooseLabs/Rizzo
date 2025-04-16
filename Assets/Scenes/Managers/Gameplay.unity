@@ -342,6 +342,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8992030389643376719, guid: 5235b7791569ce0469586767e36e9a94, type: 3}
+      propertyPath: kbmButton
+      value: 
+      objectReference: {fileID: 21300000, guid: 7204c6abfb15bc947871a2c98a13cfb3, type: 3}
+    - target: {fileID: 8992030389643376719, guid: 5235b7791569ce0469586767e36e9a94, type: 3}
+      propertyPath: actionName
+      value: Secondary Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992030389643376719, guid: 5235b7791569ce0469586767e36e9a94, type: 3}
+      propertyPath: gamepadButton
+      value: 
+      objectReference: {fileID: 21300000, guid: 03276531abbc1bf43b7876449ca6fc3a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -976,6 +988,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8992030389643376719, guid: 5235b7791569ce0469586767e36e9a94, type: 3}
+      propertyPath: kbmButton
+      value: 
+      objectReference: {fileID: 21300000, guid: db044e321b2b5f047a363c03aef1a444, type: 3}
+    - target: {fileID: 8992030389643376719, guid: 5235b7791569ce0469586767e36e9a94, type: 3}
+      propertyPath: actionName
+      value: Dodge
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992030389643376719, guid: 5235b7791569ce0469586767e36e9a94, type: 3}
+      propertyPath: gamepadButton
+      value: 
+      objectReference: {fileID: 21300000, guid: b839b3437cf49fb4698390e2a7f7b790, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1927,6 +1951,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8992030389643376719, guid: 5235b7791569ce0469586767e36e9a94, type: 3}
+      propertyPath: kbmButton
+      value: 
+      objectReference: {fileID: 21300000, guid: 8d2737ec2ad219b4fa692c63daba9dd6, type: 3}
+    - target: {fileID: 8992030389643376719, guid: 5235b7791569ce0469586767e36e9a94, type: 3}
+      propertyPath: actionName
+      value: Primary Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992030389643376719, guid: 5235b7791569ce0469586767e36e9a94, type: 3}
+      propertyPath: gamepadButton
+      value: 
+      objectReference: {fileID: 21300000, guid: 0691a3f97f729274faedf4987a2b7603, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
