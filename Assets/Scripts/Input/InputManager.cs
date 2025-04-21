@@ -1,5 +1,4 @@
 using System;
-using RooseLabs.Generics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -7,15 +6,31 @@ using UnityEngine.InputSystem.LowLevel;
 
 namespace RooseLabs.Input
 {
-    public class InputManager : Singleton<InputManager>
+    public class InputManager
     {
-        private GameInput m_playerInputActions;
+        private static InputManager s_instance;
+        private static readonly object s_lock = new();
+
+        public static InputManager Instance
+        {
+            get
+            {
+                lock (s_lock)
+                {
+                    if (s_instance != null) return s_instance;
+                    s_instance = new InputManager();
+                    return s_instance;
+                }
+            }
+        }
+
+        private readonly GameInput m_gameInput;
         private InputDevice m_currentDevice;
         private float m_pointerMoveTime;
         private bool m_allInputDisabled;
 
-        public GameInput.GameplayActions GameplayActions { get; private set; }
-        public GameInput.MenusActions MenusActions { get; private set; }
+        public GameInput.MenusActions MenusActions { get; }
+        public GameInput.GameplayActions GameplayActions { get; }
 
         #region Event Actions
         public event Action<InputDevice> InputDeviceChangedEvent = delegate { };
@@ -23,26 +38,23 @@ namespace RooseLabs.Input
         public event Action MenuUnpauseEvent = delegate { };
         #endregion
 
-        protected override void Awake()
+        private InputManager()
         {
-            base.Awake();
-            m_playerInputActions = new GameInput();
-            GameplayActions = m_playerInputActions.Gameplay;
-            MenusActions = m_playerInputActions.Menus;
-        }
+            m_gameInput = new GameInput();
+            MenusActions = m_gameInput.Menus;
+            GameplayActions = m_gameInput.Gameplay;
 
-        private void OnEnable()
-        {
             InputSystem.onEvent += OnInputEvent;
+
             GameplayActions.Pause.performed += OnPause;
             MenusActions.Unpause.performed += OnUnpause;
+
+            Application.quitting += OnApplicationQuit;
         }
 
-        private void OnDisable()
+        private void OnApplicationQuit()
         {
-            InputSystem.onEvent -= OnInputEvent;
-            GameplayActions.Pause.performed -= OnPause;
-            MenusActions.Unpause.performed -= OnUnpause;
+            DisableAllInput();
         }
 
         private void OnPause(InputAction.CallbackContext context)

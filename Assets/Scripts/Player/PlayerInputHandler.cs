@@ -22,28 +22,27 @@ namespace RooseLabs.Player
 
         private void OnEnable()
         {
-            m_actions.Move.performed += OnMoveInput;
-            m_actions.Move.canceled += OnMoveInput;
-            m_actions.Dodge.performed += OnDodgeInput;
-            m_actions.Dodge.canceled += OnDodgeInput;
-            m_actions.PrimaryAttack.performed += OnPrimaryAttackInput;
-            m_actions.PrimaryAttack.canceled += OnPrimaryAttackInput;
-            m_actions.SecondaryAttack.performed += OnSecondaryAttackInput;
-            m_actions.SecondaryAttack.canceled += OnSecondaryAttackInput;
+            m_actions.Move.performed += OnMove;
+            m_actions.Move.canceled += OnMove;
+            m_actions.Dodge.performed += OnDodge;
+            m_actions.Dodge.canceled += OnDodge;
+            m_actions.PrimaryAttack.performed += OnPrimaryAttack;
+            m_actions.PrimaryAttack.canceled += OnPrimaryAttack;
+            m_actions.SecondaryAttack.performed += OnSecondaryAttack;
+            m_actions.SecondaryAttack.canceled += OnSecondaryAttack;
             InputManager.Instance.EnableGameplayInput();
         }
 
         private void OnDisable()
         {
-            m_actions.Disable();
-            m_actions.Move.performed -= OnMoveInput;
-            m_actions.Move.canceled -= OnMoveInput;
-            m_actions.Dodge.performed -= OnDodgeInput;
-            m_actions.Dodge.canceled -= OnDodgeInput;
-            m_actions.PrimaryAttack.performed -= OnPrimaryAttackInput;
-            m_actions.PrimaryAttack.canceled -= OnPrimaryAttackInput;
-            m_actions.SecondaryAttack.performed -= OnSecondaryAttackInput;
-            m_actions.SecondaryAttack.canceled -= OnSecondaryAttackInput;
+            m_actions.Move.performed -= OnMove;
+            m_actions.Move.canceled -= OnMove;
+            m_actions.Dodge.performed -= OnDodge;
+            m_actions.Dodge.canceled -= OnDodge;
+            m_actions.PrimaryAttack.performed -= OnPrimaryAttack;
+            m_actions.PrimaryAttack.canceled -= OnPrimaryAttack;
+            m_actions.SecondaryAttack.performed -= OnSecondaryAttack;
+            m_actions.SecondaryAttack.canceled -= OnSecondaryAttack;
         }
 
         private void LateUpdate()
@@ -53,7 +52,7 @@ namespace RooseLabs.Player
             PressedSecondaryAttack = false;
         }
 
-        private void OnMoveInput(InputAction.CallbackContext context)
+        private void OnMove(InputAction.CallbackContext context)
         {
             Vector2 moveInput = context.ReadValue<Vector2>();
             float magnitude = Mathf.Clamp01(moveInput.magnitude);
@@ -62,18 +61,18 @@ namespace RooseLabs.Player
             MoveInput = moveInput;
         }
 
-        private void OnDodgeInput(InputAction.CallbackContext context)
+        private void OnDodge(InputAction.CallbackContext context)
         {
             PressedDodge = context.performed;
         }
 
-        private void OnPrimaryAttackInput(InputAction.CallbackContext context)
+        private void OnPrimaryAttack(InputAction.CallbackContext context)
         {
             PressedPrimaryAttack = context.performed;
             IsPressingPrimaryAttack = context.performed;
         }
 
-        private void OnSecondaryAttackInput(InputAction.CallbackContext context)
+        private void OnSecondaryAttack(InputAction.CallbackContext context)
         {
             PressedSecondaryAttack = context.performed;
             IsPressingSecondaryAttack = context.performed;

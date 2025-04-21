@@ -20,11 +20,8 @@ namespace RooseLabs.UI.Elements
         private Image m_buttonImage;
         private TextMeshProUGUI m_buttonText;
 
-        private InputManager m_inputManager;
-
         private void Awake()
         {
-            m_inputManager = InputManager.Instance;
             m_buttonImage = GetComponentInChildren<Image>();
             m_buttonText = GetComponentInChildren<TextMeshProUGUI>();
             m_buttonText.text = actionName;
@@ -32,13 +29,13 @@ namespace RooseLabs.UI.Elements
 
         private void OnEnable()
         {
-            m_inputManager.InputDeviceChangedEvent += UpdateButtonPrompt;
+            InputManager.Instance.InputDeviceChangedEvent += UpdateButtonPrompt;
             UpdateButtonPrompt(InputManager.Instance.CurrentDevice);
         }
 
         private void OnDisable()
         {
-            m_inputManager.InputDeviceChangedEvent -= UpdateButtonPrompt;
+            InputManager.Instance.InputDeviceChangedEvent -= UpdateButtonPrompt;
         }
 
         private void UpdateButtonPrompt(InputDevice device)
