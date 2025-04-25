@@ -54,6 +54,7 @@ namespace RooseLabs.Input
 
         private void OnApplicationQuit()
         {
+            Application.quitting -= OnApplicationQuit;
             DisableAllInput();
         }
 

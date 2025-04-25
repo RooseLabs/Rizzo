@@ -49,7 +49,7 @@ namespace RooseLabs.SceneManagement.UI
 
             while (elapsedTime < duration)
             {
-                elapsedTime += Time.deltaTime;
+                elapsedTime += Time.unscaledDeltaTime;
                 imageComponent.color = Color.Lerp(initialColor, targetColor, elapsedTime / duration);
                 yield return null;
             }

@@ -19,36 +19,46 @@ namespace RooseLabs.UI.Gameplay
         [Header("Broadcasting on")]
         [SerializeField] private LoadEventChannelSO loadMenuChannel;
 
-        private InputManager inputManager;
+        private InputManager m_inputManager;
+        private bool m_isPauseScreenOpen;
 
         private void Awake()
         {
-            inputManager = InputManager.Instance;
+            m_inputManager = InputManager.Instance;
         }
 
         private void OnEnable()
         {
             onSceneReady.OnEventRaised += ResetUI;
-            inputManager.MenuPauseEvent += OpenPauseScreen;
+            m_inputManager.MenuPauseEvent += OpenPauseScreen;
+            m_inputManager.MenuUnpauseEvent += ClosePauseScreen;
         }
 
         private void OnDisable()
         {
             onSceneReady.OnEventRaised -= ResetUI;
-            inputManager.MenuPauseEvent -= OpenPauseScreen;
+            m_inputManager.MenuPauseEvent -= OpenPauseScreen;
+            m_inputManager.MenuUnpauseEvent -= ClosePauseScreen;
+        }
+
+        private void OnApplicationFocus(bool hasFocus)
+        {
+            if (!hasFocus && !m_isPauseScreenOpen)
+                OpenPauseScreen();
         }
 
         private void ResetUI()
         {
             hudPanel.SetActive(true);
             pauseScreen.gameObject.SetActive(false);
+            m_isPauseScreenOpen = false;
             Time.timeScale = 1f;
         }
 
         private void OpenPauseScreen()
         {
-            inputManager.MenuPauseEvent -= OpenPauseScreen; // Prevent opening the pause menu again if it's already open
-            inputManager.MenuUnpauseEvent += ClosePauseScreen; // Allow closing the pause menu via ESC / Start button
+            if (m_isPauseScreenOpen) return;
+            m_isPauseScreenOpen = true;
 
             Time.timeScale = 0; // Pause time
 
@@ -57,20 +67,20 @@ namespace RooseLabs.UI.Gameplay
 
             pauseScreen.gameObject.SetActive(true);
 
-            inputManager.EnableMenuInput();
+            m_inputManager.EnableMenuInput();
         }
 
         private void ClosePauseScreen()
         {
+            if (!m_isPauseScreenOpen) return;
+            m_isPauseScreenOpen = false;
+
             pauseScreen.BackToMainRequested -= BackToMainMenu;
             pauseScreen.ResumeRequested -= ClosePauseScreen;
 
             pauseScreen.gameObject.SetActive(false);
 
-            inputManager.MenuPauseEvent += OpenPauseScreen; // Allow opening the pause menu again
-            inputManager.MenuUnpauseEvent -= ClosePauseScreen;
-
-            inputManager.EnableGameplayInput();
+            m_inputManager.EnableGameplayInput();
             Time.timeScale = 1; // Unpause time
         }
 

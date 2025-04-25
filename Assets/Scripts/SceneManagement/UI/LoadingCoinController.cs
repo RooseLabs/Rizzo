@@ -12,9 +12,9 @@ namespace RooseLabs.SceneManagement.UI
         [Header("Listening to")]
         [SerializeField] private FloatEventChannelSO onLoadingProgress;
 
-        private float loadingProgress = 0f;
-        private float displayedProgress = 0f;
-        private float velocity = 0f;
+        private float m_loadingProgress;
+        private float m_displayedProgress;
+        private float m_velocity;
 
         private bool m_isFlipped;
         private readonly Quaternion m_defaultRotation = Quaternion.Euler(0, 0, 0);
@@ -22,6 +22,9 @@ namespace RooseLabs.SceneManagement.UI
 
         private void OnEnable()
         {
+            m_loadingProgress = 0f;
+            m_displayedProgress = 0f;
+            m_velocity = 0f;
             onLoadingProgress.OnEventRaised += UpdateLoadingProgress;
             animationClip.SampleAnimation(gameObject, 0f);
             Rotate180();
@@ -35,14 +38,21 @@ namespace RooseLabs.SceneManagement.UI
         private void Update()
         {
             // Smoothly approach loadingProgress
-            displayedProgress = Mathf.SmoothDamp(displayedProgress, loadingProgress, ref velocity, smoothTime);
+            m_displayedProgress = Mathf.SmoothDamp(
+                m_displayedProgress,
+                m_loadingProgress,
+                ref m_velocity,
+                smoothTime,
+                float.PositiveInfinity,
+                Time.unscaledDeltaTime
+            );
 
             // Convert to time and sample the animation
-            float time = displayedProgress * animationClip.length;
+            float time = m_displayedProgress * animationClip.length;
             animationClip.SampleAnimation(gameObject, time);
         }
 
-        private void UpdateLoadingProgress(float progress) => loadingProgress = progress;
+        private void UpdateLoadingProgress(float progress) => m_loadingProgress = progress;
 
         public void Rotate180()
         {
