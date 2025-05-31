@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 503dff28993ff2b4ab95c89c27df0c92
+guid: 807b22dc6a230104081303657b71f61a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -482590824864981904
-    second: Shotgun_Texture_0
+      213: -8681208660167605965
+    second: GreenRat_Texture_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shotgun_Texture_0
+      name: GreenRat_Texture_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07c5f00a33e7d49f0800000000000000
-      internalID: -482590824864981904
+      spriteID: 3314aa5f7b6268780800000000000000
+      internalID: -8681208660167605965
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Shotgun_Texture_0: -482590824864981904
+      GreenRat_Texture_0: -8681208660167605965
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

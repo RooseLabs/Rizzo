@@ -4,6 +4,7 @@ using RooseLabs.Models;
 using RooseLabs.Player.StateMachine;
 using RooseLabs.Player.StateMachine.States;
 using RooseLabs.ScriptableObjects;
+using RooseLabs.ScriptableObjects.Weapons;
 using UnityEngine;
 using UnityEngine.Assertions;
 

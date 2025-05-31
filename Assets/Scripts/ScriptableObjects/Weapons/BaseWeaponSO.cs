@@ -2,7 +2,7 @@ using RooseLabs.Enums;
 using RooseLabs.Models;
 using UnityEngine;
 
-namespace RooseLabs.ScriptableObjects
+namespace RooseLabs.ScriptableObjects.Weapons
 {
     public abstract class BaseWeaponSO : ScriptableObject
     {

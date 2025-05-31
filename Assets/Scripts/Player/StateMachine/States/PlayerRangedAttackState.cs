@@ -1,5 +1,5 @@
 using RooseLabs.Models;
-using RooseLabs.ScriptableObjects;
+using RooseLabs.ScriptableObjects.Weapons;
 using UnityEngine;
 
 namespace RooseLabs.Player.StateMachine.States

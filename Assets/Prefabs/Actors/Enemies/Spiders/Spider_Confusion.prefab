@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3194237828494250814}
   - component: {fileID: 5598472509586661409}
   m_Layer: 6
-  m_Name: Spider
+  m_Name: Spider_Confusion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -327,6 +327,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: -2038572291263972409, guid: 3a96729ff3537754f85db01f1a050d4a, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 191978eec6673f54bacc8b94413e47e6, type: 2}
     - target: {fileID: -1938530446277577638, guid: 3a96729ff3537754f85db01f1a050d4a, type: 3}
       propertyPath: m_Layer
       value: 6

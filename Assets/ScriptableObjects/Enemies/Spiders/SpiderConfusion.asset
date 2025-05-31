@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee5bc32b98ae5541bd61fbf51b3dc71, type: 3}
+  m_Name: SpiderConfusion
+  m_EditorClassIdentifier: 
+  description: 'Applies Confusion to the Player.
+
+    Confusion: Inverts the player''s
+    controls.'
+  enemyPrefab: {fileID: 7369005135801419997, guid: 0ccfae7cee7f9b644a49160e67810161, type: 3}
+  stats:
+    health: 100
+    maxHealth: 100
+    movementVelocity: 2.5
+  ailment: 2

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 503dff28993ff2b4ab95c89c27df0c92
+guid: 9090fe4adc3db78479abf2e76d1a5144
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -482590824864981904
-    second: Shotgun_Texture_0
+      213: -7017774635927633634
+    second: BaldRat_Texture_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shotgun_Texture_0
+      name: BaldRat_Texture_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07c5f00a33e7d49f0800000000000000
-      internalID: -482590824864981904
+      spriteID: e1189cf762bdb9e90800000000000000
+      internalID: -7017774635927633634
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Shotgun_Texture_0: -482590824864981904
+      BaldRat_Texture_0: -7017774635927633634
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

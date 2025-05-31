@@ -1,4 +1,5 @@
 using RooseLabs.ScriptableObjects;
+using RooseLabs.ScriptableObjects.Weapons;
 using UnityEditor;
 
 namespace RooseLabs.EditorTools.Editor

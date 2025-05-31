@@ -1,6 +1,6 @@
 using RooseLabs.Enums;
 using RooseLabs.Input;
-using RooseLabs.ScriptableObjects;
+using RooseLabs.ScriptableObjects.Weapons;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

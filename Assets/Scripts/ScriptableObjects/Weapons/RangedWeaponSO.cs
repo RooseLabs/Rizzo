@@ -1,9 +1,9 @@
 using RooseLabs.Models;
 using UnityEngine;
 
-namespace RooseLabs.ScriptableObjects
+namespace RooseLabs.ScriptableObjects.Weapons
 {
-    [CreateAssetMenu(fileName = "RangedWeapon", menuName = "Data/Ranged Weapon")]
+    [CreateAssetMenu(fileName = "RangedWeapon", menuName = "Weapon/Ranged Weapon")]
     public class RangedWeaponSO : BaseWeaponSO
     {
         [Header("Ranged Weapon Data")]
