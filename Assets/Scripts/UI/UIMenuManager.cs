@@ -23,7 +23,7 @@ namespace RooseLabs.UI
             InputManager.Instance.EnableMenuInput();
             mainMenuPanel.PlayButtonAction += PlayButtonClicked;
             mainMenuPanel.ArchiveButtonAction += OpenArchiveScreen;
-            // mainMenuPanel.SettingsButtonAction += OpenSettingsScreen;
+            mainMenuPanel.SettingsButtonAction += OpenSettingsScreen;
             mainMenuPanel.CreditsButtonAction += OpenCreditsScreen;
             mainMenuPanel.ExitButtonAction += ExitGame;
         }
@@ -41,8 +41,8 @@ namespace RooseLabs.UI
 
         private void OpenSettingsScreen()
         {
-            mainMenuPanel.gameObject.SetActive(false);
-            settingsPanel.gameObject.SetActive(true);
+            // mainMenuPanel.gameObject.SetActive(false);
+            // settingsPanel.gameObject.SetActive(true);
         }
 
         private void OpenCreditsScreen()
