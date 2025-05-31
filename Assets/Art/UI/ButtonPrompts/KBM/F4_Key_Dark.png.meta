@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1cc793ff172ac6843be6df5855464be4
+guid: 05d6e48e79895874ebce13a51d917226
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 473889135562357440
-    second: path50_0
+      213: -1951219438775661964
+    second: F4_Key_Dark_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: path50_0
+      name: F4_Key_Dark_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 282
-        height: 321
+        x: 11
+        y: 13
+        width: 78
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ca7c1478a7939600800000000000000
-      internalID: 473889135562357440
+      spriteID: 47a80f82240ebe4e0800000000000000
+      internalID: -1951219438775661964
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      path50_0: 473889135562357440
+      F4_Key_Dark_0: -1951219438775661964
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

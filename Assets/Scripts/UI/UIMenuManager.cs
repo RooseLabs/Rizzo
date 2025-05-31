@@ -1,6 +1,7 @@
 using Eflatun.SceneReference;
 using RooseLabs.Events.Channels;
 using RooseLabs.Input;
+using RooseLabs.UI.Settings;
 using UnityEngine;
 
 namespace RooseLabs.UI
@@ -9,7 +10,7 @@ namespace RooseLabs.UI
     {
         [SerializeField] private UIMainMenu mainMenuPanel;
         [SerializeField] private GameObject archivePanel;
-        [SerializeField] private GameObject settingsPanel;
+        [SerializeField] private UISettingsManager settingsPanel;
         [SerializeField] private GameObject creditsPanel;
 
         [SerializeField] private SceneReference levelToLoad;
@@ -22,7 +23,7 @@ namespace RooseLabs.UI
             InputManager.Instance.EnableMenuInput();
             mainMenuPanel.PlayButtonAction += PlayButtonClicked;
             mainMenuPanel.ArchiveButtonAction += OpenArchiveScreen;
-            mainMenuPanel.SettingsButtonAction += OpenSettingsScreen;
+            // mainMenuPanel.SettingsButtonAction += OpenSettingsScreen;
             mainMenuPanel.CreditsButtonAction += OpenCreditsScreen;
             mainMenuPanel.ExitButtonAction += ExitGame;
         }
@@ -34,20 +35,20 @@ namespace RooseLabs.UI
 
         private void OpenArchiveScreen()
         {
-            // mainMenuPanel.SetActive(false);
-            // archivePanel.SetActive(true);
+            // mainMenuPanel.gameObject.SetActive(false);
+            // archivePanel.gameObject.SetActive(true);
         }
 
         private void OpenSettingsScreen()
         {
-            // mainMenuPanel.SetActive(false);
-            // settingsPanel.SetActive(true);
+            mainMenuPanel.gameObject.SetActive(false);
+            settingsPanel.gameObject.SetActive(true);
         }
 
         private void OpenCreditsScreen()
         {
-            // mainMenuPanel.SetActive(false);
-            // creditsPanel.SetActive(true);
+            // mainMenuPanel.gameObject.SetActive(false);
+            // creditsPanel.gameObject.SetActive(true);
         }
 
         private void ExitGame()

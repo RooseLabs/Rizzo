@@ -118,7 +118,7 @@ namespace RooseLabs.Rendering
                 m_edgeDetectionMaterial = CoreUtils.CreateEngineMaterial(Shader.Find("Hidden/Edge Detection"));
                 if (m_edgeDetectionMaterial == null)
                 {
-                    Debug.LogWarning("Not all required materials could be created. Edge Detection will not render.");
+                    // Not all required materials could be created. Edge Detection will not render.
                     return;
                 }
             }

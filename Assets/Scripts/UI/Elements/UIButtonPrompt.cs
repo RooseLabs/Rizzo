@@ -18,12 +18,12 @@ namespace RooseLabs.UI.Elements
         // TODO: Leverage the InputAction system to get the current binding and show the correct button prompt instead of hardcoding it
 
         private Image m_buttonImage;
-        private TextMeshProUGUI m_buttonText;
+        private TMP_Text m_buttonText;
 
         private void Awake()
         {
             m_buttonImage = GetComponentInChildren<Image>();
-            m_buttonText = GetComponentInChildren<TextMeshProUGUI>();
+            m_buttonText = GetComponentInChildren<TMP_Text>();
             m_buttonText.text = actionName;
         }
 

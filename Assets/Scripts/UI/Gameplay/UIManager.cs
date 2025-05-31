@@ -43,7 +43,7 @@ namespace RooseLabs.UI.Gameplay
 
         private void OnApplicationFocus(bool hasFocus)
         {
-            if (!hasFocus && !m_isPauseScreenOpen)
+            if (!hasFocus && !m_isPauseScreenOpen && !Application.isEditor)
                 OpenPauseScreen();
         }
 
