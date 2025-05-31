@@ -460,6 +460,15 @@ namespace RooseLabs.Input
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""TabSwitch"",
+                    ""type"": ""Button"",
+                    ""id"": ""c0c75dc1-2b4d-44eb-9892-573898f03792"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Submit"",
                     ""type"": ""Button"",
                     ""id"": ""7607c7b6-cd76-4816-beef-bd0341cfe950"",
@@ -990,6 +999,39 @@ namespace RooseLabs.Input
                     ""action"": ""Unpause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""a23e4708-2bb6-479f-b613-16f2302721bc"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TabSwitch"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""98294467-e4e9-42eb-a705-ed1c6249c149"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""TabSwitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""faa508ef-f8de-4504-970e-93c8407b4a8f"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""TabSwitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -1069,6 +1111,7 @@ namespace RooseLabs.Input
             // Menus
             m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
             m_Menus_Navigate = m_Menus.FindAction("Navigate", throwIfNotFound: true);
+            m_Menus_TabSwitch = m_Menus.FindAction("TabSwitch", throwIfNotFound: true);
             m_Menus_Submit = m_Menus.FindAction("Submit", throwIfNotFound: true);
             m_Menus_Cancel = m_Menus.FindAction("Cancel", throwIfNotFound: true);
             m_Menus_Point = m_Menus.FindAction("Point", throwIfNotFound: true);
@@ -1323,6 +1366,7 @@ namespace RooseLabs.Input
         private readonly InputActionMap m_Menus;
         private List<IMenusActions> m_MenusActionsCallbackInterfaces = new List<IMenusActions>();
         private readonly InputAction m_Menus_Navigate;
+        private readonly InputAction m_Menus_TabSwitch;
         private readonly InputAction m_Menus_Submit;
         private readonly InputAction m_Menus_Cancel;
         private readonly InputAction m_Menus_Point;
@@ -1348,6 +1392,10 @@ namespace RooseLabs.Input
             /// Provides access to the underlying input action "Menus/Navigate".
             /// </summary>
             public InputAction @Navigate => m_Wrapper.m_Menus_Navigate;
+            /// <summary>
+            /// Provides access to the underlying input action "Menus/TabSwitch".
+            /// </summary>
+            public InputAction @TabSwitch => m_Wrapper.m_Menus_TabSwitch;
             /// <summary>
             /// Provides access to the underlying input action "Menus/Submit".
             /// </summary>
@@ -1417,6 +1465,9 @@ namespace RooseLabs.Input
                 @Navigate.started += instance.OnNavigate;
                 @Navigate.performed += instance.OnNavigate;
                 @Navigate.canceled += instance.OnNavigate;
+                @TabSwitch.started += instance.OnTabSwitch;
+                @TabSwitch.performed += instance.OnTabSwitch;
+                @TabSwitch.canceled += instance.OnTabSwitch;
                 @Submit.started += instance.OnSubmit;
                 @Submit.performed += instance.OnSubmit;
                 @Submit.canceled += instance.OnSubmit;
@@ -1461,6 +1512,9 @@ namespace RooseLabs.Input
                 @Navigate.started -= instance.OnNavigate;
                 @Navigate.performed -= instance.OnNavigate;
                 @Navigate.canceled -= instance.OnNavigate;
+                @TabSwitch.started -= instance.OnTabSwitch;
+                @TabSwitch.performed -= instance.OnTabSwitch;
+                @TabSwitch.canceled -= instance.OnTabSwitch;
                 @Submit.started -= instance.OnSubmit;
                 @Submit.performed -= instance.OnSubmit;
                 @Submit.canceled -= instance.OnSubmit;
@@ -1660,6 +1714,13 @@ namespace RooseLabs.Input
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnNavigate(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "TabSwitch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnTabSwitch(InputAction.CallbackContext context);
             /// <summary>
             /// Method invoked when associated input action "Submit" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>

@@ -356,7 +356,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 128
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 985058365f5109f4089c40ffc031ccc2, type: 2}
   m_TargetDisplay: 0
@@ -817,6 +817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 96ed56bcd9828714ca920da77ed83d5f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -853,6 +857,7 @@ MonoBehaviour:
   animationClip: {fileID: 7400000, guid: 24330792663cd4e47afd98b2f880e639, type: 2}
   smoothTime: 0.85
   onLoadingProgress: {fileID: 11400000, guid: 4a4a1f8ff7d665044a2a607f66064723, type: 2}
+  onLoadingAnimationFinished: {fileID: 11400000, guid: ebf218747f1c20648847dec34483f0a9, type: 2}
 --- !u!95 &1622169344
 Animator:
   serializedVersion: 7
@@ -911,6 +916,7 @@ MonoBehaviour:
   loadMenuChannel: {fileID: 11400000, guid: db1a9e16bb2a95e42a3c578f8e4cddce, type: 2}
   loadLevelChannel: {fileID: 11400000, guid: 533d8d11880100b469192a941a7e09a4, type: 2}
   coldStartupChannel: {fileID: 11400000, guid: aaedceb1ab4386b43abc080eccb42954, type: 2}
+  onLoadingAnimationFinished: {fileID: 11400000, guid: ebf218747f1c20648847dec34483f0a9, type: 2}
   onSceneReady: {fileID: 11400000, guid: 0f74ff2da646f3a47be06513b8f27bcd, type: 2}
   onLoadingProgress: {fileID: 11400000, guid: 4a4a1f8ff7d665044a2a607f66064723, type: 2}
   fadeEventChannel: {fileID: 11400000, guid: 2bcfdaa60d2f8684aa979a5ce9407ca1, type: 2}

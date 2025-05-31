@@ -372,6 +372,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "TabSwitch",
+                    "type": "Button",
+                    "id": "c0c75dc1-2b4d-44eb-9892-573898f03792",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Submit",
                     "type": "Button",
                     "id": "7607c7b6-cd76-4816-beef-bd0341cfe950",
@@ -902,6 +911,39 @@
                     "action": "Unpause",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "a23e4708-2bb6-479f-b613-16f2302721bc",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TabSwitch",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "98294467-e4e9-42eb-a705-ed1c6249c149",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "TabSwitch",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "faa508ef-f8de-4504-970e-93c8407b4a8f",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "TabSwitch",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

@@ -12,6 +12,9 @@ namespace RooseLabs.SceneManagement.UI
         [Header("Listening to")]
         [SerializeField] private FloatEventChannelSO onLoadingProgress;
 
+        [Header("Broadcasting on")]
+        [SerializeField] private VoidEventChannelSO onLoadingAnimationFinished;
+
         private float m_loadingProgress;
         private float m_displayedProgress;
         private float m_velocity;
@@ -50,6 +53,12 @@ namespace RooseLabs.SceneManagement.UI
             // Convert to time and sample the animation
             float time = m_displayedProgress * animationClip.length;
             animationClip.SampleAnimation(gameObject, time);
+        }
+
+        private void LateUpdate()
+        {
+            if (m_loadingProgress == 1f && transform.localPosition.y < -6f) // Coin is not visible below this point
+                onLoadingAnimationFinished.RaiseEvent();
         }
 
         private void UpdateLoadingProgress(float progress) => m_loadingProgress = progress;

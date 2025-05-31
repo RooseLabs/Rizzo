@@ -17,9 +17,9 @@ namespace RooseLabs.SceneManagement
 
         [Header("Listening to")]
         [SerializeField] private LoadEventChannelSO loadMenuChannel;
-
         [SerializeField] private LoadEventChannelSO loadLevelChannel;
         [SerializeField] private LoadEventChannelSO coldStartupChannel;
+        [SerializeField] private VoidEventChannelSO onLoadingAnimationFinished;
 
         [Header("Broadcasting on")]
         [SerializeField] private VoidEventChannelSO onSceneReady;
@@ -33,6 +33,7 @@ namespace RooseLabs.SceneManagement
 
         private const float FadeDuration = .5f;
         private bool m_isLoading = false;
+        private bool m_isLoadingAnimationFinished = false;
         private Scene m_gameplayManagerScene;
 
         private void OnEnable()
@@ -42,6 +43,7 @@ namespace RooseLabs.SceneManagement
 #if UNITY_EDITOR
             coldStartupChannel.OnLoadingRequested += LevelColdStartup;
 #endif
+            onLoadingAnimationFinished.OnEventRaised += OnLoadingAnimationFinished;
         }
 
         private void OnDisable()
@@ -51,6 +53,7 @@ namespace RooseLabs.SceneManagement
 #if UNITY_EDITOR
             coldStartupChannel.OnLoadingRequested -= LevelColdStartup;
 #endif
+            onLoadingAnimationFinished.OnEventRaised -= OnLoadingAnimationFinished;
         }
 
 #if UNITY_EDITOR
@@ -124,20 +127,24 @@ namespace RooseLabs.SceneManagement
 
             if (m_showLoadingScreen)
             {
+                m_isLoadingAnimationFinished = false;
                 loadingInterfaceController.ToggleLoadingScreen(true);
 
-                float artificialProgress = 0f;
+                float artificialDelayProgress = 0f;
                 var op = SceneManager.LoadSceneAsync(m_sceneToLoad.Path, LoadSceneMode.Additive);
                 op!.allowSceneActivation = false;
-                while (op.progress < 0.9f || artificialProgress < 1f)
+                while (op.progress < 0.9f || artificialDelayProgress < 1f)
                 {
-                    onLoadingProgress.RaiseEvent((op.progress + artificialProgress) * 0.5f);
+                    onLoadingProgress.RaiseEvent((op.progress + artificialDelayProgress) * 0.5f);
                     await Task.Delay(100);
-                    artificialProgress += 100 / 5000f; // 5 seconds of artificial loading time TODO: Remove (probably)
+                    artificialDelayProgress += 100 / 3250f; // 3.25 seconds of artificial delay TODO: Remove (probably)
                 }
 
                 onLoadingProgress.RaiseEvent(1f);
-                await Task.Delay(1000); // Loading animation takes roughly 1 second to transition
+                while (!m_isLoadingAnimationFinished)
+                {
+                    await Task.Delay(100);
+                }
                 op.allowSceneActivation = true;
                 await op;
             }
@@ -159,6 +166,11 @@ namespace RooseLabs.SceneManagement
         private void StartGameplay()
         {
             onSceneReady.RaiseEvent();
+        }
+
+        private void OnLoadingAnimationFinished()
+        {
+            m_isLoadingAnimationFinished = true;
         }
     }
 }
