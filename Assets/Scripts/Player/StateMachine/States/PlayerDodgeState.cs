@@ -18,7 +18,7 @@ namespace RooseLabs.Player.StateMachine.States
         {
             m_canDodge = false;
             m_isDodging = true;
-            Player.EnableActorCollision(false);
+            Player.EnableEnemyCollision(false);
             if (Player.InputHandler.MoveInput.magnitude > 0f)
             {
                 Player.Actor3D.LookAt(Player.RB.position + Player.InputHandler.MoveInput);
@@ -37,7 +37,7 @@ namespace RooseLabs.Player.StateMachine.States
                 m_isDodging = false;
                 m_canDodge = true;
                 m_lastDodgeTime = Time.time;
-                Player.EnableActorCollision(true);
+                Player.EnableEnemyCollision(true);
                 if (Player.InputHandler.MoveInput.magnitude > 0f)
                 {
                     StateMachine.ChangeState(Player.MoveState);

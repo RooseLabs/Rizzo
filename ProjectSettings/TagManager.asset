@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -11,10 +12,10 @@ TagManager:
   - 
   - Water
   - UI
-  - Actors
   - LoadingScreen
-  - 
-  - 
+  - Player
+  - Enemy
+  - Obstacle
   - 
   - 
   - 
@@ -47,7 +48,7 @@ TagManager:
   - name: Ground
     uniqueID: 4232309627
     locked: 0
-  - name: Actors
+  - name: Entities
     uniqueID: 769152483
     locked: 0
   - name: Foreground

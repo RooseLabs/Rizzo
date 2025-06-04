@@ -41,11 +41,13 @@ namespace RooseLabs.UI.Gameplay
             m_inputManager.MenuUnpauseEvent -= ClosePauseScreen;
         }
 
+#if !UNITY_EDITOR
         private void OnApplicationFocus(bool hasFocus)
         {
-            if (!hasFocus && !m_isPauseScreenOpen && !Application.isEditor)
+            if (!hasFocus && !m_isPauseScreenOpen)
                 OpenPauseScreen();
         }
+#endif
 
         private void ResetUI()
         {

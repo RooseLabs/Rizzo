@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace RooseLabs.StateMachine
 {
     public abstract class StateMachine<TState> where TState : BaseState
@@ -25,6 +27,41 @@ namespace RooseLabs.StateMachine
         public virtual void FixedUpdate()
         {
             m_currentState.FixedUpdate();
+        }
+
+        public virtual void LateUpdate()
+        {
+            m_currentState.LateUpdate();
+        }
+
+        public virtual void OnCollisionEnter2D(Collision2D collision)
+        {
+            m_currentState.OnCollisionEnter2D(collision);
+        }
+
+        public virtual void OnCollisionStay2D(Collision2D collision)
+        {
+            m_currentState.OnCollisionStay2D(collision);
+        }
+
+        public virtual void OnCollisionExit2D(Collision2D collision)
+        {
+            m_currentState.OnCollisionExit2D(collision);
+        }
+
+        public virtual void OnTriggerEnter2D(Collider2D other)
+        {
+            m_currentState.OnTriggerEnter2D(other);
+        }
+
+        public virtual void OnTriggerStay2D(Collider2D other)
+        {
+            m_currentState.OnTriggerStay2D(other);
+        }
+
+        public virtual void OnTriggerExit2D(Collider2D other)
+        {
+            m_currentState.OnTriggerExit2D(other);
         }
 
         protected virtual void OnExit()

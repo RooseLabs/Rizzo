@@ -21,4 +21,4 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     movementVelocity: 2.5
-  ailment: 3
+  ailment: {fileID: 11400000, guid: d5f6844bb065dc8479a58ef83ed5cc55, type: 2}

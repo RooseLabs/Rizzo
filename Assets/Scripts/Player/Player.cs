@@ -1,9 +1,9 @@
 using System;
 using RooseLabs.Enums;
+using RooseLabs.Gameplay.Combat;
 using RooseLabs.Models;
 using RooseLabs.Player.StateMachine;
 using RooseLabs.Player.StateMachine.States;
-using RooseLabs.ScriptableObjects;
 using RooseLabs.ScriptableObjects.Weapons;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -13,14 +13,12 @@ namespace RooseLabs.Player
     [RequireComponent(typeof(Actor3D))]
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(PlayerInputHandler))]
-    public class Player : MonoBehaviour
+    public class Player : MonoBehaviour, IDamageable
     {
         private PlayerStats m_stats;
-        private LayerMask m_actorsMask;
+        private LayerMask m_enemyMask;
 
         #region Inspector Variables
-        [SerializeField] private PlayerStatsSO baseStats;
-
         [Header("Default Weapons")]
         [SerializeField] private BaseWeaponSO defaultPrimaryWeapon;
         [SerializeField] private BaseWeaponSO defaultSecondaryWeapon;
@@ -55,7 +53,7 @@ namespace RooseLabs.Player
 
         private void Awake()
         {
-            m_actorsMask = LayerMask.GetMask("Actors");
+            m_enemyMask = LayerMask.GetMask("Enemy");
 
             RB = GetComponent<Rigidbody2D>();
             Actor3D = GetComponent<Actor3D>();
@@ -68,12 +66,14 @@ namespace RooseLabs.Player
             MoveState = new PlayerMoveState(this, StateMachine);
             DodgeState = new PlayerDodgeState(this, StateMachine);
 
-            Assert.IsNotNull(baseStats, "Base Stats SO is not assigned.");
-            m_stats = baseStats.data.Clone();
-
-            StateMachine.Initialize(IdleState);
             SetPrimaryWeapon(defaultPrimaryWeapon);
             SetSecondaryWeapon(defaultSecondaryWeapon);
+        }
+
+        public void Initialize(PlayerStats stats)
+        {
+            m_stats = stats;
+            StateMachine.Initialize(IdleState);
         }
 
         private void Update()
@@ -83,6 +83,14 @@ namespace RooseLabs.Player
 
         private void FixedUpdate()
         {
+            if (!DodgeState.IsDodging)
+            {
+                // The player is considered "grounded" in every other occasion except when dodging.
+                // When "grounded" we set the linear velocity to zero to prevent sliding.
+                // Which could happen if an enemy collides with the player, applying a force to its RB in the process.
+                RB.linearVelocity = Vector2.zero;
+            }
+
             StateMachine.FixedUpdate();
         }
 
@@ -101,7 +109,7 @@ namespace RooseLabs.Player
                 PrimaryWeaponGO.SetActive(false);
             }
             Assert.IsTrue(
-                StateMachine.CurrentState != PrimaryAttackState,
+                PrimaryAttackState == null || StateMachine.CurrentState != PrimaryAttackState,
                 "Trying to set primary weapon in the middle of a primary attack."
             );
             PrimaryAttackState = PrimaryWeaponSO switch
@@ -127,7 +135,7 @@ namespace RooseLabs.Player
                 SecondaryWeaponGO.SetActive(false);
             }
             Assert.IsTrue(
-                StateMachine.CurrentState != SecondaryAttackState,
+                SecondaryAttackState == null || StateMachine.CurrentState != SecondaryAttackState,
                 "Trying to set secondary weapon in the middle of a secondary attack."
             );
             SecondaryAttackState = SecondaryWeaponSO switch
@@ -149,9 +157,18 @@ namespace RooseLabs.Player
             SecondaryWeaponGO?.SetActive(false);
         }
 
-        public void EnableActorCollision(bool enable)
+        public void EnableEnemyCollision(bool enable)
         {
-            RB.excludeLayers = enable ? 0 : m_actorsMask;
+            RB.excludeLayers = enable ? 0 : m_enemyMask;
+        }
+
+        public void ApplyDamage(float damage)
+        {
+            Health -= damage;
+            if (Health <= 0)
+            {
+                Debug.Log("Player has died.");
+            }
         }
 
         public float Health
