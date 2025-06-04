@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace RooseLabs.Blackjack
 {
-    public class CardsBehavior : MonoBehaviour
+    public class CardsBehaviour : MonoBehaviour
     {
         [SerializeField] private Sprite[] cardFaces;
         [SerializeField] private Sprite cardBack;

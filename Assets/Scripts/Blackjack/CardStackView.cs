@@ -50,7 +50,7 @@ namespace RooseLabs.Blackjack
             {
                 if (!faceUp)
                 {
-                    var behavior = m_fetchedCards[cardIndex].Card.GetComponent<CardsBehavior>();
+                    var behavior = m_fetchedCards[cardIndex].Card.GetComponent<CardsBehaviour>();
                     behavior.ToggleCardFace(m_fetchedCards[cardIndex].IsFaceUp);
                 }
 
@@ -59,7 +59,7 @@ namespace RooseLabs.Blackjack
 
             var cardCopy = Instantiate(cardPrefab);
             cardCopy.transform.position = position;
-            var cardsBehavior = cardCopy.GetComponent<CardsBehavior>();
+            var cardsBehavior = cardCopy.GetComponent<CardsBehaviour>();
             cardsBehavior.CardIndex = cardIndex;
             cardsBehavior.ToggleCardFace(faceUp);
 

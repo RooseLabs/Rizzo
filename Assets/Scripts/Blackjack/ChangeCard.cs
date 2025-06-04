@@ -8,11 +8,11 @@ namespace RooseLabs.Blackjack
         [SerializeField] private GameObject card;
         [SerializeField] private Button hitButton;
         private int m_cardIndex;
-        private CardsBehavior m_cards;
+        private CardsBehaviour m_cards;
 
         private void Awake()
         {
-            m_cards = card.GetComponent<CardsBehavior>();
+            m_cards = card.GetComponent<CardsBehaviour>();
         }
 
         private void Start()

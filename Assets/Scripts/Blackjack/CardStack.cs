@@ -67,7 +67,7 @@ namespace RooseLabs.Blackjack
             return m_cards.FindIndex(i => i == cardId) >= 0;
         }
 
-        public int HandValue()
+        public int GetHandValue()
         {
             int handValue = 0;
             int aces = 0;
@@ -77,12 +77,11 @@ namespace RooseLabs.Blackjack
                 int value = card % 13;
                 if (value <= 8)
                 {
-                    value += 2;
+                    handValue += value + 2; // 2-10 cards
                 }
                 else if (value is >= 8 and < 12)
                 {
-                    value = 10;
-                    handValue += value;
+                    handValue += 10; // Face cards (J, Q, K)
                 }
                 else
                 {

@@ -30,8 +30,8 @@ namespace RooseLabs.Blackjack
         public void OnHitButtonClick()
         {
             player.Push(deck.Pop());
-            Debug.Log("Player Hand Value: " + player.HandValue());
-            if (player.HandValue() > 21)
+            Debug.Log("Player Hand Value: " + player.GetHandValue());
+            if (player.GetHandValue() > 21)
             {
                 hitButton.interactable = false;
                 standButton.interactable = false;
@@ -61,21 +61,21 @@ namespace RooseLabs.Blackjack
 
         private void dealerTurn() //donFelix Ai
         {
-            while (dealer.HandValue() < 17)
+            while (dealer.GetHandValue() < 17)
             {
                 var view = dealer.GetComponent<CardStackView>();
                 view.Toogle(m_dealerFirstCard, true);
                 view.ShowCards();
 
-                while (dealer.HandValue() < 17) HitDealer();
+                while (dealer.GetHandValue() < 17) HitDealer();
 
-                if (dealer.HandValue() > 21 || (dealer.HandValue() >= player.HandValue() && dealer.HandValue() <= 21))
+                if (dealer.GetHandValue() > 21 || (dealer.GetHandValue() >= player.GetHandValue() && dealer.GetHandValue() <= 21))
                 {
                     Debug.Log("lose");
                     break;
                 }
 
-                if (dealer.HandValue() > 21 || (player.HandValue() <= 21 && player.HandValue() > dealer.HandValue()))
+                if (dealer.GetHandValue() > 21 || (player.GetHandValue() <= 21 && player.GetHandValue() > dealer.GetHandValue()))
                 {
                     Debug.Log("winner");
                     break;
