@@ -7,6 +7,13 @@ namespace RooseLabs.Blackjack
     public class CardStack : MonoBehaviour
     {
         [SerializeField] private bool isGameDeck;
+        [SerializeField] private int healthPoints = 3; 
+
+        public int HealthPoints
+        {
+            get => healthPoints;
+            set => healthPoints = value;
+        }
 
         private List<int> m_cards;
 
@@ -19,7 +26,7 @@ namespace RooseLabs.Blackjack
             if (isGameDeck) CreateDeck();
         }
 
-        public void Reset()
+        public void Reset() 
         {
             m_cards.Clear();
         }
@@ -29,6 +36,11 @@ namespace RooseLabs.Blackjack
 
         public int Pop()
         {
+            if (m_cards.Count == 0)
+            {
+                Debug.LogWarning("Tried to pop from an empty card stack!");
+                return -1; // Return an invalid card index
+            }
             var temp = m_cards[0];
             m_cards.RemoveAt(0);
 
@@ -40,6 +52,18 @@ namespace RooseLabs.Blackjack
         {
             m_cards.Add(card);
             if (CardAdded != null) CardAdded(this, new CardEventArgs(card));
+        }
+
+        public void RemoveCard(int card)
+        {
+            if (m_cards.Remove(card))
+            {
+                if (CardRemoved != null) CardRemoved(this, new CardEventArgs(card));
+            }
+            else
+            {
+                Debug.LogWarning($"Tried to remove card {card} which was not in the stack.");
+            }
         }
 
         public IEnumerable<int> GetCards()

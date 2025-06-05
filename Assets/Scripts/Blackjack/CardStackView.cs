@@ -44,6 +44,7 @@ namespace RooseLabs.Blackjack
                 }
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         private void AddCard(Vector3 position, int cardIndex, int positionalIndex)
         {
             if (m_fetchedCards.ContainsKey(cardIndex))
@@ -99,7 +100,14 @@ namespace RooseLabs.Blackjack
 
         public void Toogle(int card, bool isFaceUp)
         {
-            m_fetchedCards[card].IsFaceUp = isFaceUp;
+            if (m_fetchedCards.ContainsKey(card))
+            {
+                m_fetchedCards[card].IsFaceUp = isFaceUp;
+            }
+            else
+            {
+                Debug.LogWarning($"Card with index {card} not found in m_fetchedCards.");
+            }
         }
     }
 }
