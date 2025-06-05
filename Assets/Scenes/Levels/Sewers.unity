@@ -566,6 +566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 101498681}
+  - component: {fileID: 101498682}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -597,6 +598,23 @@ Transform:
   - {fileID: 510487390}
   m_Father: {fileID: 1427877985}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &101498682
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101498680}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 7400000, guid: 5d76e2f4e6dcf6742ab3a1ddaade93e4, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 5d76e2f4e6dcf6742ab3a1ddaade93e4, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!1 &103885055
 GameObject:
   m_ObjectHideFlags: 0

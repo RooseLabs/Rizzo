@@ -650,22 +650,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\rDevelopment Team\r\n\r\n\r\nGame Director: \r\nBruno Moreira \r\n\r\nLead
-    Designer: \r\nMarco Sousa\r\nV\xEDtor Guerra\r\n\r\nGame Designers: \r\nMarco
-    Sousa\r\nV\xEDtor Guerra\r\n\r\nLead Programmer: \r\nBruno Moreira \r\n\r\nProgrammers:
-    \r\nBruno Moreira \r\n\r\nLead Artist:\r\nMarco Sousa\r\nV\xEDtor Guerra\r\n\r\n2D
-    Artists:\r\nMarco Sousa\r\nV\xEDtor Guerra\r\n\r\n3D Artists: \r\nV\xEDtor Guerra\r\n\r\nAnimator(s):\r\nV\xEDtor
-    Guerra\r\n\r\nUI/UX Designer:\r\nMarco Sousa\r\n\r\nTechnical Director: \r\nBruno
-    Moreira \r\n\r\nSound Designer:\r\nMargarida Amaral\r\n\r\nComposer: \r\nMargarida
-    Amaral\r\n\r\nVoice Director:\r\nMargarida Amaral\r\n\r\nVoice Actors: \r\n?????\r\n\r\nNarrative
-    Designer / Writer: \r\nMargarida Amaral\r\n\r\nQA Lead:\r\nMargarida Amaral\r\n\r\nQA
-    Testers: \r\nMargarida Amaral\r\n\r\n\r\nAdditional Development\r\n\r\n\r\nAdditional
-    Programming:\r\nV\xEDtor Guerra\r\n\r\nAdditional Art: \r\nMarco Sousa\r\nV\xEDtor
-    Guerra\r\n\r\nAdditional Writing: \r\nBruno Moreira\r\n\r\n\r\nSpecial Thanks\r\n\r\n\r\nPlaytesters:\r\nMaria\r\nJorge\r\nJo\xE3o\r\nMiguel
-    \r\nAndr\xE9 \r\nSenhor Programador\r\n\r\nMentors / Advisors:\r\nSenhor programador
-    (Professor Mois\xE9s) \r\n\r\nLogo idea: \r\nRaquel Costa\r\n\r\n\r\nIn memory
-    of:\r\n\r\nThe many spiders that were definitely not hurt during the development
-    of this game.\nBut most importantly,\r\nOur sanity and sleeping schedule."
+  m_text: "Development Team\n\nGame Director: \nBruno Moreira \n\nLead Designer:
+    \nMarco Sousa\nV\xEDtor Guerra\n\nGame Designers: \nMarco Sousa\nV\xEDtor Guerra\n\nLead
+    Programmer: \nBruno Moreira \n\nProgrammers: \nBruno Moreira \n\nLead Artist:\nMarco
+    Sousa\nV\xEDtor Guerra\n\n2D Artists:\nMarco Sousa\nV\xEDtor Guerra\n\n3D Artists:
+    \nV\xEDtor Guerra\n\nAnimator(s):\nV\xEDtor Guerra\n\nUI/UX Designer:\nMarco
+    Sousa\n\nTechnical Director: \nBruno Moreira \n\nSound Designer:\nMargarida Amaral\n\nComposer:
+    \nMargarida Amaral\n\nVoice Director:\nMargarida Amaral\n\nVoice Actors: \n?????\n\nNarrative
+    Designer / Writer: \nMargarida Amaral\n\nQA Lead:\nMargarida Amaral\n\nQA Testers:
+    \nMargarida Amaral\n\n\nAdditional Development\n\nAdditional Programming:\nV\xEDtor
+    Guerra\n\nAdditional Art: \nMarco Sousa\nV\xEDtor Guerra\n\nAdditional Writing:
+    \nBruno Moreira\n\n\nSpecial Thanks\n\nPlaytesters:\nMaria\nJorge\nJo\xE3o\nMiguel
+    \nAndr\xE9 \nSenhor Programador\n\nMentors / Advisors:\nSenhor Programador (Professor
+    Mois\xE9s) \n\nLogo idea: \nRaquel Costa\n\n\nIn memory of:\n\nThe many spiders
+    that were definitely not hurt during the development of this game.\nBut most
+    importantly,\nOur sanity and sleeping schedule."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1125,7 +1124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1137783263
 RectTransform:
   m_ObjectHideFlags: 0
