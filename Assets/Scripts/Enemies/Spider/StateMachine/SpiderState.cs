@@ -1,5 +1,6 @@
 using RooseLabs.Gameplay;
 using RooseLabs.StateMachine;
+using UnityEngine;
 
 namespace RooseLabs.Enemies.Spider.StateMachine
 {
@@ -14,6 +15,12 @@ namespace RooseLabs.Enemies.Spider.StateMachine
             Spider = spider;
             StateMachine = stateMachine;
             Player = GameManager.Instance.Player;
+        }
+
+        protected bool IsObstacleBetweenSpiderAndPlayer()
+        {
+            RaycastHit2D hit = Physics2D.Linecast(Spider.RB.position, Player.RB.position, Spider.ObstacleLayerMask);
+            return hit.collider != null;
         }
     }
 }

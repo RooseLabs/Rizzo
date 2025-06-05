@@ -61,12 +61,6 @@ namespace RooseLabs.Enemies.Spider.StateMachine.States
             Spider.Animator.SetFloat(Spider.F_Velocity, Spider.Stats.movementVelocity);
         }
 
-        private bool IsObstacleBetweenSpiderAndPlayer()
-        {
-            RaycastHit2D hit = Physics2D.Linecast(Spider.RB.position, Player.RB.position, Spider.ObstacleLayerMask);
-            return hit.collider != null;
-        }
-
         public override void OnExit()
         {
             Spider.Animator.SetFloat(Spider.F_Velocity, 0f);

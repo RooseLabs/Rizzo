@@ -25,7 +25,7 @@ namespace RooseLabs.Enemies.Spider.StateMachine.States
         public override void Update()
         {
             float distToPlayer = Vector2.Distance(Spider.RB.position, Player.RB.position);
-            if (distToPlayer <= ChaseDistance)
+            if (distToPlayer <= ChaseDistance && !IsObstacleBetweenSpiderAndPlayer())
             {
                 StateMachine.ChangeState(Spider.ChaseState);
                 return;
