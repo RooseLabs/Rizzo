@@ -77,5 +77,10 @@ namespace RooseLabs.Player.StateMachine.States
 
         public abstract void ResetCombo();
         public abstract override bool CanAttack();
+
+        protected override float GetAttackDamage(float baseDamage)
+        {
+            return base.GetAttackDamage(baseDamage);
+        }
     }
 }

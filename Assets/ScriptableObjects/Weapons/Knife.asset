@@ -44,3 +44,4 @@ MonoBehaviour:
     minComboTime: 0.25
     maxComboTime: 1
   dodgeResetsCombo: 0
+  hitboxPrefab: {fileID: 1606139800325803094, guid: 424476a154f0c1a488a42f274300209d, type: 3}

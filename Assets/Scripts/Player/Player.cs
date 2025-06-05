@@ -1,5 +1,6 @@
 using System;
 using RooseLabs.Enums;
+using RooseLabs.Events.Channels;
 using RooseLabs.Gameplay.Combat;
 using RooseLabs.Models;
 using RooseLabs.Player.StateMachine;
@@ -26,6 +27,9 @@ namespace RooseLabs.Player
         [Header("Hand Socket Bones")]
         [SerializeField] private Transform leftHandSocket;
         [SerializeField] private Transform rightHandSocket;
+
+        [Header("Broadcasting on")]
+        [SerializeField] private FloatEventChannelSO onPlayerHealthChangedChannel;
         #endregion
 
         #region Components
@@ -42,6 +46,7 @@ namespace RooseLabs.Player
         public PlayerDodgeState DodgeState { get; private set; }
         public PlayerAttackState PrimaryAttackState { get; private set; }
         public PlayerAttackState SecondaryAttackState { get; private set; }
+        public PlayerDeathState DeathState { get; private set; }
         #endregion
 
         #region Weapons
@@ -62,9 +67,10 @@ namespace RooseLabs.Player
             AnimationStateController.OnHideWeaponsRequested += HideWeapons;
 
             StateMachine = new PlayerStateMachine();
-            IdleState = new PlayerIdleState(this, StateMachine);
-            MoveState = new PlayerMoveState(this, StateMachine);
-            DodgeState = new PlayerDodgeState(this, StateMachine);
+            IdleState    = new PlayerIdleState(this, StateMachine);
+            MoveState    = new PlayerMoveState(this, StateMachine);
+            DodgeState   = new PlayerDodgeState(this, StateMachine);
+            DeathState   = new PlayerDeathState(this, StateMachine);
 
             SetPrimaryWeapon(defaultPrimaryWeapon);
             SetSecondaryWeapon(defaultSecondaryWeapon);
@@ -165,16 +171,22 @@ namespace RooseLabs.Player
         public void ApplyDamage(float damage)
         {
             Health -= damage;
-            if (Health <= 0)
-            {
-                Debug.Log("Player has died.");
-            }
+        }
+
+        private void OnDeath()
+        {
+            StateMachine.ChangeState(DeathState);
         }
 
         public float Health
         {
             get => m_stats.health;
-            set => m_stats.health = Mathf.Clamp(value, 0, m_stats.maxHealth);
+            set
+            {
+                m_stats.health = Mathf.Clamp(value, 0f, m_stats.maxHealth);
+                onPlayerHealthChangedChannel.RaiseEvent(m_stats.health / m_stats.maxHealth);
+                if (m_stats.health <= 0f) OnDeath();
+            }
         }
 
         public float MovementVelocity => m_stats.movementVelocity;

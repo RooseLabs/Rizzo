@@ -1,3 +1,5 @@
+using System.Collections;
+using RooseLabs.Gameplay.Combat;
 using RooseLabs.Models;
 using RooseLabs.ScriptableObjects.Enemies;
 using UnityEngine;
@@ -7,17 +9,22 @@ namespace RooseLabs.Enemies
     [RequireComponent(typeof(Actor3D))]
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(Collider2D))]
-    public abstract class Enemy<T> : MonoBehaviour where T : BaseEnemySO
+    public abstract class Enemy<T> : MonoBehaviour, IDamageable where T : BaseEnemySO
     {
-        private readonly Collider2D[] m_separationBuffer = new Collider2D[16];
-        private ContactFilter2D m_enemyContactFilter;
+        private bool s_staticDataInitialized = false;
 
-        public LayerMask PlayerLayerMask { get; private set; }
-        public LayerMask EnemyLayerMask { get; private set; }
-        public LayerMask ObstacleLayerMask { get; private set; }
-        public int PlayerLayerIndex { get; private set; }
-        public int EnemyLayerIndex { get; private set; }
-        public int ObstacleLayerIndex { get; private set; }
+        private readonly Collider2D[] m_separationBuffer = new Collider2D[16];
+        private static ContactFilter2D s_enemyContactFilter;
+
+        private const float DamageFeedbackDuration = 0.1f;
+        private static Color s_damageFeedbackColor;
+
+        public static LayerMask PlayerLayerMask { get; private set; }
+        public static LayerMask EnemyLayerMask { get; private set; }
+        public static LayerMask ObstacleLayerMask { get; private set; }
+        public static int PlayerLayerIndex { get; private set; }
+        public static int EnemyLayerIndex { get; private set; }
+        public static int ObstacleLayerIndex { get; private set; }
 
         #region Components
         public Actor3D Actor3D { get; private set; }
@@ -26,18 +33,23 @@ namespace RooseLabs.Enemies
         public Collider2D Collider { get; private set; }
         #endregion
 
+        public T EnemyData { get; private set; }
         public EnemyStats Stats { get; private set; }
 
         protected virtual void Awake()
         {
-            PlayerLayerMask = LayerMask.GetMask("Player");
-            EnemyLayerMask = LayerMask.GetMask("Enemy");
-            ObstacleLayerMask = LayerMask.GetMask("Obstacle");
-            PlayerLayerIndex = LayerMask.NameToLayer("Player");
-            EnemyLayerIndex = LayerMask.NameToLayer("Enemy");
-            ObstacleLayerIndex = LayerMask.NameToLayer("Obstacle");
-
-            m_enemyContactFilter = new ContactFilter2D { layerMask = EnemyLayerMask, useTriggers = false, useLayerMask = true};
+            if (!s_staticDataInitialized)
+            {
+                PlayerLayerMask = LayerMask.GetMask("Player");
+                EnemyLayerMask = LayerMask.GetMask("Enemy");
+                ObstacleLayerMask = LayerMask.GetMask("Obstacle");
+                PlayerLayerIndex = LayerMask.NameToLayer("Player");
+                EnemyLayerIndex = LayerMask.NameToLayer("Enemy");
+                ObstacleLayerIndex = LayerMask.NameToLayer("Obstacle");
+                s_enemyContactFilter = new ContactFilter2D { layerMask = EnemyLayerMask, useTriggers = false, useLayerMask = true};
+                s_damageFeedbackColor = new Color(1f, 0.4f, 0.4f, 1f);
+                s_staticDataInitialized = true;
+            }
 
             Actor3D = GetComponent<Actor3D>();
             Animator = GetComponentInChildren<Animator>();
@@ -47,6 +59,7 @@ namespace RooseLabs.Enemies
 
         protected virtual void Initialize(T enemyData)
         {
+            EnemyData = enemyData;
             Stats = enemyData.Stats.Clone();
         }
 
@@ -67,7 +80,7 @@ namespace RooseLabs.Enemies
         /// <returns>A normalized vector pointing away from nearby enemies, scaled by the given strength.</returns>
         public Vector2 GetSeparationVector(float strength = 0.25f)
         {
-            int hitCount = Collider.Overlap(m_enemyContactFilter, m_separationBuffer);
+            int hitCount = Collider.Overlap(s_enemyContactFilter, m_separationBuffer);
             if (hitCount == 0) return Vector2.zero;
 
             Vector2 separation = Vector2.zero;
@@ -86,6 +99,52 @@ namespace RooseLabs.Enemies
                 separation = ((Vector2)transform.position - separation).normalized;
             }
             return separation * strength;
+        }
+
+        public void ApplyDamage(float damage)
+        {
+            Health -= damage;
+            DamageFeedback();
+        }
+
+        private void DamageFeedback()
+        {
+            if (Actor3D.Materials != null && Actor3D.MaterialOriginalColors != null)
+            {
+                StartCoroutine(DamageFeedbackRoutine());
+            }
+        }
+
+        private IEnumerator DamageFeedbackRoutine()
+        {
+            // Set all material colors to damage feedback color
+            for (int i = 0; i < Actor3D.Materials.Length; i++)
+            {
+                Actor3D.Materials[i].color = s_damageFeedbackColor;
+            }
+
+            yield return new WaitForSeconds(DamageFeedbackDuration);
+
+            // Restore original colors
+            for (int i = 0; i < Actor3D.Materials.Length; i++)
+            {
+                Actor3D.Materials[i].color = Actor3D.MaterialOriginalColors[i];
+            }
+        }
+
+        protected virtual void OnDeath()
+        {
+            Actor3D.FadeOut();
+        }
+
+        protected float Health
+        {
+            get => Stats.health;
+            set
+            {
+                Stats.health = Mathf.Clamp(value, 0f, Stats.maxHealth);
+                if (Stats.health <= 0f) OnDeath();
+            }
         }
     }
 }

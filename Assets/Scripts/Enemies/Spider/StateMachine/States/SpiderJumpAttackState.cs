@@ -56,15 +56,11 @@ namespace RooseLabs.Enemies.Spider.StateMachine.States
             {
                 m_jumpIsLanding = true;
                 Spider.Animator.Play(Spider.A_JumpLand);
+                Spider.Hitbox.Perform(Spider.EnemyData.JumpAttackBaseDamage, 1.5f);
             }
 
             if (t >= 1f && m_jumpIsLanding)
             {
-                m_isJumping = false;
-                m_jumpMovementStarted = false;
-                m_jumpIsLanding = false;
-
-                Spider.Collider.enabled = true;
                 StateMachine.ChangeState(Spider.ChaseState);
             }
         }
@@ -92,6 +88,15 @@ namespace RooseLabs.Enemies.Spider.StateMachine.States
             m_jumpTargetPosition = m_jumpStartPosition + targetDistance;
             m_jumpElapsedTime = 0f;
             m_jumpMovementStarted = true;
+        }
+
+        public override void OnExit()
+        {
+            Spider.Hitbox.EndPerformance();
+            m_isJumping = false;
+            m_jumpMovementStarted = false;
+            m_jumpIsLanding = false;
+            Spider.Collider.enabled = true;
         }
     }
 }

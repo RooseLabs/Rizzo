@@ -81,6 +81,11 @@ namespace RooseLabs.Player.StateMachine.States
             }
         }
 
+        protected override void PerformAttack()
+        {
+            // TODO: Implement ranged attack logic here.
+        }
+
         public override void OnExit()
         {
             m_cooldownEndTime = Time.time + WeaponData.Cooldown;

@@ -45,7 +45,9 @@ namespace RooseLabs.Enemies.Spider.StateMachine.States
             Vector2 movement = targetPos - Spider.RB.position;
 
             Vector2 separation = Spider.GetSeparationVector();
-            if (movement.magnitude <= 0.05f)
+
+            // If the spider is too close to the player or if the movement is negligible, only apply separation vector
+            if (movement.magnitude <= 0.05f || toPlayer.magnitude <= Offset)
             {
                 Spider.RB.MovePosition(Spider.RB.position + separation * (5.0f * Time.fixedDeltaTime));
                 Spider.Animator.SetFloat(Spider.F_Velocity, 0f);

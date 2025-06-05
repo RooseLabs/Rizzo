@@ -1,3 +1,4 @@
+using RooseLabs.Gameplay.Combat;
 using RooseLabs.Models;
 using RooseLabs.ScriptableObjects.Weapons;
 using UnityEngine;
@@ -11,12 +12,25 @@ namespace RooseLabs.Player.StateMachine.States
         private float m_maxComboTime;
         private float m_attackAnimEndTime;
 
+        private readonly Hitbox m_weaponHitbox;
+        private readonly bool m_weaponHitboxAvailable;
+
         public PlayerMeleeAttackState(
             Player player,
             PlayerStateMachine stateMachine,
             MeleeWeaponSO weaponData,
             GameObject weaponGO
-        ) : base(player, stateMachine, weaponData, weaponGO) { }
+        ) : base(player, stateMachine, weaponData, weaponGO)
+        {
+            var hitbox = Object.Instantiate(weaponData.HitboxPrefab, Player.transform);
+            m_weaponHitbox = hitbox.GetComponent<Hitbox>();
+            m_weaponHitboxAvailable = m_weaponHitbox != null;
+        }
+
+        ~PlayerMeleeAttackState()
+        {
+            if (m_weaponHitboxAvailable) Object.Destroy(m_weaponHitbox.gameObject);
+        }
 
         public override void OnEnter()
         {
@@ -34,6 +48,7 @@ namespace RooseLabs.Player.StateMachine.States
             m_minComboTime = Time.time + CurrentAttackData.MinComboTime;
             m_maxComboTime = Time.time + CurrentAttackData.MaxComboTime;
             m_attackAnimEndTime = Time.time + CurrentStateData.length;
+            PerformAttack();
         }
 
         public override void Update()
@@ -50,6 +65,8 @@ namespace RooseLabs.Player.StateMachine.States
                 return;
             }
 
+            m_weaponHitbox.transform.position = WeaponGO.transform.position;
+
             if (Time.time >= m_minComboTime && Time.time <= m_maxComboTime)
             {
                 if (PressedAttack)
@@ -60,6 +77,7 @@ namespace RooseLabs.Player.StateMachine.States
                     m_minComboTime = Time.time + CurrentAttackData.MinComboTime;
                     m_maxComboTime = Time.time + CurrentAttackData.MaxComboTime;
                     m_attackAnimEndTime = Time.time + CurrentStateData.length;
+                    PerformAttack();
                 }
                 else if (PressedOppositeAttack)
                 {
@@ -74,6 +92,18 @@ namespace RooseLabs.Player.StateMachine.States
             }
         }
 
+        protected override void PerformAttack()
+        {
+            if (!m_weaponHitboxAvailable) return;
+            float finalAttackDamage = GetAttackDamage(CurrentAttackData.BaseDamage);
+            m_weaponHitbox.Perform(finalAttackDamage, CurrentStateData.length);
+        }
+
+        public override void OnExit()
+        {
+            m_weaponHitbox?.EndPerformance();
+        }
+
         public override void ResetCombo()
         {
             m_currentAttackIndex = 0;
@@ -82,6 +112,11 @@ namespace RooseLabs.Player.StateMachine.States
         }
 
         public override bool CanAttack() => true;
+
+        protected override float GetAttackDamage(float baseDamage)
+        {
+            return base.GetAttackDamage(baseDamage);
+        }
 
         private WeaponAttackData CurrentAttackData => WeaponData.Attacks[m_currentAttackIndex];
         private AnimationStateData CurrentStateData => CurrentAttackData.AnimationState;

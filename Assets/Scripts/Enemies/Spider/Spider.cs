@@ -2,6 +2,7 @@ using RooseLabs.Enemies.Spider.StateMachine;
 using RooseLabs.Enemies.Spider.StateMachine.States;
 using RooseLabs.Enums;
 using RooseLabs.Gameplay;
+using RooseLabs.Gameplay.Combat;
 using RooseLabs.ScriptableObjects.Enemies;
 using RooseLabs.ScriptableObjects.StatusEffects;
 using UnityEngine;
@@ -12,12 +13,15 @@ namespace RooseLabs.Enemies.Spider
     {
         [SerializeField] private SpiderAilment ailment;
 
+        public Hitbox Hitbox { get; private set; }
+
         #region State Machine
         private SpiderStateMachine StateMachine { get; set; }
         public SpiderSpawnState SpawnState { get; private set; }
         public SpiderWanderState WanderState { get; private set; }
         public SpiderChaseState ChaseState { get; private set; }
         public SpiderJumpAttackState JumpAttackState { get; private set; }
+        public SpiderDeathState DeathState { get; private set; }
         #endregion
 
         #region Animator | Float Parameters
@@ -26,6 +30,7 @@ namespace RooseLabs.Enemies.Spider
         #region Animator | Animation States
         public readonly int A_JumpAnticipation = Animator.StringToHash("Attack_Jump_Anticipation");
         public readonly int A_JumpLand = Animator.StringToHash("Attack_Jump_Land");
+        public readonly int A_Death = Animator.StringToHash("Death");
         #endregion
 
         public Vector2 WanderPosition { get; set; }
@@ -50,12 +55,14 @@ namespace RooseLabs.Enemies.Spider
         protected override void Awake()
         {
             base.Awake();
+            Hitbox = GetComponentInChildren<Hitbox>();
 
             StateMachine = new SpiderStateMachine();
             SpawnState = new SpiderSpawnState(this, StateMachine);
             WanderState = new SpiderWanderState(this, StateMachine);
             ChaseState = new SpiderChaseState(this, StateMachine);
             JumpAttackState = new SpiderJumpAttackState(this, StateMachine);
+            DeathState = new SpiderDeathState(this, StateMachine);
 
             WanderPosition = transform.position;
             m_player = GameManager.Instance.Player;
@@ -101,6 +108,12 @@ namespace RooseLabs.Enemies.Spider
                 // TODO: Bite logic
                 m_biteCooldownTimer = BiteCooldown;
             }
+        }
+
+        protected override void OnDeath()
+        {
+            StateMachine.ChangeState(DeathState);
+            base.OnDeath();
         }
     }
 }
