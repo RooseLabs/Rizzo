@@ -1,10 +1,9 @@
 using RooseLabs.Events.Channels;
-using RooseLabs.Generics;
 using UnityEngine;
 
 namespace RooseLabs.Gameplay
 {
-    public class GameManager : SingletonBehaviour<GameManager>
+    public class GameManager : MonoBehaviour
     {
         [Header("Managers")]
         [SerializeField] private StatusManager statusManager;
@@ -15,6 +14,13 @@ namespace RooseLabs.Gameplay
 
         public Player.Player Player { get; private set; }
         public int CurrentChamberNumber { get; private set; } = 1;
+
+        public static GameManager Instance { get; private set; }
+
+        private void Awake()
+        {
+            Instance = this;
+        }
 
         private void OnEnable()
         {
