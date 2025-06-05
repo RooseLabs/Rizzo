@@ -1,0 +1,131 @@
+using System.Collections.Generic;
+using RooseLabs.Utils;
+using UnityEngine;
+
+namespace RooseLabs.Blackjack
+{
+    public class CardStack : MonoBehaviour
+    {
+        [SerializeField] private bool isGameDeck;
+        [SerializeField] private int healthPoints = 3; 
+
+        public int HealthPoints
+        {
+            get => healthPoints;
+            set => healthPoints = value;
+        }
+
+        private List<int> m_cards;
+
+        public bool HasCards => m_cards.Count > 0;
+        public int CardCount => m_cards?.Count ?? 0;
+
+        private void Awake()
+        {
+            m_cards = new List<int>();
+            if (isGameDeck) CreateDeck();
+        }
+
+        public void Reset() 
+        {
+            m_cards.Clear();
+        }
+
+        public event CardEventHandler CardRemoved;
+        public event CardEventHandler CardAdded;
+
+        public int Pop()
+        {
+            if (m_cards.Count == 0)
+            {
+                Debug.LogWarning("Tried to pop from an empty card stack!");
+                return -1; // Return an invalid card index
+            }
+            var temp = m_cards[0];
+            m_cards.RemoveAt(0);
+
+            if (CardRemoved != null) CardRemoved(this, new CardEventArgs(temp));
+            return temp;
+        }
+
+        public void Push(int card)
+        {
+            m_cards.Add(card);
+            if (CardAdded != null) CardAdded(this, new CardEventArgs(card));
+        }
+
+        public void RemoveCard(int card)
+        {
+            if (m_cards.Remove(card))
+            {
+                if (CardRemoved != null) CardRemoved(this, new CardEventArgs(card));
+            }
+            else
+            {
+                Debug.LogWarning($"Tried to remove card {card} which was not in the stack.");
+            }
+        }
+
+        public IEnumerable<int> GetCards()
+        {
+            foreach (int card in m_cards)
+            {
+                yield return card;
+            }
+        }
+
+        public void CreateDeck()
+        {
+            m_cards.Clear();
+
+            for (int i = 0; i < 52; i++)
+            {
+                m_cards.Add(i);
+            }
+
+            m_cards.Shuffle();
+        }
+
+        public bool HasCard(int cardId)
+        {
+            return m_cards.FindIndex(i => i == cardId) >= 0;
+        }
+
+        public int GetHandValue()
+        {
+            int handValue = 0;
+            int aces = 0;
+
+            foreach (int card in GetCards())
+            {
+                int value = card % 13;
+                if (value <= 8)
+                {
+                    handValue += value + 2; // 2-10 cards
+                }
+                else if (value is >= 8 and < 12)
+                {
+                    handValue += 10; // Face cards (J, Q, K)
+                }
+                else
+                {
+                    aces++;
+                }
+            }
+
+            for (var i = 0; i < aces; i++)
+            {
+                if (handValue + 11 <= 21)
+                {
+                    handValue += 11;
+                }
+                else
+                {
+                    handValue++;
+                }
+            }
+
+            return handValue;
+        }
+    }
+}

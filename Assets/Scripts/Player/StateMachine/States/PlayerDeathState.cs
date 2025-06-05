@@ -10,7 +10,6 @@ namespace RooseLabs.Player.StateMachine.States
         {
             Player.RB.linearVelocity = Vector2.zero;
             Animator.SetFloat(Player.AnimationStateController.F_Velocity, 0f);
-            Player.Actor3D.FadeOut(destroy: false);
         }
     }
 }

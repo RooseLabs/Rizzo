@@ -1,5 +1,4 @@
 using System.Collections;
-using RooseLabs.Gameplay.Combat;
 using RooseLabs.Models;
 using RooseLabs.ScriptableObjects.Enemies;
 using UnityEngine;
@@ -9,7 +8,7 @@ namespace RooseLabs.Enemies
     [RequireComponent(typeof(Actor3D))]
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(Collider2D))]
-    public abstract class Enemy<T> : MonoBehaviour, IDamageable where T : BaseEnemySO
+    public abstract class Enemy<T> : BaseEnemy where T : BaseEnemySO
     {
         private bool s_staticDataInitialized = false;
 
@@ -101,7 +100,7 @@ namespace RooseLabs.Enemies
             return separation * strength;
         }
 
-        public void ApplyDamage(float damage)
+        public override void ApplyDamage(float damage)
         {
             Health -= damage;
             DamageFeedback();
@@ -137,10 +136,10 @@ namespace RooseLabs.Enemies
             Actor3D.FadeOut();
         }
 
-        protected float Health
+        public override float Health
         {
             get => Stats.health;
-            set
+            protected set
             {
                 Stats.health = Mathf.Clamp(value, 0f, Stats.maxHealth);
                 if (Stats.health <= 0f) OnDeath();
