@@ -11,7 +11,7 @@ namespace RooseLabs.UI.Gameplay
 
         public event Action ResumeRequested;
         public event Action SettingsScreenRequested;
-        public event Action BackToMainRequested;
+        public event Action BackToMainMenuRequested;
 
         private void OnEnable()
         {
@@ -31,7 +31,7 @@ namespace RooseLabs.UI.Gameplay
 
         public void BackToMainMenu()
         {
-            BackToMainRequested?.Invoke();
+            BackToMainMenuRequested?.Invoke();
         }
     }
 }

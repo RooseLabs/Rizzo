@@ -30,6 +30,7 @@ namespace RooseLabs.Player
 
         [Header("Broadcasting on")]
         [SerializeField] private FloatEventChannelSO onPlayerHealthChangedChannel;
+        [SerializeField] private VoidEventChannelSO onPlayerDeathChannel;
         #endregion
 
         #region Components
@@ -176,6 +177,7 @@ namespace RooseLabs.Player
         private void OnDeath()
         {
             StateMachine.ChangeState(DeathState);
+            onPlayerDeathChannel.RaiseEvent();
         }
 
         public float Health

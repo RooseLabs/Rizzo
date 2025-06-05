@@ -156,6 +156,7 @@ MonoBehaviour:
   leftHandSocket: {fileID: 4188192986280590380}
   rightHandSocket: {fileID: 3524911654292921763}
   onPlayerHealthChangedChannel: {fileID: 11400000, guid: 0e230e9840cfeb846a01324f790530a1, type: 2}
+  onPlayerDeathChannel: {fileID: 11400000, guid: 41aed55e878fcb24cb09ebd2979fda90, type: 2}
 --- !u!1001 &7680541336288176226
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -62,9 +62,9 @@ namespace RooseLabs.UI.Gameplay
             if (m_isPauseScreenOpen) return;
             m_isPauseScreenOpen = true;
 
-            Time.timeScale = 0; // Pause time
+            Time.timeScale = 0f; // Pause time
 
-            pauseScreen.BackToMainRequested += BackToMainMenu;
+            pauseScreen.BackToMainMenuRequested += BackToMainMenu;
             pauseScreen.ResumeRequested += ClosePauseScreen;
 
             pauseScreen.gameObject.SetActive(true);
@@ -77,13 +77,13 @@ namespace RooseLabs.UI.Gameplay
             if (!m_isPauseScreenOpen) return;
             m_isPauseScreenOpen = false;
 
-            pauseScreen.BackToMainRequested -= BackToMainMenu;
+            pauseScreen.BackToMainMenuRequested -= BackToMainMenu;
             pauseScreen.ResumeRequested -= ClosePauseScreen;
 
             pauseScreen.gameObject.SetActive(false);
 
             m_inputManager.EnableGameplayInput();
-            Time.timeScale = 1; // Unpause time
+            Time.timeScale = 1f; // Unpause time
         }
 
         private void BackToMainMenu()
