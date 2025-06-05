@@ -6,12 +6,12 @@ namespace RooseLabs.Gameplay
 {
     public class GameManager : SingletonBehaviour<GameManager>
     {
+        [Header("Managers")]
+        [SerializeField] private StatusManager statusManager;
+
         [Header("Listening to")]
         [SerializeField] private TransformEventChannelSO playerInstantiatedChannel;
         [SerializeField] private VoidEventChannelSO onSceneReady;
-
-        [Header("Managers")]
-        [SerializeField] private StatusManager statusManager;
 
         public Player.Player Player { get; private set; }
         public int CurrentChamberNumber { get; private set; } = 1;

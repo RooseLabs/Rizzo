@@ -11,7 +11,7 @@ namespace RooseLabs.UI
         [SerializeField] private UIMainMenu mainMenuPanel;
         [SerializeField] private GameObject archivePanel;
         [SerializeField] private UISettingsManager settingsPanel;
-        [SerializeField] private GameObject creditsPanel;
+        [SerializeField] private UICreditsManager creditsPanel;
 
         [SerializeField] private SceneReference levelToLoad;
 
@@ -47,8 +47,16 @@ namespace RooseLabs.UI
 
         private void OpenCreditsScreen()
         {
-            // mainMenuPanel.gameObject.SetActive(false);
-            // creditsPanel.gameObject.SetActive(true);
+            mainMenuPanel.gameObject.SetActive(false);
+            creditsPanel.gameObject.SetActive(true);
+            creditsPanel.BackButtonAction += CloseCreditsScreen;
+        }
+
+        private void CloseCreditsScreen()
+        {
+            creditsPanel.BackButtonAction -= CloseCreditsScreen;
+            creditsPanel.gameObject.SetActive(false);
+            mainMenuPanel.gameObject.SetActive(true);
         }
 
         private void ExitGame()

@@ -10,7 +10,7 @@ namespace RooseLabs.UI.Gameplay
         [SerializeField] private SceneReference mainMenuScene;
 
         [Header("UI Elements")]
-        [SerializeField] private GameObject hudPanel;
+        [SerializeField] private HUDManager hudPanel;
         [SerializeField] private UIPause pauseScreen;
 
         [Header("Listening to")]
@@ -51,7 +51,7 @@ namespace RooseLabs.UI.Gameplay
 
         private void ResetUI()
         {
-            hudPanel.SetActive(true);
+            hudPanel.gameObject.SetActive(true);
             pauseScreen.gameObject.SetActive(false);
             m_isPauseScreenOpen = false;
             Time.timeScale = 1f;
@@ -89,7 +89,7 @@ namespace RooseLabs.UI.Gameplay
         private void BackToMainMenu()
         {
             ClosePauseScreen();
-            hudPanel.SetActive(false);
+            hudPanel.gameObject.SetActive(false);
             loadMenuChannel.RaiseEvent(mainMenuScene, false, true);
         }
     }
