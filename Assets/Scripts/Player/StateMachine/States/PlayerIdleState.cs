@@ -21,7 +21,7 @@ namespace RooseLabs.Player.StateMachine.States
         {
             if (PlayerStateTransitionHelper.HandleIdleAndMoveTransitions(Player, StateMachine)) return;
 
-            if (Player.InputHandler.MoveInput.magnitude > 0f)
+            if (Player.InputHandler.MoveInput != Vector2.zero)
             {
                 StateMachine.ChangeState(Player.MoveState);
             }

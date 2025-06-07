@@ -30,7 +30,7 @@ namespace RooseLabs.Player.StateMachine.States
                 ? Player.InputHandler.PressedSecondaryAttack
                 : Player.InputHandler.PressedPrimaryAttack;
 
-        protected PlayerState OppositeAttackState =>
+        protected PlayerAttackState OppositeAttackState =>
             WeaponData.Type == WeaponType.Primary
                 ? Player.SecondaryAttackState
                 : Player.PrimaryAttackState;
@@ -69,7 +69,7 @@ namespace RooseLabs.Player.StateMachine.States
             {
                 Player.Actor3D.LookAt(m_cam.ScreenToWorldPoint(m_lookAction.ReadValue<Vector2>()));
             }
-            else
+            else if (Player.InputHandler.MoveInput != Vector2.zero)
             {
                 Player.Actor3D.LookAt(Player.RB.position + Player.InputHandler.MoveInput);
             }

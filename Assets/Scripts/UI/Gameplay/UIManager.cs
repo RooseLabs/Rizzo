@@ -15,6 +15,7 @@ namespace RooseLabs.UI.Gameplay
 
         [Header("Listening to")]
         [SerializeField] private VoidEventChannelSO onSceneReady;
+        [SerializeField] private BoolEventChannelSO hudVisibilityChannel;
 
         [Header("Broadcasting on")]
         [SerializeField] private LoadEventChannelSO loadMenuChannel;
@@ -30,6 +31,7 @@ namespace RooseLabs.UI.Gameplay
         private void OnEnable()
         {
             onSceneReady.OnEventRaised += ResetUI;
+            hudVisibilityChannel.OnEventRaised += OnHUDVisibilityChanged;
             m_inputManager.MenuPauseEvent += OpenPauseScreen;
             m_inputManager.MenuUnpauseEvent += ClosePauseScreen;
         }
@@ -37,6 +39,7 @@ namespace RooseLabs.UI.Gameplay
         private void OnDisable()
         {
             onSceneReady.OnEventRaised -= ResetUI;
+            hudVisibilityChannel.OnEventRaised -= OnHUDVisibilityChanged;
             m_inputManager.MenuPauseEvent -= OpenPauseScreen;
             m_inputManager.MenuUnpauseEvent -= ClosePauseScreen;
         }
@@ -91,6 +94,11 @@ namespace RooseLabs.UI.Gameplay
             ClosePauseScreen();
             hudPanel.gameObject.SetActive(false);
             loadMenuChannel.RaiseEvent(mainMenuScene, false, true);
+        }
+
+        private void OnHUDVisibilityChanged(bool isVisible)
+        {
+            hudPanel.gameObject.SetActive(isVisible);
         }
     }
 }

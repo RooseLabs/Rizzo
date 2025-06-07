@@ -17,13 +17,9 @@ namespace RooseLabs.Gameplay
 
         public static GameManager Instance { get; private set; }
 
-        private void Awake()
-        {
-            Instance = this;
-        }
-
         private void OnEnable()
         {
+            Instance = this;
             playerInstantiatedChannel.OnEventRaised += OnPlayerInstantiated;
             onSceneReady.OnEventRaised += OnNewChamber;
             StartRun();
@@ -33,6 +29,7 @@ namespace RooseLabs.Gameplay
         {
             playerInstantiatedChannel.OnEventRaised -= OnPlayerInstantiated;
             onSceneReady.OnEventRaised -= OnNewChamber;
+            Instance = null;
         }
 
         private void StartRun()

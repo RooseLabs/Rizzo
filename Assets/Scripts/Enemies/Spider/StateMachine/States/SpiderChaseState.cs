@@ -5,7 +5,7 @@ namespace RooseLabs.Enemies.Spider.StateMachine.States
     public class SpiderChaseState : SpiderState
     {
         private const float LoseInterestDistance = 6.0f; // Distance to stop chasing the player
-        private const float Offset               = 1.0f; // Offset to stop before reaching the player
+        private const float Offset               = 0.5f; // Offset to stop before reaching the player
         private const float MinAttackDistance    = 4.0f; // Distance to start attacking the player
 
         private float m_distToPlayer;

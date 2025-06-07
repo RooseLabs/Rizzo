@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using RooseLabs.Events.Channels;
+using RooseLabs.Input;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,26 +19,35 @@ namespace RooseLabs.Blackjack
         [SerializeField] private int defaultDamage;
         [SerializeField] private float cooldownTime;
 
+        [Header("Player and Dealer Hand Values")]
+        [SerializeField] private TMP_Text playerHandValueText;
+        [SerializeField] private TMP_Text dealerHandValueText;
+
         [Header("Health Images")]
         [SerializeField] private Image playerHealthImage;
         [SerializeField] private Image dealerHealthImage;
-        
+
         [Header("Player Health Sprites")]
         [SerializeField] private Sprite playerHealth100Sprite;
         [SerializeField] private Sprite playerHealth50Sprite;
         [SerializeField] private Sprite playerHealth25Sprite;
         [SerializeField] private Sprite playerHealth0Sprite;
-        
+
         [Header("Dealer Health Sprites")]
         [SerializeField] private Sprite dealerHealth100Sprite;
         [SerializeField] private Sprite dealerHealth50Sprite;
         [SerializeField] private Sprite dealerHealth25Sprite;
         [SerializeField] private Sprite dealerHealth0Sprite;
-        
+
+        [Header("Broadcasting on")]
+        [SerializeField] private BoolEventChannelSO hudVisibilityChannel;
+
         private int m_dealerFirstCard = -1;
 
         private void Start()
         {
+            hudVisibilityChannel.RaiseEvent(false);
+            InputManager.Instance.EnableGameplayInput();
             StartGame();
         }
 
@@ -59,6 +71,7 @@ namespace RooseLabs.Blackjack
                 var dealerCard = deck.Pop();
                 if (dealerCard >= 0) dealer.Push(dealerCard);
             }
+            UpdateHandValueTexts();
         }
 
         private void ResetGame()
@@ -82,6 +95,7 @@ namespace RooseLabs.Blackjack
             dealer.Reset();
 
             m_dealerFirstCard = -1; // Reset dealer's first card
+            UpdateHandValueTexts();
 
             // Re-enable buttons for the new round
             hitButton.interactable = true;
@@ -126,6 +140,7 @@ namespace RooseLabs.Blackjack
         {
             player.Push(deck.Pop());
             Debug.Log("Player Hand Value: " + player.GetHandValue());
+            UpdateHandValueTexts();
             yield return StartCoroutine(WaitForSecondsCoroutine(cooldownTime)); // Use cooldownTime
 
             var playerHand = player.GetHandValue();
@@ -186,6 +201,7 @@ namespace RooseLabs.Blackjack
                 var view = dealer.GetComponent<CardStackView>();
                 view.Toogle(card, true);
             }
+            UpdateHandValueTexts();
         }
 
         //function for damage rules
@@ -342,6 +358,12 @@ namespace RooseLabs.Blackjack
                 else
                     img.sprite = dealerHealth100Sprite;
             }
+        }
+
+        private void UpdateHandValueTexts()
+        {
+            playerHandValueText.text = player.GetHandValue().ToString();
+            dealerHandValueText.text = dealer.GetHandValue().ToString();
         }
     }
 }

@@ -86,8 +86,9 @@ namespace RooseLabs.Input
             if (!hasButtonPress && m_currentDevice is not null && m_currentDevice is not Pointer && device is Pointer && m_pointerMoveTime < 1.5f)
             {
                 // When a pointer device moves, we wait for a while before setting it as the current device to avoid
-                // accidental movements.
+                // accidental movements. We also prevent Unity from processing the event any further.
                 m_pointerMoveTime += Time.unscaledDeltaTime;
+                eventPtr.handled = true;
             }
             else
             {

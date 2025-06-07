@@ -68,7 +68,7 @@ namespace RooseLabs.Player.StateMachine.States
                     m_maxComboTime = Time.time + CurrentAttackData.MaxComboTime;
                     m_attackAnimEndTime = Time.time + CurrentStateData.length;
                 }
-                else if (PressedOppositeAttack)
+                else if (PressedOppositeAttack && OppositeAttackState.CanAttack())
                 {
                     // Allows chaining combos between primary and secondary attacks
                     // TODO: (Unsure if we actually want this)

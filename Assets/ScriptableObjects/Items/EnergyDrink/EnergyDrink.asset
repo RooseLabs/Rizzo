@@ -15,6 +15,6 @@ MonoBehaviour:
   description: 
   itemName: Energy Drink
   icon: {fileID: 21300000, guid: 2b503407fc006a542b992e250e503aeb, type: 3}
-  maxStackSize: 1
+  maxStackSize: 0
   buffEffect: {fileID: 11400000, guid: 761adfa5c7fc00248864c0cbdd29ab05, type: 2}
   debuffEffect: {fileID: 11400000, guid: d3d3c9eb09632104da53b7ec7419729d, type: 2}

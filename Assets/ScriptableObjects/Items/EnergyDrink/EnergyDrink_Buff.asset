@@ -9,16 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94331a52808a4f86bb598d8eaa54ab84, type: 3}
+  m_Script: {fileID: 11500000, guid: 36a924f8aae814a4fb9a80529677e686, type: 3}
   m_Name: EnergyDrink_Buff
   m_EditorClassIdentifier: 
-  description: Increase movement speed by 5%
-  type: 1
   effectName: Energy Drink
+  effectDescription: Increase movement speed by {0:0%}
   icon: {fileID: 21300000, guid: 2b503407fc006a542b992e250e503aeb, type: 3}
-  duration: 0
   isStackable: 1
-  durationStackingType: 0
-  statStackingType: 1
   isHidden: 1
   canBeCleansed: 0
+  duration: 0
+  durationStackingType: 0
+  statEffect:
+    baseValue: 0.05
+    isFlat: 0
+    stackingType: 1

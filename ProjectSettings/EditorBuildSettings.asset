@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Sewers.unity
     guid: c7b9ac7b25fece84c8e17d0a8d95bb8d
+  - enabled: 1
+    path: Assets/Scenes/Levels/DonFelix_Blackjack.unity
+    guid: 2b23aa90285dd114da64cc54631db0fd
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

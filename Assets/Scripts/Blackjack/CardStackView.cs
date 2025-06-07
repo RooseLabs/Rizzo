@@ -7,7 +7,7 @@ namespace RooseLabs.Blackjack
     public class CardStackView : MonoBehaviour
     {
         [SerializeField] private Vector3 start;
-        [SerializeField] private float cardOffset;
+        [SerializeField] private Vector2 cardOffset;
         [SerializeField] private bool faceUp;
         [SerializeField] private bool cardDeckOrder;
         [SerializeField] private GameObject cardPrefab;
@@ -38,7 +38,7 @@ namespace RooseLabs.Blackjack
                 foreach (var i in m_cardStack.GetCards())
                 {
                     var co = cardOffset * cardCount;
-                    var temp = start + new Vector3(co, 0f);
+                    var temp = (Vector2)start + co;
                     AddCard(temp, i, cardCount);
                     cardCount++;
                 }
@@ -77,7 +77,7 @@ namespace RooseLabs.Blackjack
         private void OnCardAdded(object sender, CardEventArgs e)
         {
             var co = cardOffset * m_cardStack.CardCount;
-            var temp = start + new Vector3(co, 0f);
+            var temp = (Vector2)start + co;
             AddCard(temp, e.CardIndex, m_cardStack.CardCount);
         }
 

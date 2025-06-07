@@ -5464,7 +5464,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -5704,11 +5704,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 18774417eddfdaf43a3a0554e0e34ea7, type: 2}
     - target: {fileID: 4990717491135173712, guid: 7c4b21a5572b41a4789a9db7e3af6e30, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.15
+      value: 20.89
       objectReference: {fileID: 0}
     - target: {fileID: 4990717491135173712, guid: 7c4b21a5572b41a4789a9db7e3af6e30, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.07
+      value: 4.78
       objectReference: {fileID: 0}
     - target: {fileID: 4990717491135173712, guid: 7c4b21a5572b41a4789a9db7e3af6e30, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6551,11 +6551,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 18774417eddfdaf43a3a0554e0e34ea7, type: 2}
     - target: {fileID: 4990717491135173712, guid: 7c4b21a5572b41a4789a9db7e3af6e30, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.42
+      value: 16.37
       objectReference: {fileID: 0}
     - target: {fileID: 4990717491135173712, guid: 7c4b21a5572b41a4789a9db7e3af6e30, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.15
+      value: 2.19
       objectReference: {fileID: 0}
     - target: {fileID: 4990717491135173712, guid: 7c4b21a5572b41a4789a9db7e3af6e30, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6747,6 +6747,26 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -19, y: 8, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 1
+      m_TileSpriteIndex: 2
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -10, y: 8, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 1
+      m_TileSpriteIndex: 2
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -1, y: 8, z: 0}
     second:
       serializedVersion: 2
@@ -6821,7 +6841,7 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: c5b2d27d82886624f868dcdae316beee, type: 2}
-  - m_RefCount: 4
+  - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: dc3914842cc0bf24289edf8562763c16, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 6b12df3764f8acd46899ee04031886bc, type: 2}
@@ -6834,7 +6854,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: e03ee213bb402d44185e2aece34c4774, type: 3}
-  - m_RefCount: 4
+  - m_RefCount: 6
     m_Data: {fileID: 21300000, guid: 0e9d2c8f43d202c4382ed6969804eff2, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: d9ed35722cbb8324fb507ed1307d7eb8, type: 3}
@@ -6843,7 +6863,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 8a0cfdb987102c144aa0086b6255e162, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 11
+  - m_RefCount: 13
     m_Data:
       e00: 1
       e01: 0
@@ -6880,7 +6900,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 12
+  - m_RefCount: 14
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -7591,11 +7611,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 18774417eddfdaf43a3a0554e0e34ea7, type: 2}
     - target: {fileID: 4990717491135173712, guid: 7c4b21a5572b41a4789a9db7e3af6e30, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.32
+      value: 11.5
       objectReference: {fileID: 0}
     - target: {fileID: 4990717491135173712, guid: 7c4b21a5572b41a4789a9db7e3af6e30, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.21
+      value: 3.82
       objectReference: {fileID: 0}
     - target: {fileID: 4990717491135173712, guid: 7c4b21a5572b41a4789a9db7e3af6e30, type: 3}
       propertyPath: m_LocalPosition.z

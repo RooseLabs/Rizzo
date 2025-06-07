@@ -20,6 +20,7 @@ namespace RooseLabs.Enemies.Spider
         public SpiderSpawnState SpawnState { get; private set; }
         public SpiderWanderState WanderState { get; private set; }
         public SpiderChaseState ChaseState { get; private set; }
+        public SpiderBiteAttackState BiteAttackState { get; private set; }
         public SpiderJumpAttackState JumpAttackState { get; private set; }
         public SpiderDeathState DeathState { get; private set; }
         #endregion
@@ -30,6 +31,7 @@ namespace RooseLabs.Enemies.Spider
         #region Animator | Animation States
         public readonly int A_JumpAnticipation = Animator.StringToHash("Attack_Jump_Anticipation");
         public readonly int A_JumpLand = Animator.StringToHash("Attack_Jump_Land");
+        public readonly int A_BiteAttack = Animator.StringToHash("Attack_Bite");
         public readonly int A_Death = Animator.StringToHash("Death");
         #endregion
 
@@ -41,7 +43,7 @@ namespace RooseLabs.Enemies.Spider
         private const float JumpMinDistance  = 3.5f;
         private const float SpitMaxDistance  = 3.0f;
         private const float SpitMinDistance  = 2.0f;
-        private const float BiteMaxDistance  = 1.0f;
+        private const float BiteMaxDistance  = 0.8f;
 
         private const float JumpCooldown  = 3.0f;
         private const float SpitCooldown  = 2.0f;
@@ -61,6 +63,7 @@ namespace RooseLabs.Enemies.Spider
             SpawnState = new SpiderSpawnState(this, StateMachine);
             WanderState = new SpiderWanderState(this, StateMachine);
             ChaseState = new SpiderChaseState(this, StateMachine);
+            BiteAttackState = new SpiderBiteAttackState(this, StateMachine);
             JumpAttackState = new SpiderJumpAttackState(this, StateMachine);
             DeathState = new SpiderDeathState(this, StateMachine);
 
@@ -105,8 +108,8 @@ namespace RooseLabs.Enemies.Spider
             }
             else if (dist <= BiteMaxDistance && m_biteCooldownTimer <= 0)
             {
-                // TODO: Bite logic
                 m_biteCooldownTimer = BiteCooldown;
+                StateMachine.ChangeState(BiteAttackState);
             }
         }
 
