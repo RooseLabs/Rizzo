@@ -16,7 +16,7 @@ namespace RooseLabs.UI
         {
             var select = m_lastSelectedGameObject ?? defaultSelection?.gameObject;
             if (select is not null && !InputManager.Instance.IsCurrentDeviceKeyboardAndMouse())
-                EventSystem.current.SetSelectedGameObject(select);
+                EventSystem.current?.SetSelectedGameObject(select);
             InputManager.Instance.InputDeviceChangedEvent += OnInputDeviceChanged;
         }
 

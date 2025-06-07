@@ -11,6 +11,7 @@ namespace RooseLabs.ScriptableObjects.StatusEffects
 
         public override void Apply(PlayerStats stats)
         {
+            base.Apply(stats);
             stats.movementVelocity += GetFinalStatEffect(stats.movementVelocity, moveSpeedEffect);
         }
     }

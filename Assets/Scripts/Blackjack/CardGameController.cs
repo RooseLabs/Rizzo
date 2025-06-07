@@ -41,6 +41,7 @@ namespace RooseLabs.Blackjack
 
         [Header("Broadcasting on")]
         [SerializeField] private BoolEventChannelSO hudVisibilityChannel;
+        [SerializeField] private VoidEventChannelSO onPlayerDeathChannel;
 
         private int m_dealerFirstCard = -1;
 
@@ -107,7 +108,7 @@ namespace RooseLabs.Blackjack
                 Debug.Log("Game Over! Rizzo has no health left.");
                 hitButton.interactable = false;
                 standButton.interactable = false;
-                // Optionally, trigger game over UI or logic here
+                onPlayerDeathChannel.RaiseEvent();
                 return;
             }
 
@@ -123,25 +124,18 @@ namespace RooseLabs.Blackjack
             StartGame(); // Deals 2 cards to each hand and logs health
         }
 
-        // Utility coroutine for cooldowns
-        private IEnumerator WaitForSecondsCoroutine(float seconds)
-        {
-            yield return new WaitForSeconds(seconds);
-        }
-
         public void OnHitButtonClick()
         {
             hitButton.interactable = false;
             standButton.interactable = false;
-            StartCoroutine(PlayerHitWithCooldown());
+            PlayerHit();
         }
 
-        private IEnumerator PlayerHitWithCooldown()
+        private void PlayerHit()
         {
             player.Push(deck.Pop());
             Debug.Log("Player Hand Value: " + player.GetHandValue());
             UpdateHandValueTexts();
-            yield return StartCoroutine(WaitForSecondsCoroutine(cooldownTime)); // Use cooldownTime
 
             var playerHand = player.GetHandValue();
 
@@ -171,24 +165,21 @@ namespace RooseLabs.Blackjack
             if (m_dealerFirstCard >= 0) view.Toogle(m_dealerFirstCard, true);
             view.ShowCards();
 
-            var dealerTarget = Random.Range(17, 21); // upper bound is exclusive
-
-            while (dealer.GetHandValue() < dealerTarget) yield return StartCoroutine(DealerHitWithCooldown());
-
             var playerHand = player.GetHandValue();
             var dealerHand = dealer.GetHandValue();
 
-            yield return StartCoroutine(WaitForSecondsCoroutine(cooldownTime)); // Use cooldownTime
+            while (dealerHand < 17 || (dealerHand < 21 && playerHand <= 21 && dealerHand <= playerHand))
+            {
+                float thinkTime = Random.Range(cooldownTime, cooldownTime * 1.5f);
+                yield return new WaitForSeconds(thinkTime);
+                HitDealer();
+                dealerHand = dealer.GetHandValue();
+            }
+
+            yield return new WaitForSeconds(cooldownTime);
             ApplyDamageRules(playerHand, dealerHand);
         }
 
-        private IEnumerator DealerHitWithCooldown()
-        {
-            HitDealer();
-            float thinkTime = Random.Range(cooldownTime, cooldownTime * 5.0f); // Use cooldownTime as base
-            yield return StartCoroutine(WaitForSecondsCoroutine(thinkTime));
-        }
-        
         private void HitDealer()
         {
             var card = deck.Pop();
@@ -318,13 +309,14 @@ namespace RooseLabs.Blackjack
 
             UpdateHealthImage(true);
             UpdateHealthImage(false);
+
             StartCoroutine(ResetGameWithCooldown(cooldownTime));
         }
 
         // Coroutine for reset cooldown
         private IEnumerator ResetGameWithCooldown(float seconds)
         {
-            yield return StartCoroutine(WaitForSecondsCoroutine(seconds * 2.0f)); 
+            yield return new WaitForSeconds(seconds);
             ResetGame();
         }
 

@@ -57,6 +57,14 @@ namespace RooseLabs.Player
         private GameObject SecondaryWeaponGO { get; set; }
         #endregion
 
+        #region Events
+        public static event Action OnUpdate = delegate { };
+        public static event Action OnFixedUpdate = delegate { };
+        public static event Action OnLateUpdate = delegate { };
+        public static event Action<Collision2D> OnCollision = delegate { };
+        public static event Action<Collider2D> OnTriggerCollision = delegate { };
+        #endregion
+
         private void Awake()
         {
             m_enemyMask = LayerMask.GetMask("Enemy");
@@ -86,6 +94,7 @@ namespace RooseLabs.Player
         private void Update()
         {
             StateMachine.Update();
+            OnUpdate.Invoke();
         }
 
         private void FixedUpdate()
@@ -99,6 +108,22 @@ namespace RooseLabs.Player
             }
 
             StateMachine.FixedUpdate();
+            OnFixedUpdate.Invoke();
+        }
+
+        private void LateUpdate()
+        {
+            OnLateUpdate.Invoke();
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            OnCollision.Invoke(collision);
+        }
+
+        private void OnTriggerEnter2D(Collider2D tCollider)
+        {
+            OnTriggerCollision.Invoke(tCollider);
         }
 
         private void SetPrimaryWeapon(BaseWeaponSO newWeapon)

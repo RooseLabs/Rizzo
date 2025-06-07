@@ -38,7 +38,34 @@ namespace RooseLabs.ScriptableObjects.StatusEffects
             set => m_currentStackCount = Math.Clamp(value, 1, int.MaxValue);
         }
 
-        public virtual void Apply(PlayerStats stats) {}
+        private float m_currentDuration;
+        public float CurrentDuration
+        {
+            get => m_currentDuration;
+            set => m_currentDuration = Mathf.Max(value, 0);
+        }
+
+        public bool IsPermanent { get; private set; }
+
+        private void OnEnable()
+        {
+            IsPermanent = duration == 0.0f;
+        }
+
+        public virtual void Apply(PlayerStats stats)
+        {
+            if (IsPermanent) return;
+            switch (durationStackingType)
+            {
+                case StatusEffectDurationStackingType.ResetDuration:
+                    CurrentDuration = duration;
+                    break;
+                case StatusEffectDurationStackingType.AddDuration:
+                    CurrentDuration += duration;
+                    break;
+            }
+        }
+
         public virtual void OnUpdate(PlayerStats stats) {}
         public virtual void OnFixedUpdate(PlayerStats stats) {}
         public virtual void OnCollision(PlayerStats stats, Collision2D collision) {}
